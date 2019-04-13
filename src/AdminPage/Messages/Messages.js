@@ -43,7 +43,7 @@ class Messages extends Component {
                     <tbody>
                         {messages.map(message => (
                             <tr key={message.id}>
-                                <td className="text-center align-middle"> {message.author} </td>
+                                <td className="text-center align-middle"> {message.email} </td>
                                 <td className="text-left align-middle"> {message.subject} </td>
                                 <td className="text-center align-middle">
                                     <MDBBtn value={message.id} outline size="lg" color="danger">Eliminar</MDBBtn>

@@ -41,7 +41,7 @@ export default class UserPage extends Component {
 
     render() {
 
-        console.log(this.state.routine)
+        //console.log(this.state.routine)
 
         if (!this.state.userData.id) {
             return <Redirect to="/" />
