@@ -163,8 +163,13 @@ export default class Register extends Component {
                                         </div>
                                         <div className="col-6">
                                             <label>REGISTRARSE COMO</label>
-                                            <select id="tipo-usuario" className="form-control tipo" name="type" onChange={this.onChange}>
-                                                <option value="user">Cliente</option>
+                                            <select
+                                                id="tipo-usuario"
+                                                className="form-control tipo"
+                                                name="type"
+                                                onChange={this.onChange}>
+
+                                                <option value="user" defaultValue>Cliente</option>
                                                 <option value="trainer">Entrenador</option>
                                             </select>
                                         </div>

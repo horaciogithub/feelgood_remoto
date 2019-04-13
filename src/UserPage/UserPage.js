@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom';
 import Header from './Header/Header';
 import Navbar from '../GeneralComponents/Navbar/Navbar';
 import Body from './Body/Body';
+import Messages from './Body/Messages/Messages';
 import Footer from '../GeneralComponents/Footer/Footer';
 
 export default class UserPage extends Component {
@@ -20,6 +21,8 @@ export default class UserPage extends Component {
             userData: {},
             routine: {}
         }
+
+        this.logout = this.logout.bind(this)
     }
 
     componentWillMount() {
@@ -39,19 +42,42 @@ export default class UserPage extends Component {
         }
     }
 
+    logout() {
+        alert("sal coño")
+        sessionStorage.setItem("userData", '');
+        sessionStorage.clear();
+
+        this.setState({
+            redirect: true
+        })
+    }
+
     render() {
 
-        //console.log(this.state.routine)
+        // redirige a la pagina principal si deslogeamos
+        if (this.state.redirect) {
+            return <Redirect to="/" />
+        }
+
+        let routine = '';
 
         if (!this.state.userData.id) {
             return <Redirect to="/" />
         }
 
+        if (this.state.routine != null) {
+            routine = <Body routine={this.state.routine} />
+        }
+        else {
+            routine = <h1>No hay nadita</h1>
+        }
+
         return (
             <Fragment>
-                <Header user={this.state.userData} />
+                <Header user={this.state.userData} logout={this.logout} />
                 <Navbar />
-                <Body routine={this.state.routine} />
+                {routine}
+                <Messages />
                 <Footer />
             </Fragment>
         )

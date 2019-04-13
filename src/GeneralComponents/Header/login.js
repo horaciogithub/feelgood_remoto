@@ -23,7 +23,7 @@ export default class Login extends Component {
     if (this.state.email && this.state.password) {
       PostData("login", this.state).then(result => {
         let responseJSON = result;
-        //console.log(responseJSON)
+        console.log(responseJSON)
 
         if (responseJSON.userData) {
 

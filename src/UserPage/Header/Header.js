@@ -29,17 +29,8 @@ const header = (props) => {
                         </a>
                     </button>
 
-                    <div className="dropdown-content">
-                        <a id="settings" href="enlace 1">
-                            <i className="fa fa-pencil" aria-hidden="true"></i> Editar perfil
-                        </a>
-                        <a href="../php/logout.php">
-                            <i className="fa fa-sign-out" aria-hidden="true"></i> Salir
-                        </a>
-                        <a id="accoSettings" href="enlace 1">
-                            <i className="fa fa-trash-o" aria-hidden="true"></i> Eliminar cuenta
-                        </a>
-                    </div>
+                    <button onClick={props.logout}>Salir</button>
+
                 </div>
 
             </div>

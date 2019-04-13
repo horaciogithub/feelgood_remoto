@@ -90,29 +90,27 @@ export default class Messages extends Component {
     }
 
     render() {
-        //const { messages } = this.state;
-
         const result = [];
 
-        const mess = this.state.messages;
+        const messages = this.state.messages;
 
-        for (let i = 0; i < mess.length; i++) {
+        for (let i = 0; i < messages.length; i++) {
 
             /* Permite borrar el mensaje que pertenece a este autor */
-            if (mess[i].email === this.state.author) {
+            if (messages[i].email === this.state.author) {
                 result.push(
-                    <div key={mess[i].id} className="row pt-3 pb-3">
+                    <div key={messages[i].id} className="row pt-3 pb-3">
                         <div className="col-1 user-img">
-                            <img className="rounded-circle" src={mess[i].img} alt={mess[i].author}></img>
+                            <img className="rounded-circle" src={messages[i].img} alt={messages[i].author}></img>
                         </div>
 
-                        <p className="col-10 pt-4"> {mess[i].subject}.<br /><br />
-                            <q> {mess[i].name} {mess[i].surname}</q>
+                        <p className="col-10 pt-4"> {messages[i].subject}.<br /><br />
+                            <q> {messages[i].name} {messages[i].surname}</q>
                         </p>
                         <button
                             className="btn btn-danger"
                             type="button"
-                            value={mess[i].id}
+                            value={messages[i].id}
                             onClick={this.deleteCommentHandler}>Eliminar
                         </button>
                     </div>
@@ -120,13 +118,13 @@ export default class Messages extends Component {
             }
             else {
                 result.push(
-                    <div key={mess[i].id} className="row pt-3 pb-3">
+                    <div key={messages[i].id} className="row pt-3 pb-3">
                         <div className="col-1 user-img">
-                            <img className="rounded-circle" src={mess[i].img} alt={mess[i].author}></img>
+                            <img className="rounded-circle" src={messages[i].img} alt={messages[i].author}></img>
                         </div>
 
-                        <p className="col-10 pt-4"> {mess[i].subject}.<br /><br />
-                            <q> {mess[i].name} {mess[i].surname}</q>
+                        <p className="col-10 pt-4"> {messages[i].subject}.<br /><br />
+                            <q> {messages[i].name} {messages[i].surname}</q>
                         </p>
                     </div>
                 )

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Routine from './Routine/Routine';
-import Messages from './Messages/Messages';
 
 const body = (props) => {
     return (
@@ -83,8 +82,6 @@ const body = (props) => {
                     </div>
                 </div>
             </div>
-
-            <Messages />
         </section >
     );
 }
