@@ -1,0 +1,111 @@
+/* –––––––––––––––––––––––– */
+/*     GENERAL FEATURES     */
+/* –––––––––––––––––––––––– */
+
+* {
+  --texto: #5d646a;
+  --ligth: #00bfa5;
+  --dark: #00897b;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--texto);
+  background: #e8f5e9;
+  font-size: 15px;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  color: White;
+  font-family: Maiden Crimes;
+  font-size: 30px;
+  letter-spacing: 3px;
+  text-shadow: 2px 5px black;
+}
+
+h2 {
+  font-family: "Lato", sans-serif;
+  font-size: 80px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-top: 20px;
+  text-align: center;
+}
+
+h5 {
+  font-family: "Lato", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  margin-top: 18px;
+  margin-right: 5px;
+}
+
+a {
+  color: var(--ligth);
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--dark);
+}
+
+hr.underline {
+  width: 20%;
+  border-width: 10px;
+  border-color: var(--dark);
+}
+
+#about,
+#third {
+  background-color: rgb(255, 255, 255);
+}
+
+#about {
+  padding: 60px 30px 20px 30px;
+}
+
+.headings {
+  padding-top: 30px;
+  margin-bottom: 50px;
+}
+
+/* Buttons */
+.btn-green {
+  color: #fff;
+  background-color: #00bfa5;
+  border-color: #176941;
+  border-radius: 0px;
+}
+
+.btn-green:hover {
+  color: white;
+  background-color: var(--dark);
+  border-color: #176941;
+}
+
+.btn-white {
+  color: #176941;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(120, 120, 120);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-white:hover {
+  color: #20925b;
+  background-color: rgb(242, 242, 242);
+  border-color: #176941;
+}
+
+input,
+select {
+  border-radius: 0px !important;
+}
+
+span {
+  color: #dc3545;
+  font-weight: bold;
+  font-size: 18px;
+}

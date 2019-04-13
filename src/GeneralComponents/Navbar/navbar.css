@@ -1,0 +1,55 @@
+/* –––––––––––––– */
+/*     NAVBAR     */
+/* –––––––––––––– */
+
+nav.navbar {
+    box-shadow: 0 0 25px rgb(50, 50, 50);
+    padding: 0;
+}
+
+nav.navbar .collapse {
+    background: rgb(240, 240, 240);
+}
+
+nav.navbar .collapse .navbar-nav {
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+nav.navbar .collapse .navbar-nav .nav-item {
+    background: rgb(240, 240, 240);
+    margin: 0 !important;
+    padding: 25px 0;
+    position: relative;
+    cursor: pointer;
+}
+
+nav.navbar .collapse .navbar-nav .nav-item .nav-link {
+    color: var(--ligth);
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: rgb(240, 240, 240);
+    border: 0;
+    border-right: 0.5px solid rgb(225, 225, 225);
+    padding: 30px 50px !important;
+}
+
+nav.navbar .collapse .navbar-nav .nav-item:last-child .nav-link {
+    border-right: none;
+}
+
+nav.navbar .collapse .navbar-nav .nav-item:hover .nav-link::after {
+    /* Indicator */
+    content: "";
+    padding: 7.5px;
+    background: rgb(240, 240, 240);
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    box-shadow: 0 0 25px black;
+    z-index: -1;
+}

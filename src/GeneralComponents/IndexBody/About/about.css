@@ -1,0 +1,51 @@
+/* ––––––––––––– */
+/*     ABOUT     */
+/* ––––––––––––– */
+
+#about p {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+#about .first-content-boxes {
+    position: relative;
+}
+#about .first-content-boxes div {
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(180, 180, 180);
+    padding: 0;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+#about .first-content-boxes div:nth-child(3) {
+    position: absolute;
+    top: -28px;
+    left: 45%;
+    width: 505px;
+    height: 375px;
+    margin-left: -205px;
+    background-color: white;
+    color: var(--dark);
+    z-index: 1000;
+}
+
+#about .first-content-boxes div p {
+    text-align: center;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    font-weight: 400;
+}
+
+#about .first-content-boxes div:first-child p {
+    padding-right: 35px;
+}
+
+#about .first-content-boxes div:last-child p {
+    padding-left: 35px;
+}
