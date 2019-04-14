@@ -1,8 +1,8 @@
-/* .user-img {
-    
-} */
-
-img {
+.user-img img {
     width: 100%;
     height: 75px;
+}
+
+.trash {
+    height: 40px;
 }

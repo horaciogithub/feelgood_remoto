@@ -43,7 +43,6 @@ export default class UserPage extends Component {
     }
 
     logout() {
-        alert("sal coño")
         sessionStorage.setItem("userData", '');
         sessionStorage.clear();
 

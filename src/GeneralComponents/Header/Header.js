@@ -16,7 +16,7 @@ const header = (props) => {
 
                 {/*  Hiperlink to Open the Modal */}
                 <a
-                    className="modal-link"
+                    className="modal-link pt-2 pb-2"
                     data-toggle="modal"
                     data-target="#myModal"
                     href="enlace 0">
@@ -25,8 +25,11 @@ const header = (props) => {
             </div>
 
             <div className="wrapper">
-                <div className="wrapper wrapper-img">
-                    <img src={Logo} alt="FeelGood-banner" />
+                <div className="wrapper-img col-6">
+                    <div className="d-flex justify-content-center">
+                        <img src={Logo} alt="FeelGood-banner" />
+                    </div>
+
                     <h1>FeelGood</h1>
                     <p>Te ayudamos a sentirte bien</p>
                     <p className="icon">

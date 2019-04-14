@@ -1,11 +1,24 @@
+/* Fonts */
+@font-face {
+    font-family: Maiden Crimes;
+    src: url('./fonts/Maiden\ Crimes.otf');
+}
+
 /* –––––––––––––––––––––––– */
 /*     GENERAL FEATURES     */
 /* –––––––––––––––––––––––– */
 
-* {
+/* * {
   --texto: #5d646a;
   --ligth: #00bfa5;
   --dark: #00897b;
+  box-sizing: border-box;
+} */
+
+* {
+  --texto: #5d646a;
+  --ligth: #d50000;
+  --dark: #d50000;
   box-sizing: border-box;
 }
 
@@ -74,15 +87,16 @@ hr.underline {
 /* Buttons */
 .btn-green {
   color: #fff;
-  background-color: #00bfa5;
-  border-color: #176941;
+  background-color: #f50b0b;
+  /* border-color: #f50b0b; */
+  box-shadow: 0 0 5px rgb(31, 31, 31);
   border-radius: 0px;
 }
 
 .btn-green:hover {
   color: white;
   background-color: var(--dark);
-  border-color: #176941;
+  border-color: #d60303;
 }
 
 .btn-white {
@@ -102,6 +116,11 @@ hr.underline {
 input,
 select {
   border-radius: 0px !important;
+  border: none !important;
+}
+
+input:focus {
+  outline: none !important;
 }
 
 span {

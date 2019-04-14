@@ -3,11 +3,11 @@
 /* –––––––––––––– */
 
 #mainHeader {
-    background: #29b873 url('./Images/header.jpg') center top no-repeat;
+    background: #29b873 url('./Images/background1.png') center top no-repeat;
     background-size: cover;
     position: relative;
     z-index: 25;
-    height: 100vh;
+    height: 625px;
 }
 
 #mainHeader .overlay {
@@ -37,7 +37,7 @@
 }
 
 #mainHeader .header-bar .logo h1 {
-    display: none;
+    font-style: italic;
     padding-top: 25px;
     padding-left: 20px;
 }
@@ -49,18 +49,21 @@
 }
 
 #mainHeader .wrapper {
-    padding-top: 70px;
+    position: relative;
+    /* padding-top: 70px; */
     font-weight: bold;
     font-style: italic;
     z-index: 99;
 }
 
 #mainHeader .wrapper-img {
-    margin-left: 130px;
+    position: absolute;
+    top:120px;
+    left:20px;
 }
 
 #mainHeader .wrapper h1 {
-    font-size: 100px;
+    font-size: 80px;
     margin-left: 30px;
 }
 
@@ -70,13 +73,13 @@
     margin-left: 30px;
 }
 
-#mainHeader .wrapper p.icon {
+/* #mainHeader .wrapper p.icon {
     font-size: 120px;
     color: white;
     position: absolute;
     top: 500px;
     left: 420px;
-}
+} */
 
 /* Login form */
 #mainHeader .login {
@@ -96,6 +99,9 @@
     margin-right: 15px;
 }
 
+.modal-content {
+    background-color: rgb(36, 36, 36)
+}
 /* Hiperlink to Open the Modal */
 #mainHeader .modal-link {
     position: absolute;

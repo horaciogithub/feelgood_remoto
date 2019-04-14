@@ -1,9 +1,12 @@
 import React from 'react';
 
+/* STYLES */
+import './routine.css';
+
 const table = (props) => {
 
     return (
-        <table className="table table-borderless table-striped">
+        <table className="table table-borderless table-dark table-hover table-striped routine">
             <thead>
                 <tr>
                     <td colSpan="4" className="dark-green">Calentamiento</td>

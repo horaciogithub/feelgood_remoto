@@ -73,36 +73,39 @@ export default class Login extends Component {
     }
 
     return (
-      <div className="col-sm-7">
-        <input
-          type="email"
-          className="form-control email"
-          placeholder="Email"
-          name="email"
-          maxLength="40"
-          onChange={this.onChange}
-          autoComplete="off"
-        />
+      <div className="col-12 d-flex justify-content-end">
+        <div className="col-sm-6 pt-4 pb-5 row">
 
-        <input
-          type="password"
-          className="form-control password"
-          id="password"
-          placeholder="Contraseña"
-          name="password"
-          maxLength="15"
-          onChange={this.onChange}
-          autoComplete="off"
-        />
+          <input
+            type="email"
+            className="form-control col-5 email"
+            placeholder="Email"
+            name="email"
+            maxLength="40"
+            onChange={this.onChange}
+            autoComplete="off"
+          />
 
-        <button
-          type="submit"
-          name="submit"
-          className="btn btn-green"
-          onClick={this.login}
-        >
-          Entrar
-        </button>
+          <input
+            type="password"
+            className="form-control col-4 ml-2 mr-2 password"
+            id="password"
+            placeholder="Contraseña"
+            name="password"
+            maxLength="15"
+            onChange={this.onChange}
+            autoComplete="off"
+          />
+
+          <button
+            type="submit"
+            name="submit"
+            className="btn btn-green"
+            onClick={this.login}
+          >
+            Entrar <i className="fas fa-sign-in-alt"></i>
+          </button>
+        </div>
       </div>
     );
   }

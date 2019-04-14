@@ -13,7 +13,7 @@ header .header-bar .login div:first-child img{
 }
 
 header .header-bar .login .btn{
-	background-color: inherit;
+	/* background-color: inherit; */
 	border: none;
 }
 

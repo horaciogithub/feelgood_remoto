@@ -108,10 +108,11 @@ export default class Messages extends Component {
                             <q> {messages[i].name} {messages[i].surname}</q>
                         </p>
                         <button
-                            className="btn btn-danger"
+                            className="btn btn-green trash"
                             type="button"
                             value={messages[i].id}
-                            onClick={this.deleteCommentHandler}>Eliminar
+                            onClick={this.deleteCommentHandler}>
+                            <i className="fas fa-trash-alt"></i>
                         </button>
                     </div>
                 )
@@ -120,7 +121,7 @@ export default class Messages extends Component {
                 result.push(
                     <div key={messages[i].id} className="row pt-3 pb-3">
                         <div className="col-1 user-img">
-                            <img className="rounded-circle" src={messages[i].img} alt={messages[i].author}></img>
+                            <img className="rounded-circle profile-img" src={messages[i].img} alt={messages[i].author}></img>
                         </div>
 
                         <p className="col-10 pt-4"> {messages[i].subject}.<br /><br />
@@ -148,7 +149,7 @@ export default class Messages extends Component {
                         className="btn btn-green"
                         type="button"
                         onClick={this.submitCommentHandler}>
-                        Enviar
+                        Enviar <i className="fas fa-paper-plane"></i>
                     </button>
                 </div>
             </div>

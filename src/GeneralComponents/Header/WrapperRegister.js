@@ -76,7 +76,7 @@ export default class Register extends Component {
                     <div className="modal-content">
 
                         <div className="modal-header">
-                            <h4 className="modal-title">Introduce tus datos</h4>
+                            <h4 className="modal-title">Regístrate</h4>
                             <button type="button" className="close" data-dismiss="modal" title="Cerrar">&times;</button>
                         </div>
 
