@@ -109,6 +109,7 @@ export default class Messages extends Component {
 
                         <p className="col-10 pt-4"> {messages[i].subject}.<br /><br />
                             <q> {messages[i].name} {messages[i].surname}</q>
+                            - {messages[i].type}
                         </p>
                         <button
                             className="btn btn-green trash"
@@ -129,6 +130,7 @@ export default class Messages extends Component {
 
                         <p className="col-10 pt-4"> {messages[i].subject}.<br /><br />
                             <q> {messages[i].name} {messages[i].surname}</q>
+                            - {messages[i].type}
                         </p>
                     </div>
                 )
