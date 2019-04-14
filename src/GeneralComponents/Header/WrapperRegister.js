@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
 /* FUNCIONES */
-import { PostRegisterData } from '../../services/PostRegisterData'
+import { PostData } from '../../services/PostData';
 
 export default class Register extends Component {
 
@@ -20,6 +20,8 @@ export default class Register extends Component {
             isLogged: false,
             redirect: false,
             userData: {},
+
+            UserType: '',
         }
 
         this.register = this.register.bind(this);
@@ -27,20 +29,24 @@ export default class Register extends Component {
     }
 
     register() {
-        PostRegisterData('register', this.state).then((result) => {
+        PostData('register', this.state).then((result) => {
             let responseJSON = result;
             console.log(responseJSON)
 
-            if (responseJSON.success) {
+            if (responseJSON.userData) {
+
+                // Pasa los datos en sessión
+                sessionStorage.setItem("userData", JSON.stringify(responseJSON));
 
                 /* Logeo tras el registro */
                 this.setState({
-                    userData: responseJSON.userData,
+                    UserType: responseJSON.userData.type,
                     isLogged: true,
                     redirect: true,
-                })
+                });
+            }
 
-            } else {
+            else {
 
                 /* Acceso denegado */
                 console.log("no entras")
@@ -53,20 +59,20 @@ export default class Register extends Component {
             //Con e.target.name, recogemos el valor según el name del input
             [e.target.name]: e.target.value
         });
-        console.log(this.state)
+        //console.log(this.state)
     }
 
     render() {
 
         // Redirige a la página cuando el usuario haya sido logeado
         if (this.state.redirect) {
-
-            switch (this.state.userData.type) {
-                case 'trainer':
-                    return (<Redirect to='/trainer' />)
-
-                default:
-                    return (<Redirect to='/user' />)
+            if (sessionStorage.getItem("userData")) {
+                if (this.state.type === 'trainer') {
+                    return <Redirect to="/trainer" />;
+                }
+                if (this.state.type === 'user') {
+                    return <Redirect to="/user" />;
+                }
             }
         }
 

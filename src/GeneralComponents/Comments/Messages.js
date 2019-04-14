@@ -16,29 +16,34 @@ export default class Messages extends Component {
         }
 
         this.commentHandler = this.commentHandler.bind(this);
+        this.reloadMessagesHandler = this.reloadMessagesHandler.bind(this);
+        this.submitCommentHandler = this.submitCommentHandler.bind(this);
+        this.deleteCommentHandler = this.deleteCommentHandler.bind(this);
+
     }
 
     componentDidMount() {
+
+        // Carga los mensajes del foro
         axios.get("http://localhost:8000/api/messages")
             .then(response => {
                 this.setState({
                     messages: response.data,
                 });
             });
-        //console.log(this.state.messages)
-        //console.log(this.state.author)
     }
 
     componentWillMount() {
         if (sessionStorage.getItem("userData")) {
 
             const data = JSON.parse(sessionStorage.getItem("userData"))
+            //console.log(data)
 
             this.setState({
                 author: data.userData.email,
             })
             // console.log(data.userData.email)
-            console.log(this.state.author)
+            //console.log(this.state.author)
         }
         else {
             console.log("mal")
@@ -89,6 +94,9 @@ export default class Messages extends Component {
         axios.delete('http://localhost:8000/api/messageDelete', { data: { id: e.target.value } })
             .then(response => {
                 this.reloadMessagesHandler();
+            })
+            .catch((error) => {
+                console.log(error)
             })
     }
 
