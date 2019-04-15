@@ -36,14 +36,19 @@ class Users extends Component {
 
     warningUserHandler = (e) => {
 
-        alert(e.target.value)
-        // axios.delete('http://localhost:8000/api/userDelete', { data: { id: e.target.value } })
-        //     .then(response => {
-        //         this.reloadUsersHandler();
-        //     })
-        //     .catch((error) => {
-        //         console.log(error)
-        //     })
+        console.log(e.target.value)
+
+        const data = {
+            id: e.target.value
+        }
+
+        axios.post('http://localhost:8000/api/userWarning', data)
+            .then(response => {
+                this.reloadUsersHandler();
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     reloadUsersHandler = () => {
@@ -85,9 +90,6 @@ class Users extends Component {
                             <th className="text-center" scope="col">
                                 <h6>Avisos</h6>
                             </th>
-                            <th className="text-center" scope="col">
-                                <h6>Eliminar</h6>
-                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -104,14 +106,13 @@ class Users extends Component {
                                 <td className="text-center align-middle">{user.name}</td>
                                 <td className="text-center align-middle">{user.surname}</td>
                                 <td className="text-center align-middle">{user.type}</td>
-                                <td className="text-center align-middle p-3">{user.complaints}</td>
                                 <td className="text-center align-middle p-3">{user.warnings}</td>
                                 <td className="col text-center align-middle">
                                     <button
                                         className="btn btn-warning"
                                         value={user.id}
                                         onClick={this.warningUserHandler}>
-                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <i className="fas fa-exclamation-triangle"></i>
                                     </button>
                                 </td>
                                 <td className="col text-center align-middle pl-5">

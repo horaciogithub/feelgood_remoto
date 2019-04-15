@@ -4,21 +4,13 @@
     margin-bottom: 50px;
 }
 
-#comments div.text {
+.text {
     width: 100%;
     padding: 20px;
     background: white;
     border-radius: 10px;
     word-wrap: break-word;
 }
-
-/* #comments p {
-    width: 100%;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    word-wrap: break-word;
-} */
 
 #comments .message-container {
     position: relative;

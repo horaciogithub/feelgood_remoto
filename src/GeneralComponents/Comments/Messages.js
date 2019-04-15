@@ -98,7 +98,7 @@ export default class Messages extends Component {
     }
 
     formatTimestamp = (date) => {
-        const month = new Array();
+        const month = [];
         month[0] = "Enero";
         month[1] = "Febrero";
         month[2] = "Marzo";
