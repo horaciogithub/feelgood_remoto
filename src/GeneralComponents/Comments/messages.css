@@ -1,6 +1,42 @@
-.user-img img {
+#comments {
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#comments div.text {
     width: 100%;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    word-wrap: break-word;
+}
+
+/* #comments p {
+    width: 100%;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    word-wrap: break-word;
+} */
+
+#comments .message-container {
+    position: relative;
+}
+
+#comments .message-container .trash {
+    position: absolute;
+    top: 20px;
+    right: -44px;
+}
+
+.user-img img {
+    position: absolute;
+    top: -32px;
+    left: -40px;
+    width: 105%;
     height: 75px;
+    z-index: 2;
 }
 
 .trash {

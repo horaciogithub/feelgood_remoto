@@ -5,10 +5,10 @@ import { Redirect } from 'react-router-dom';
 /*     COMPONENTS     */
 /* ------------------ */
 
-import Header from './Header/Header';
+import Header from '../GeneralComponents/Header-users/Header';
 import Navbar from '../GeneralComponents/Navbar/Navbar';
 import Body from './Body/Body';
-import Messages from './Body/Messages/Messages';
+import Messages from '../GeneralComponents/Comments/Messages';
 import Footer from '../GeneralComponents/Footer/Footer';
 
 export default class UserPage extends Component {

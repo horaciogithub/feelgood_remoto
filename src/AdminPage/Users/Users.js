@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { MDBBtn } from "mdbreact";
+// import { MDBBtn } from "mdbreact";
 
 import "./users.css";
 
@@ -10,9 +10,45 @@ class Users extends Component {
         this.state = {
             users: []
         };
+        this.deleteUserHandler = this.deleteUserHandler.bind(this);
+        this.warningUserHandler = this.warningUserHandler.bind(this);
     }
 
     componentDidMount() {
+        axios.get("http://localhost:8000/api/users")
+            .then(response => {
+                this.setState({
+                    users: response.data
+                });
+            });
+    }
+
+    deleteUserHandler = (e) => {
+
+        axios.delete('http://localhost:8000/api/userDelete', { data: { id: e.target.value } })
+            .then(response => {
+                this.reloadUsersHandler();
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    warningUserHandler = (e) => {
+
+        alert(e.target.value)
+        // axios.delete('http://localhost:8000/api/userDelete', { data: { id: e.target.value } })
+        //     .then(response => {
+        //         this.reloadUsersHandler();
+        //     })
+        //     .catch((error) => {
+        //         console.log(error)
+        //     })
+    }
+
+    reloadUsersHandler = () => {
+
+        // Recarga la tabla de usuarios
         axios.get("http://localhost:8000/api/users")
             .then(response => {
                 this.setState({
@@ -56,7 +92,7 @@ class Users extends Component {
                     </thead>
                     <tbody>
                         {users.map(user => (
-                            <tr key={user.email}>
+                            <tr key={user.id}>
                                 <td>
                                     <img
                                         className="admin-profiles-images"
@@ -71,10 +107,20 @@ class Users extends Component {
                                 <td className="text-center align-middle p-3">{user.complaints}</td>
                                 <td className="text-center align-middle p-3">{user.warnings}</td>
                                 <td className="col text-center align-middle">
-                                    <MDBBtn outline size="lg" color="warning" >Dar aviso</MDBBtn>
+                                    <button
+                                        className="btn btn-warning"
+                                        value={user.id}
+                                        onClick={this.warningUserHandler}>
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </button>
                                 </td>
                                 <td className="col text-center align-middle pl-5">
-                                    <MDBBtn outline size="lg" color="danger">Eliminar</MDBBtn>
+                                    <button
+                                        className="btn btn-green"
+                                        value={user.id}
+                                        onClick={this.deleteUserHandler}>
+                                        <i className="fas fa-trash-alt"></i>
+                                    </button>
                                 </td>
                             </tr>
                         ))}

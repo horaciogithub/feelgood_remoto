@@ -89,7 +89,7 @@ hr.underline {
   color: #fff;
   background-color: #f50b0b;
   /* border-color: #f50b0b; */
-  box-shadow: 0 0 5px rgb(31, 31, 31);
+  /* box-shadow: 0 0 5px rgb(31, 31, 31); */
   border-radius: 0px;
 }
 

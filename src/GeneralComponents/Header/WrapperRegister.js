@@ -100,6 +100,7 @@ export default class Register extends Component {
                                             name="name"
                                             maxLength="15"
                                             onChange={this.onChange}
+                                            autocomplete="off"
                                             required
                                         />
                                     </div>
@@ -114,6 +115,7 @@ export default class Register extends Component {
                                             name="surname"
                                             maxLength="15"
                                             onChange={this.onChange}
+                                            autocomplete="off"
                                             required />
                                     </div>
 
@@ -125,6 +127,7 @@ export default class Register extends Component {
                                             placeholder="Email"
                                             maxLength="40"
                                             onChange={this.onChange}
+                                            autocomplete="off"
                                             required />
                                         <div className="input-group-append">
                                             <span className="input-group-text">@example.com</span>
@@ -141,6 +144,7 @@ export default class Register extends Component {
                                             name="password"
                                             maxLength="15"
                                             onChange={this.onChange}
+                                            autocomplete="off"
                                             required />
                                     </div>
 
@@ -154,6 +158,7 @@ export default class Register extends Component {
                                             name="c_password"
                                             maxLength="15"
                                             onChange={this.onChange}
+                                            autocomplete="off"
                                             required />
                                     </div>
 
@@ -165,17 +170,19 @@ export default class Register extends Component {
                                                 type="date"
                                                 name="birth-date"
                                                 onChange={this.onChange}
+                                                autocomplete="off"
                                                 required="" />
                                         </div>
                                         <div className="col-6">
-                                            <label>REGISTRARSE COMO</label>
+                                            {/* <label>REGISTRARSE COMO</label> */}
                                             <select
                                                 id="tipo-usuario"
                                                 className="form-control tipo"
                                                 name="type"
-                                                onChange={this.onChange}>
-
-                                                <option value="user" defaultValue>Cliente</option>
+                                                onChange={this.onChange}
+                                                autocomplete="off">
+                                                <option selected disabled>Regístrate como:</option>
+                                                <option value="user">Cliente</option>
                                                 <option value="trainer">Entrenador</option>
                                             </select>
                                         </div>
@@ -196,6 +203,7 @@ export default class Register extends Component {
                                         type="submit"
                                         className="btn btn-green send wrapperButton"
                                         onClick={this.register}
+                                        autocomplete="off"
                                     >
                                         Enviar
                                         </button>

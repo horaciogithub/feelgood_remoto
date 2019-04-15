@@ -19,6 +19,7 @@ export default class Messages extends Component {
         this.reloadMessagesHandler = this.reloadMessagesHandler.bind(this);
         this.submitCommentHandler = this.submitCommentHandler.bind(this);
         this.deleteCommentHandler = this.deleteCommentHandler.bind(this);
+        this.formatTimestamp = this.formatTimestamp.bind(this);
 
     }
 
@@ -37,14 +38,12 @@ export default class Messages extends Component {
         if (sessionStorage.getItem("userData")) {
 
             const data = JSON.parse(sessionStorage.getItem("userData"))
-            //console.log(data)
 
             this.setState({
                 author: data.userData.email,
             })
-            // console.log(data.userData.email)
-            //console.log(this.state.author)
         }
+
         else {
             console.log("mal")
         }
@@ -67,14 +66,12 @@ export default class Messages extends Component {
     }
 
     submitCommentHandler = () => {
-        //console.log(this.state)
 
         const data = {
             author: this.state.author,
             subject: this.state.subject
         }
 
-        // console.log(data)
 
         if (this.state.author && this.state.subject) {
             axios.post('http://localhost:8000/api/messageRegistration', data)
@@ -100,6 +97,31 @@ export default class Messages extends Component {
             })
     }
 
+    formatTimestamp = (date) => {
+        const month = new Array();
+        month[0] = "Enero";
+        month[1] = "Febrero";
+        month[2] = "Marzo";
+        month[3] = "Abril";
+        month[4] = "Mayo";
+        month[5] = "Junio";
+        month[6] = "Julio";
+        month[7] = "Agosto";
+        month[8] = "Septiembre";
+        month[9] = "Octubre";
+        month[10] = "Noviembre";
+        month[11] = "Diciembre";
+
+        let timestamp = date.split(' ');
+
+        let fullDate = new Date(timestamp);
+        let hour = timestamp[1].split(':');
+        hour = hour[0] + ':' + hour[1];
+
+        let message = "El " + fullDate.getDay() + " de " + month[fullDate.getMonth()] + " a las " + hour;
+        return message;
+    }
+
     render() {
         const result = [];
 
@@ -110,15 +132,18 @@ export default class Messages extends Component {
             /* Permite borrar el mensaje que pertenece a este autor */
             if (messages[i].email === this.state.author) {
                 result.push(
-                    <div key={messages[i].id} className="row pt-3 pb-3">
+                    <div key={messages[i].id} className="row pt-3 pb-3 mt-5 message-container">
                         <div className="col-1 user-img">
                             <img className="rounded-circle" src={messages[i].img} alt={messages[i].author}></img>
                         </div>
 
-                        <p className="col-10 pt-4"> {messages[i].subject}.<br /><br />
-                            <q> {messages[i].name} {messages[i].surname}</q>
-                            - {messages[i].type}
-                        </p>
+                        <div className="text">
+                            <p className="col-10 pt-4">
+                                <span>{messages[i].name} {messages[i].surname} <i className="fas fa-caret-right"></i> {messages[i].type}</span><br /><br />
+                                {messages[i].subject} <br /><br />
+                                <i className="far fa-clock"></i> {this.formatTimestamp(messages[i].created_at)}
+                            </p>
+                        </div>
                         <button
                             className="btn btn-green trash"
                             type="button"
@@ -131,21 +156,24 @@ export default class Messages extends Component {
             }
             else {
                 result.push(
-                    <div key={messages[i].id} className="row pt-3 pb-3">
+                    <div key={messages[i].id} className="row pt-3 pb-3 mt-5 message-container">
                         <div className="col-1 user-img">
-                            <img className="rounded-circle profile-img" src={messages[i].img} alt={messages[i].author}></img>
+                            <img className="rounded-circle" src={messages[i].img} alt={messages[i].author}></img>
                         </div>
 
-                        <p className="col-10 pt-4"> {messages[i].subject}.<br /><br />
-                            <q> {messages[i].name} {messages[i].surname}</q>
-                            - {messages[i].type}
-                        </p>
+                        <div className="text">
+                            <p className="col-10 pt-4">
+                                <span>{messages[i].name} {messages[i].surname} <i className="fas fa-caret-right"></i> {messages[i].type}</span><br /><br />
+                                {messages[i].subject} <br /><br />
+                                <i className="far fa-clock"></i> {this.formatTimestamp(messages[i].created_at)}
+                            </p>
+                        </div>
                     </div>
                 )
             }
         }
         return (
-            <div className="p-5">
+            <div id="comments" className="col-8">
 
                 {result}
 
