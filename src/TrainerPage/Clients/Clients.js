@@ -2,6 +2,27 @@ import React from 'react';
 
 const clients = (props) => {
     console.log(props.clients)
+    let imc = (wheigth, heigth) => {
+        let userValues = [];
+        let result = (wheigth / (Math.pow(heigth, 2))).toFixed(2);
+        userValues[0] = result;
+
+        if (result < 18.50) {
+
+            userValues[1] = "Delgado/a";
+        } else
+
+            if (result < 24.99 && result > 18.50) {
+                userValues[1] = "Peso ideal";
+            } else
+
+                if (result > 25.00) {
+                    userValues[1] = "Sobrepeso";
+                }
+
+        return userValues;
+    }
+
     return (
         <div>
             <table border='1'>
@@ -12,6 +33,7 @@ const clients = (props) => {
                         <td>Altura</td>
                         <td>Peso</td>
                         <td>Imc</td>
+                        <td>Valor</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,7 +43,8 @@ const clients = (props) => {
                             <td>{client.sex}</td>
                             <td>{client.heigth}</td>
                             <td>{client.wheigth}</td>
-                            <td>{(client.wheigth / (Math.pow(client.heigth, 2))).toFixed(2)}</td>
+                            <td>{imc(client.wheigth, client.heigth)[0]}</td>
+                            <td>{imc(client.wheigth, client.heigth)[1]}</td>
                             <td><input type="checkbox" value={client.id} onClick={props.check}></input></td>
                         </tr>
                     )}

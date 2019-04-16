@@ -9,6 +9,7 @@ import axios from "axios";
 import Header from '../GeneralComponents/Header-users/Header';
 import Navbar from '../GeneralComponents/Navbar/Navbar';
 import Clients from './Clients/Clients';
+import Exercices from './ControlPanel/ControlPanel';
 import Messages from '../GeneralComponents/Comments/Messages';
 import Footer from '../GeneralComponents/Footer/Footer';
 
@@ -23,6 +24,7 @@ export default class TrainerPage extends Component {
             routine: {},
 
             clients: [],
+            exercices: [],
         }
 
         this.logout = this.logout.bind(this);
@@ -36,6 +38,14 @@ export default class TrainerPage extends Component {
             .then(response => {
                 this.setState({
                     clients: response.data,
+                });
+            });
+
+        // Carga las tablas de ejercicios 
+        axios.get("http://localhost:8000/api/exercices")
+            .then(response => {
+                this.setState({
+                    exercices: response.data,
                 });
             });
     }
@@ -87,6 +97,7 @@ export default class TrainerPage extends Component {
                 <Header user={this.state.userData} logout={this.logout} />
                 <Navbar />
                 <Clients clients={clients} check={this.checkHandler} />
+                <Exercices exercices={this.state.exercices} />
                 <Messages />
                 <Footer />
             </Fragment>
