@@ -16,8 +16,8 @@ const header = (props) => {
 
                 {/* When users are logged */}
 
-                <div className="form-inline login" method="post">
-                    <div className="col-3">
+                <div className="col-5 ml-5 form-inline login" method="post">
+                    <div className="col-3 profile">
                         <img src={props.user.img} alt={props.user.name} />
                     </div>
                     <h5>{props.user.name} {props.user.surname}</h5>
@@ -29,7 +29,7 @@ const header = (props) => {
                         </a>
                     </button> */}
 
-                    <button className="btn btn-green" onClick={props.logout}>Salir <i className="fas fa-sign-out-alt"></i></button>
+                    <button className="btn btn-green ml-3" onClick={props.logout}>Salir <i className="fas fa-sign-out-alt"></i></button>
 
                 </div>
 

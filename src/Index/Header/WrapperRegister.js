@@ -181,7 +181,7 @@ export default class Register extends Component {
                                                 name="type"
                                                 onChange={this.onChange}
                                                 autoComplete="off">
-                                                <option selected disabled>Regístrate como:</option>
+                                                <option readOnly>Regístrate como:</option>
                                                 <option value="user">Cliente</option>
                                                 <option value="trainer">Entrenador</option>
                                             </select>

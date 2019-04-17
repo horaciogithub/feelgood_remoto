@@ -9,7 +9,11 @@ header .header-bar .login {
 }
 
 header .header-bar .login div:first-child img{
-	width: 100%;
+	position: absolute;
+    top: -32px;
+    width: 65% !important;
+    height: 70px;
+    z-index: 2;
 }
 
 header .header-bar .login .btn{
@@ -116,4 +120,8 @@ header .wrapper p:first-child {
 
 .modal-settings .form-horizontal{
 	padding: 20px;
+}
+
+.profile {
+	margin-left: 150px;
 }

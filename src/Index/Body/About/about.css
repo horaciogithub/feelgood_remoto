@@ -24,11 +24,12 @@
 
 #about .first-content-boxes div:nth-child(3) {
     position: absolute;
-    top: -28px;
-    left: 45%;
+    top: 55px;
+    left: 0;
+    right: 0;
+    margin: auto;
     width: 505px;
     height: 420px;
-    margin-left: -205px;
     background-color: white;
     border: none;
     color: var(--dark);

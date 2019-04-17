@@ -68,7 +68,14 @@ export default class UserPage extends Component {
             routine = <Body routine={this.state.routine} />
         }
         else {
-            routine = <h1>No hay nadita</h1>
+            routine = (
+                <div className="mt-5 p-5">
+                    <p className="text-center">
+                        <i className="fas fa-info-circle"></i> Lo sentimos, no tienes ningún entrenamiento asignado,
+                            pronto nuestros entrenadores te asignarán alguna
+                    </p>
+                </div>
+            )
         }
 
         return (

@@ -69,17 +69,21 @@
 
 #mainHeader .wrapper p {
     font-size: 32px;
-    color: #004d40;
-    margin-left: 30px;
+    color: var(--ligth);
+    /* margin-left: 30px; */
+    text-align: center;
 }
 
-/* #mainHeader .wrapper p.icon {
-    font-size: 120px;
-    color: white;
+#mainHeader  p.icon {
     position: absolute;
-    top: 500px;
-    left: 420px;
-} */
+    left: 0;
+    right: 0;
+    bottom: -41px;
+    font-size: 105px;
+    text-align: center;
+    color: white;
+    cursor: pointer
+} 
 
 /* Login form */
 #mainHeader .login {

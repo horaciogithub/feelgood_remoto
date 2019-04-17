@@ -32,10 +32,12 @@ const header = (props) => {
 
                     <h1>FeelGood</h1>
                     <p>Te ayudamos a sentirte bien</p>
-                    <p className="icon">
-                        <i className="fa fa-angle-down" aria-hidden="true"></i>
-                    </p>
                 </div>
+            </div>
+            <div>
+                <p className="icon">
+                    <i className="fas fa-chevron-down"></i>
+                </p>
             </div>
         </header >
     );
