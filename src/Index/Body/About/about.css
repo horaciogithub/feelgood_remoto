@@ -27,9 +27,10 @@
     top: -28px;
     left: 45%;
     width: 505px;
-    height: 375px;
+    height: 420px;
     margin-left: -205px;
     background-color: white;
+    border: none;
     color: var(--dark);
     z-index: 1000;
 }

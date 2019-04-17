@@ -4,11 +4,11 @@ import React, { Fragment } from 'react';
 /*     COMPONENTS     */
 /* ------------------ */
 
-import Header from '../GeneralComponents/Header/Header';
-import Navbar from '../GeneralComponents/Navbar/Navbar';
-import Body from '../GeneralComponents/IndexBody/Body';
-import Footer from '../GeneralComponents/Footer/Footer';
-import Register from '../GeneralComponents/Header/WrapperRegister';
+import Header from './Header/Header';
+import Navbar from '../Navbar/Navbar';
+import Body from './Body/Body';
+import Footer from '../Footer/Footer';
+import Register from './Header/WrapperRegister';
 
 const index = (props) => {
 

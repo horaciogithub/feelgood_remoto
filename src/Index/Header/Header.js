@@ -1,6 +1,6 @@
 import React from 'react';
 import "./header.css";
-import Logo from './Images/feelgood.png';
+
 
 /* Componentes */
 
@@ -27,7 +27,7 @@ const header = (props) => {
             <div className="wrapper">
                 <div className="wrapper-img col-6">
                     <div className="d-flex justify-content-center">
-                        <img src={Logo} alt="FeelGood-banner" />
+                        <img src="/img/feelgood.png" alt="FeelGood-banner" />
                     </div>
 
                     <h1>FeelGood</h1>

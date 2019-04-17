@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../GeneralComponents/Header/header.css';
-import './header.css';
+import '../Index/Header/header.css';
+import './users-header.css';
 
 const header = (props) => {
     return (

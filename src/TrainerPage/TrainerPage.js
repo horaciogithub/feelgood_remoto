@@ -6,12 +6,12 @@ import axios from "axios";
 /*     COMPONENTS     */
 /* ------------------ */
 
-import Header from '../GeneralComponents/Header-users/Header';
-import Navbar from '../GeneralComponents/Navbar/Navbar';
+import Header from '../UsersHeader/UsersHeader';
+import Navbar from '../Navbar/Navbar';
 import Clients from './Clients/Clients';
 import Exercices from './ControlPanel/ControlPanel';
-import Messages from '../GeneralComponents/Comments/Messages';
-import Footer from '../GeneralComponents/Footer/Footer';
+import Messages from '../Comments/Messages';
+import Footer from '../Footer/Footer';
 
 export default class TrainerPage extends Component {
 

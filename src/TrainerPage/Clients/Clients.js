@@ -1,7 +1,7 @@
 import React from 'react';
 
 const clients = (props) => {
-    console.log(props.clients)
+    //console.log(props.clients)
     let imc = (wheigth, heigth) => {
         let userValues = [];
         let result = (wheigth / (Math.pow(heigth, 2))).toFixed(2);

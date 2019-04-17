@@ -1,11 +1,6 @@
 import React from 'react';
 import "./about.css";
 
-/* Images */
-import Motivation from '../../Images/motivation.jpg';
-import DietsEvents from '../../Images/taller-dietas.jpg';
-import Training from '../../Images/training.jpg';
-
 const about = () => {
     return (
         <section id="about" className="firstContent container-fluid">
@@ -29,12 +24,12 @@ const about = () => {
                 <p>Al introducir tus datos, nuestros profesionales valorarán
                 qué dietas y entrenamientos se adecuarán mas a tu complexión física
                 teniendo en cuenta la edad, el peso, la altura y el
-                <a href="https://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal">IMC(Índice de Masa Corporal)</a></p>
+                <a href="https://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal"> IMC(Índice de Masa Corporal)</a></p>
             </div>
             <div className="row first-content-boxes">
                 <div className="shadow-md col-sm-4">
                     <img
-                        src={Motivation}
+                        src="img/motivation.jpg"
                         alt=""
                         width="100%" />
 
@@ -43,7 +38,7 @@ const about = () => {
                 <div className="col-sm-4"></div>
                 <div className="shadow-lg">
                     <img
-                        src={Training}
+                        src="img/taller-dietas.1.jpg"
                         alt=""
                         width="100%" />
 
@@ -51,7 +46,7 @@ const about = () => {
                 </div>
                 <div className="shadow-md col-sm-4">
                     <img
-                        src={DietsEvents}
+                        src="img/training.jpg"
                         alt=""
                         width="100%" />
 

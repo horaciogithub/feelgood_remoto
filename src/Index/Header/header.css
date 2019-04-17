@@ -3,7 +3,7 @@
 /* –––––––––––––– */
 
 #mainHeader {
-    background: #29b873 url('./Images/background1.png') center top no-repeat;
+    background: #29b873 url('/img/background1.png') center top no-repeat;
     background-size: cover;
     position: relative;
     z-index: 25;

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 /*     COMPONENTS     */
 /* ------------------ */
 
-import Header from "../GeneralComponents/Header-users/Header";
+import Header from '../UsersHeader/UsersHeader';
 import Users from "./Users/Users";
 import Messages from "./Messages/Messages";
 
