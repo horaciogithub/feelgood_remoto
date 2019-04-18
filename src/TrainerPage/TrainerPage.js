@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
-import axios from "axios";
 
 /* ------------------ */
 /*     COMPONENTS     */
@@ -8,7 +7,6 @@ import axios from "axios";
 
 import Header from '../UsersHeader/UsersHeader';
 import Navbar from '../Navbar/Navbar';
-import Clients from './Clients/Clients';
 import Exercices from './ControlPanel/ControlPanel';
 import Messages from '../Comments/Messages';
 import Footer from '../Footer/Footer';
@@ -22,32 +20,10 @@ export default class TrainerPage extends Component {
             redirect: false,
             userData: {},
             routine: {},
-
-            clients: [],
-            exercices: [],
         }
 
         this.logout = this.logout.bind(this);
         this.checkHandler = this.checkHandler.bind(this)
-    }
-
-    componentDidMount() {
-
-        // Carga los mensajes del foro
-        axios.get("http://localhost:8000/api/clients")
-            .then(response => {
-                this.setState({
-                    clients: response.data,
-                });
-            });
-
-        // Carga las tablas de ejercicios 
-        axios.get("http://localhost:8000/api/exercices")
-            .then(response => {
-                this.setState({
-                    exercices: response.data,
-                });
-            });
     }
 
     componentWillMount() {
@@ -81,7 +57,6 @@ export default class TrainerPage extends Component {
     }
 
     render() {
-        const clients = this.state.clients;
 
         // redirige a la pagina principal si deslogeamos
         if (this.state.redirect) {
@@ -96,7 +71,6 @@ export default class TrainerPage extends Component {
             <Fragment>
                 <Header user={this.state.userData} logout={this.logout} />
                 <Navbar />
-                <Clients clients={clients} check={this.checkHandler} />
                 <Exercices exercices={this.state.exercices} />
                 <Messages />
                 <Footer />
