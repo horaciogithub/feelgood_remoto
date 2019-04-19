@@ -1,0 +1,19 @@
+.panel {
+    min-height: 600px;
+}
+
+.panel table {
+    background-color: white
+}
+
+.panel table tr.active {
+    background-color: #a5d6a7
+}
+
+.panel  table td {
+    text-align: center;
+}
+
+.panel select:focus {
+    outline: none !important;
+}

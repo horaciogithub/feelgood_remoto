@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
+/* Styles */
+import "./ControlPanel.css";
+
 import Clients from '../Clients/Clients';
 
 export default class cPanel extends Component {
@@ -94,17 +97,13 @@ export default class cPanel extends Component {
     render() {
         const clients = this.state.clients;
 
-
-
         if (this.state.exercices.length > 0) {
             console.log(this.state)
             let table;
             if (this.state.table.length > 0) {
 
-
-
                 table = (
-                    <table border='1'>
+                    <table className="table">
                         <thead>
                             <tr>
                                 <td colSpan="4">Calentamiento</td>
@@ -166,33 +165,62 @@ export default class cPanel extends Component {
             }
 
             return (
-                <div>
-                    {/* Tipo de ejercicio */}
-                    <select onChange={this.idTableHandler}>
-                        <option title="Tipo" value=''>Tipo: </option>
-                        {this.setOptionsHandler(this.state.exercices).map(exercice =>
-                            <option key={exercice} value={exercice}>{exercice}</option>
-                        )}
-                    </select>
+                <div className="container-fluid mt-5 panel">
+                    <div className="row">
+                        {/* Tabla de clientes */}
+                        <div className="col-6">
+                            <Clients clients={clients} check={this.checkHandler} />
+                        </div>
 
-                    {/* Id del ejercicio */}
-                    <select onChange={this.showTableHandler}>
-                        <option title="id" value=''>Id de tabla: </option>
-                        {this.state.idTables.map(id =>
-                            <option key={id} value={id}>{id}</option>
-                        )}
-                    </select>
+                        <div className="col-6">
 
-                    {table}
-                    {/* Día de la semana */}
-                    {/* <select>
-                        <option title="id" value=''>Id de tabla: </option>
-                        {this.state.exercices.map(day =>
-                            <option key={day} value={day}>{day}</option>
-                        )}
-                    </select> */}
+                            <div className="row control">
+                                {/* Tipo de ejercicio */}
+                                <select className="form-control col-2 mr-2" onChange={this.idTableHandler}>
+                                    <option title="Tipo" value=''>Tipo: </option>
+                                    {this.setOptionsHandler(this.state.exercices).map(exercice =>
+                                        <option key={exercice} value={exercice}>{exercice}</option>
+                                    )}
+                                </select>
 
-                    <Clients clients={clients} check={this.checkHandler} />
+                                {/* Id del ejercicio */}
+                                <select className="form-control col-3 mr-2" onChange={this.showTableHandler}>
+                                    <option title="id" value=''>Id de tabla: </option>
+                                    {this.state.idTables.map(id =>
+                                        <option key={id} value={id}>{id}</option>
+                                    )}
+                                </select>
+
+                                {/* Días de la semana */}
+                                <select className="form-control col-2 mr-2">
+                                    <option value="lunes">Lunes</option>
+                                    <option value="martes">Martes</option>
+                                    <option value="mirecoles">Miércoles</option>
+                                    <option value="jueves">Jueves</option>
+                                    <option value="viernes">Viernes</option>
+                                    <option value="sabado">Sábado</option>
+                                    <option value="domingo">Domingo</option>
+                                </select>
+
+                                {/* Selección del usuario */}
+                                <select className="form-control col-2" >
+                                    <option title="id" value=''>Email: </option>
+                                    {this.state.clients.map(client =>
+                                        !client.emailTable ?
+                                            <option key={client.id} value={client.email}>{client.email}</option>
+                                            : ""
+                                    )}
+                                </select>
+                            </div>
+
+                            {/* Tablas de entrenamiento */}
+                            <div className="table-responsive mt-5">
+                                {table}
+                            </div>
+
+
+                        </div>
+                    </div>
                 </div>
             )
         } else {
