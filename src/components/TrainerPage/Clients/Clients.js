@@ -39,6 +39,7 @@ export default class Clients extends Component {
                             <td>Peso</td>
                             <td>Imc</td>
                             <td>Valor</td>
+                            <td>Fin rutina</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +52,7 @@ export default class Clients extends Component {
                                     <td>{client.wheigth}</td>
                                     <td>{this.imcHandler(client.wheigth, client.heigth)[0]}</td>
                                     <td>{this.imcHandler(client.wheigth, client.heigth)[1]}</td>
+                                    <td>{client.exerc_end}</td>
                                 </tr> :
                                 <tr key={client.id}>
                                     <td>{client.email}</td>
@@ -59,6 +61,7 @@ export default class Clients extends Component {
                                     <td>{client.wheigth}</td>
                                     <td>{this.imcHandler(client.wheigth, client.heigth)[0]}</td>
                                     <td>{this.imcHandler(client.wheigth, client.heigth)[1]}</td>
+                                    <td>{client.exerc_end}</td>
                                 </tr>
                         )}
                     </tbody>

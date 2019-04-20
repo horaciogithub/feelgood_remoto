@@ -139,25 +139,41 @@ export default class cPanel extends Component {
     }
 
     // Inserta el id de la tabla en la tabla de ejercicios del usuario
-    postTableHandler = () => {
-        const data = {
-            "email": this.state.email,
-            "monday": this.state.monday,
-            "tuesday": this.state.tuesday,
-            "wednesday": this.state.wednesday,
-            "thursday": this.state.thursday,
-            "friday": this.state.friday,
-            "saturday": this.state.saturday,
-            "sunday": this.state.sunday,
-            "exerc_end": '2019-05-22'
+    postTableHandler = (e) => {
+        if (e.target.name === "generar") {
+            const data = {
+                "email": this.state.email,
+                "monday": this.state.monday,
+                "tuesday": this.state.tuesday,
+                "wednesday": this.state.wednesday,
+                "thursday": this.state.thursday,
+                "friday": this.state.friday,
+                "saturday": this.state.saturday,
+                "sunday": this.state.sunday,
+                "exerc_end": '2019-05-22'
+            }
+
+            // Enviamos los datos al servicio
+
+            PostData('postTable', data).then((result) => {
+                let responseJSON = result;
+                console.log(responseJSON)
+            })
+        } else {
+            const data = {
+                "email": this.state.email,
+            }
+
+            axios.delete('http://localhost:8000/api/deleteTable', { data })
+                .then(response => {
+                    console.log(response)
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         }
 
-        // Enviamos los datos al servicio
 
-        PostData('postTable', data).then((result) => {
-            let responseJSON = result;
-            console.log(responseJSON)
-        })
     }
 
     render() {
@@ -254,10 +270,13 @@ export default class cPanel extends Component {
                                 {/* Selección del usuario */}
                                 <select className="form-control col-2  mr-2" onChange={this.weekHandler}>
                                     <option title="id" value=''>Email: </option>
-                                    {this.state.clients.map(client =>
+                                    {/* {this.state.clients.map(client =>
                                         !client.monday || !client.tuesday || !client.wednesday || !client.thursday || !client.friday || !client.saturday || !client.sunday ?
                                             <option key={client.id} value={client.email}>{client.email}</option>
                                             : ""
+                                    )} */}
+                                    {this.state.clients.map(client =>
+                                        <option key={client.id} value={client.email}>{client.email}</option>
                                     )}
                                 </select>
 
@@ -347,7 +366,8 @@ export default class cPanel extends Component {
                                 </table>
 
                                 <div>
-                                    <button onClick={this.postTableHandler}>Generar tabla</button>
+                                    <button name="generar" onClick={this.postTableHandler}>Generar</button>
+                                    <button name="limpiar" onClick={this.postTableHandler}>Limpiar</button>
                                 </div>
 
                                 {/* {days} */}
