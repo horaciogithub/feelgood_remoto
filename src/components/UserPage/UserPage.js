@@ -53,16 +53,18 @@ export default class UserPage extends Component {
 
     render() {
 
-        // redirige a la pagina principal si deslogeamos
+        // Devuelve home si deslogeamos
         if (this.state.redirect) {
             return <Redirect to="/" />
         }
 
-        let routine = '';
-
+        // Devuelve home si el usuario no existe
         if (!this.state.userData.id) {
             return <Redirect to="/" />
         }
+
+        // Busca las rutinas de ejercicio del usuario
+        let routine = '';
 
         if (this.state.routine != null) {
             routine = <Body routine={this.state.routine} />

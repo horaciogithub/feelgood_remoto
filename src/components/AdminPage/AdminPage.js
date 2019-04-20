@@ -49,11 +49,12 @@ export default class AdminPage extends Component {
 
     render() {
 
-        // redirige a la pagina principal si deslogeamos
+        // Devuelve home si deslogeamos
         if (this.state.redirect) {
             return <Redirect to="/" />
         }
 
+        // Devuelve home si el usuario no existe
         if (!this.state.userData.id) {
             return <Redirect to="/" />
         }

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const clients = (props) => {
-    //console.log(props.clients)
-    let imc = (wheigth, heigth) => {
+export default class Clients extends Component {
+    constructor(props) {
+        super(props)
+        this.imcHandler = this.imcHandler.bind(this)
+    }
+
+    imcHandler = (wheigth, heigth) => {
         let userValues = [];
         let result = (wheigth / (Math.pow(heigth, 2))).toFixed(2);
         userValues[0] = result;
@@ -23,43 +27,43 @@ const clients = (props) => {
         return userValues;
     }
 
-    return (
-        <div className="table-responsive">
-            <table className="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <td>Email</td>
-                        <td>Sexo</td>
-                        <td>Altura</td>
-                        <td>Peso</td>
-                        <td>Imc</td>
-                        <td>Valor</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {props.clients.map(client =>
-                        client.emailTable ?
-                            <tr key={client.id} className="active">
-                                <td>{client.email}</td>
-                                <td>{client.sex}</td>
-                                <td>{client.heigth}</td>
-                                <td>{client.wheigth}</td>
-                                <td>{imc(client.wheigth, client.heigth)[0]}</td>
-                                <td>{imc(client.wheigth, client.heigth)[1]}</td>
-                            </tr> :
-                            <tr key={client.id}>
-                                <td>{client.email}</td>
-                                <td>{client.sex}</td>
-                                <td>{client.heigth}</td>
-                                <td>{client.wheigth}</td>
-                                <td>{imc(client.wheigth, client.heigth)[0]}</td>
-                                <td>{imc(client.wheigth, client.heigth)[1]}</td>
-                            </tr>
-                    )}
-                </tbody>
-            </table>
-        </div>
-    );
+    render() {
+        return (
+            <div className="table-responsive">
+                <table className="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td>Email</td>
+                            <td>Sexo</td>
+                            <td>Altura</td>
+                            <td>Peso</td>
+                            <td>Imc</td>
+                            <td>Valor</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.clients.map(client =>
+                            client.monday && client.tuesday && client.wednesday && client.thursday && client.friday && client.saturday && client.sunday ?
+                                <tr key={client.id} className="active">
+                                    <td>{client.email}</td>
+                                    <td>{client.sex}</td>
+                                    <td>{client.heigth}</td>
+                                    <td>{client.wheigth}</td>
+                                    <td>{this.imcHandler(client.wheigth, client.heigth)[0]}</td>
+                                    <td>{this.imcHandler(client.wheigth, client.heigth)[1]}</td>
+                                </tr> :
+                                <tr key={client.id}>
+                                    <td>{client.email}</td>
+                                    <td>{client.sex}</td>
+                                    <td>{client.heigth}</td>
+                                    <td>{client.wheigth}</td>
+                                    <td>{this.imcHandler(client.wheigth, client.heigth)[0]}</td>
+                                    <td>{this.imcHandler(client.wheigth, client.heigth)[1]}</td>
+                                </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
+        );
+    }
 }
-
-export default clients;

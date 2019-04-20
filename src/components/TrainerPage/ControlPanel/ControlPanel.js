@@ -4,7 +4,11 @@ import axios from "axios";
 /* Styles */
 import "./ControlPanel.css";
 
+/* Componentes */
 import Clients from '../Clients/Clients';
+
+/* Funciones */
+import { PostData } from '../../../services/PostData';
 
 export default class cPanel extends Component {
     constructor(props) {
@@ -14,7 +18,15 @@ export default class cPanel extends Component {
             clients: [],
             exercices: [],
             idTables: [],
-            table: []
+            table: [],
+            monday: '',
+            tuesday: '',
+            wednesday: '',
+            thursday: '',
+            friday: '',
+            saturday: '',
+            sunday: '',
+            email: '',
         }
 
         this.setOptionsHandler = this.setOptionsHandler.bind(this)
@@ -77,7 +89,13 @@ export default class cPanel extends Component {
     }
 
     showTableHandler = (e) => {
+
         let value = parseInt(e.target.value)
+
+        this.setState({
+            [e.target.name]: value
+        })
+
         let options = [];
 
         if (value) {
@@ -94,11 +112,61 @@ export default class cPanel extends Component {
 
     }
 
+    // Recoge las tablas asignadas semanalmente en la tabla de ejercicios del usuario
+    weekHandler = (e) => {
+        let value = e.target.value
+
+        // Carga la tabla del cliente segun su email
+        axios.post("http://localhost:8000/api/clientTable", { email: value })
+            .then(response => {
+                let data = response.data.data[0]
+
+                this.setState({
+                    email: value,
+                    monday: data.monday,
+                    tuesday: data.tuesday,
+                    wednesday: data.wednesday,
+                    thursday: data.thursday,
+                    friday: data.friday,
+                    saturday: data.saturday,
+                    sunday: data.sunday,
+                    // table_end: '2019-05-22'
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    // Inserta el id de la tabla en la tabla de ejercicios del usuario
+    postTableHandler = () => {
+        const data = {
+            "email": this.state.email,
+            "monday": this.state.monday,
+            "tuesday": this.state.tuesday,
+            "wednesday": this.state.wednesday,
+            "thursday": this.state.thursday,
+            "friday": this.state.friday,
+            "saturday": this.state.saturday,
+            "sunday": this.state.sunday,
+            "exerc_end": '2019-05-22'
+        }
+
+        // Enviamos los datos al servicio
+
+        PostData('postTable', data).then((result) => {
+            let responseJSON = result;
+            console.log(responseJSON)
+        })
+    }
+
     render() {
-        const clients = this.state.clients;
+        // console.log(this.state.week)
 
         if (this.state.exercices.length > 0) {
-            console.log(this.state)
+            console.log(this.state.clients)
+            const clients = this.state.clients;
+
             let table;
             if (this.state.table.length > 0) {
 
@@ -183,34 +251,106 @@ export default class cPanel extends Component {
                                     )}
                                 </select>
 
-                                {/* Id del ejercicio */}
-                                <select className="form-control col-3 mr-2" onChange={this.showTableHandler}>
-                                    <option title="id" value=''>Id de tabla: </option>
-                                    {this.state.idTables.map(id =>
-                                        <option key={id} value={id}>{id}</option>
-                                    )}
-                                </select>
-
-                                {/* Días de la semana */}
-                                <select className="form-control col-2 mr-2">
-                                    <option value="lunes">Lunes</option>
-                                    <option value="martes">Martes</option>
-                                    <option value="mirecoles">Miércoles</option>
-                                    <option value="jueves">Jueves</option>
-                                    <option value="viernes">Viernes</option>
-                                    <option value="sabado">Sábado</option>
-                                    <option value="domingo">Domingo</option>
-                                </select>
-
                                 {/* Selección del usuario */}
-                                <select className="form-control col-2" >
+                                <select className="form-control col-2  mr-2" onChange={this.weekHandler}>
                                     <option title="id" value=''>Email: </option>
                                     {this.state.clients.map(client =>
-                                        !client.emailTable ?
+                                        !client.monday || !client.tuesday || !client.wednesday || !client.thursday || !client.friday || !client.saturday || !client.sunday ?
                                             <option key={client.id} value={client.email}>{client.email}</option>
                                             : ""
                                     )}
                                 </select>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td>Lunes</td>
+                                            <td>Martes</td>
+                                            <td>Miércoles</td>
+                                            <td>Jueves</td>
+                                            <td>Viernes</td>
+                                            <td>Sábado</td>
+                                            <td>Domingo</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <select name='monday' className="form-control col-3 mr-2" onChange={this.showTableHandler}>
+                                                    <option title="id" value=''>Id de tabla: </option>
+                                                    {this.state.idTables.map(id =>
+                                                        <option key={id} value={id}>{id}</option>
+                                                    )}
+                                                </select>
+                                            </td>
+
+                                            <td>
+                                                <select name='tuesday' className="form-control col-3 mr-2" onChange={this.showTableHandler}>
+                                                    <option title="id" value=''>Id de tabla: </option>
+                                                    {this.state.idTables.map(id =>
+                                                        <option key={id} value={id}>{id}</option>
+                                                    )}
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="wednesday" className="form-control col-3 mr-2" onChange={this.showTableHandler}>
+                                                    <option title="id" value=''>Id de tabla: </option>
+                                                    {this.state.idTables.map(id =>
+                                                        <option key={id} value={id}>{id}</option>
+                                                    )}
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="thursday" className="form-control col-3 mr-2" onChange={this.showTableHandler}>
+                                                    <option title="id" value=''>Id de tabla: </option>
+                                                    {this.state.idTables.map(id =>
+                                                        <option key={id} value={id}>{id}</option>
+                                                    )}
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="friday" className="form-control col-3 mr-2" onChange={this.showTableHandler}>
+                                                    <option title="id" value=''>Id de tabla: </option>
+                                                    {this.state.idTables.map(id =>
+                                                        <option key={id} value={id}>{id}</option>
+                                                    )}
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="saturday" className="form-control col-3 mr-2" onChange={this.showTableHandler}>
+                                                    <option title="id" value=''>Id de tabla: </option>
+                                                    {this.state.idTables.map(id =>
+                                                        <option key={id} value={id}>{id}</option>
+                                                    )}
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="sunday" className="form-control col-3 mr-2" onChange={this.showTableHandler}>
+                                                    <option title="id" value=''>Id de tabla: </option>
+                                                    {this.state.idTables.map(id =>
+                                                        <option key={id} value={id}>{id}</option>
+                                                    )}
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{this.state.monday}</td>
+                                            <td>{this.state.tuesday}</td>
+                                            <td>{this.state.wednesday}</td>
+                                            <td>{this.state.thursday}</td>
+                                            <td>{this.state.friday}</td>
+                                            <td>{this.state.saturday}</td>
+                                            <td>{this.state.sunday}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div>
+                                    <button onClick={this.postTableHandler}>Generar tabla</button>
+                                </div>
+
+                                {/* {days} */}
                             </div>
 
                             {/* Tablas de entrenamiento */}
@@ -221,7 +361,7 @@ export default class cPanel extends Component {
 
                         </div>
                     </div>
-                </div>
+                </div >
             )
         } else {
             return (

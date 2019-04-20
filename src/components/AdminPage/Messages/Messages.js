@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { MDBBtn } from "mdbreact";
 
-class Messages extends Component {
+export default class Messages extends Component {
     constructor() {
         super();
         this.state = {
@@ -56,5 +56,3 @@ class Messages extends Component {
         );
     }
 }
-
-export default Messages;

@@ -1,51 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../Index/Header/Header.css';
 import './UsersHeader.css';
 
-const header = (props) => {
-    return (
-        <header id="mainHeader" className="container-expand-sm">
-            <div className="overlay"></div>
-            <div className="header-bar pt-3 pb-3">
-                <div className="logo row col-sm-5">
-                    <div className="sm-3">
-                        <img src="img/feelgood.png" alt="Logo" />
+export default class Header extends Component {
+    render() {
+        return (
+            <header id="mainHeader" className="container-expand-sm">
+                <div className="overlay"></div>
+                <div className="header-bar pt-3 pb-3">
+                    <div className="logo row col-sm-5">
+                        <div className="sm-3">
+                            <img src="img/feelgood.png" alt="Logo" />
+                        </div>
+                        <h1>FeelGood</h1>
                     </div>
-                    <h1>FeelGood</h1>
-                </div>
 
-                {/* When users are logged */}
-
-                <div className="col-5 ml-5 form-inline login" method="post">
-                    <div className="col-3 profile">
-                        <img src={props.user.img} alt={props.user.name} />
+                    <div className="col-5 ml-5 form-inline login" method="post">
+                        <div className="col-3 profile">
+                            <img src={this.props.user.img} alt={this.props.user.name} />
+                        </div>
+                        <h5>{this.props.user.name} {this.props.user.surname}</h5>
+                        <button className="btn btn-green ml-3" onClick={this.props.logout}>Salir <i className="fas fa-sign-out-alt"></i></button>
                     </div>
-                    <h5>{props.user.name} {props.user.surname}</h5>
-
-                    {/* User */}
-                    {/* <button id="logout" type="submit" name="submit" className="btn btn-green dropdown">
-                        <a href="enlace 1">
-                            <i className="fa fa-caret-down" aria-hidden="true"></i>
-                        </a>
-                    </button> */}
-
-                    <button className="btn btn-green ml-3" onClick={props.logout}>Salir <i className="fas fa-sign-out-alt"></i></button>
-
                 </div>
-
-            </div>
-
-            {/* Wrapper */}
-            <div className="wrapper">
-                {/* <p>Ánimo, tu puedes con todo</p> */}
-
-                {/* <p className="icon">
-                    <i className="fa fa-angle-down" aria-hidden="true"></i>
-                </p> */}
-            </div>
-        </header>
-
-    );
+            </header>
+        );
+    }
 }
-
-export default header;

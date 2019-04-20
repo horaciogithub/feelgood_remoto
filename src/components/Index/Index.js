@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 
 /* ------------------ */
 /*     COMPONENTS     */
@@ -10,17 +10,16 @@ import Body from './Body/Body';
 import Footer from '../Footer/Footer';
 import Register from './Register/Register';
 
-const index = (props) => {
-
-    return (
-        <Fragment>
-            <Header />
-            <Register />
-            <Navbar />
-            <Body />
-            <Footer />
-        </Fragment>
-    )
+export default class Index extends Component {
+    render() {
+        return (
+            <Fragment>
+                <Header />
+                <Register />
+                <Navbar />
+                <Body />
+                <Footer />
+            </Fragment>
+        )
+    }
 }
-
-export default index;
