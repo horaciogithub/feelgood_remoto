@@ -10,7 +10,14 @@
     background-color: #a5d6a7
 }
 
+.panel  table th,
 .panel  table td {
+    font-size: 15px !important;
+    text-align: center;
+}
+
+.panel input {
+    border: 1px solid black !important;
     text-align: center;
 }
 

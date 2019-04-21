@@ -27,9 +27,76 @@ export default class cPanel extends Component {
             saturday: '',
             sunday: '',
             email: '',
+
+            // Generador de ejercicios
+            exercGenerator: '',
+            exercController: '',
+
+            routineData: {
+                type: '',
+                routine: '',
+                warm_up_name: '',
+                warm_up_time: '',
+
+                exerc1Name: '',
+                exerc1Series: '',
+                exerc1Loops: '',
+                exerc1Rest: '',
+
+                exerc2Name: '',
+                exerc2Series: '',
+                exerc2Loops: '',
+                exerc2Rest: '',
+
+                exerc3Name: '',
+                exerc3Series: '',
+                exerc3Loops: '',
+                exerc3Rest: '',
+
+                exerc4Name: '',
+                exerc4Series: '',
+                exerc4Loops: '',
+                exerc4Rest: '',
+
+                exerc5Name: '',
+                exerc5Series: '',
+                exerc5Loops: '',
+                exerc5Rest: '',
+
+                exerc6Name: '',
+                exerc6Series: '',
+                exerc6Loops: '',
+                exerc6Rest: '',
+
+                exerc7Name: '',
+                exerc7Series: '',
+                exerc7Loops: '',
+                exerc7Rest: '',
+
+                exerc8Name: '',
+                exerc8Series: '',
+                exerc8Loops: '',
+                exerc8Rest: '',
+
+                exerc9Name: '',
+                exerc9Series: '',
+                exerc9Loops: '',
+                exerc9Rest: '',
+
+                exerc10Name: '',
+                exerc10Series: '',
+                exerc10Loops: '',
+                exerc10Rest: '',
+            }
         }
 
         this.setOptionsHandler = this.setOptionsHandler.bind(this)
+        this.idTableHandler = this.idTableHandler.bind(this)
+        this.showTableHandler = this.showTableHandler.bind(this)
+        this.weekHandler = this.weekHandler.bind(this)
+        this.postTableHandler = this.postTableHandler.bind(this)
+        this.reloadClientsHandler = this.reloadClientsHandler.bind(this)
+        this.reloadExercicesHandler = this.reloadExercicesHandler.bind(this)
     }
 
     componentWillMount() {
@@ -156,8 +223,8 @@ export default class cPanel extends Component {
             // Enviamos los datos al servicio
 
             PostData('postTable', data).then((result) => {
-                let responseJSON = result;
-                console.log(responseJSON)
+                // let responseJSON = result;
+                this.reloadClientsHandler();
             })
         } else {
             const data = {
@@ -166,21 +233,151 @@ export default class cPanel extends Component {
 
             axios.delete('http://localhost:8000/api/deleteTable', { data })
                 .then(response => {
-                    console.log(response)
+                    this.reloadClientsHandler();
+
+                    // Limpia los estados de los días
+                    this.setState({
+                        email: '',
+                        monday: '',
+                        tuesday: '',
+                        wednesday: '',
+                        thursday: '',
+                        friday: '',
+                        saturday: '',
+                        sunday: '',
+                        // table_end: '2019-05-22'
+                    })
                 })
                 .catch((error) => {
                     console.log(error)
                 })
         }
+    }
 
+    reloadClientsHandler = () => {
+        // Recarga la tabla de clientes
+        axios.get("http://localhost:8000/api/clients")
+            .then(response => {
+                this.setState({
+                    clients: response.data,
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    reloadExercicesHandler = () => {
+        // Carga las tablas de ejercicios 
+        axios.get("http://localhost:8000/api/exercices")
+            .then(response => {
+                this.setState({
+                    exercices: response.data,
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    inputHandler = (e) => {
+        // let routine = this.state.routineData
+
+
+        this.setState({
+            routineData: {
+                ...this.state.routineData,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
+    // Generador de rutinas
+    routineGeneratorHandler = (e) => {
+        let exercicesHead = [];
+        let exercController = [];
+
+        for (let i = 0; i < e.target.value; i++) {
+            exercicesHead.push(<th>Ejercicio{i + 1}</th>)
+
+            exercController.push(
+                <td>
+                    <label>Nombre: </label>
+                    <input name={'exerc' + (i + 1) + 'Name'} className="form-control" type="text" placeholder="Press militar" onChange={this.inputHandler} />
+                    <label>Series: </label>
+                    <input name={'exerc' + (i + 1) + 'Series'} className="form-control" type="text" placeholder="4" onChange={this.inputHandler} />
+                    <label>Repeticiones: </label>
+                    <input name={'exerc' + (i + 1) + 'Loops'} className="form-control" type="text" placeholder="12" onChange={this.inputHandler} />
+                    <label>Descanso: </label>
+                    <input name={'exerc' + (i + 1) + 'Rest'} className="form-control" type="text" placeholder="00:01:15" onChange={this.inputHandler} />
+                </td>
+            )
+        }
+
+
+        let table = (
+            <div className="table-responsive">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Rutina</th>
+                            <th>Calentamiento</th>
+                            {exercicesHead}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr key="1">
+                            <td>
+                                <select name="type" onChange={this.inputHandler}>
+                                    <option value="aeróbico">Aeróbico</option>
+                                    <option value="anaeróbico">Anaeróbico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input name="routine" className="form-control" type="text" placeholder="Pecho" onChange={this.inputHandler} />
+                            </td>
+                            <td>
+                                <label>Nombre:</label>
+                                <input name="warm_up_name" className="form-control" type="text" placeholder="Cinta" onChange={this.inputHandler} />
+
+                                <label>Tiempo:</label>
+                                <input name="warm_up_time" className="form-control" type="text" placeholder="00:30:00" onChange={this.inputHandler} />
+                            </td>
+                            {exercController}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        )
+
+        this.setState({
+            exercGenerator: table
+        })
+    }
+
+    // Envia la rutina para su registro
+    postRoutineHandeler = () => {
+        let data = this.state.routineData
+        //console.log(data)
+
+        if (this.state.routineData.exerc1Name && this.state.routineData.exerc2Name &&
+            this.state.routineData.exerc3Name && this.state.routineData.exerc4Name &&
+            this.state.routineData.exerc5Name && this.state.routineData.exerc6Name) {
+            axios.post('http://localhost:8000/api/routineRegister', data)
+                .then(response => {
+                    this.reloadExercicesHandler()
+                })
+
+        } else {
+            console.log("error de envío")
+        }
 
     }
 
     render() {
-        // console.log(this.state.week)
-
         if (this.state.exercices.length > 0) {
-            console.log(this.state.clients)
+            // console.log(this.state.clients)
             const clients = this.state.clients;
 
             let table;
@@ -260,7 +457,7 @@ export default class cPanel extends Component {
 
                             <div className="row control">
                                 {/* Tipo de ejercicio */}
-                                <select className="form-control col-2 mr-2" onChange={this.idTableHandler}>
+                                <select name="type" className="form-control col-2 mr-2" onChange={this.idTableHandler}>
                                     <option title="Tipo" value=''>Tipo: </option>
                                     {this.setOptionsHandler(this.state.exercices).map(exercice =>
                                         <option key={exercice} value={exercice}>{exercice}</option>
@@ -270,11 +467,6 @@ export default class cPanel extends Component {
                                 {/* Selección del usuario */}
                                 <select className="form-control col-2  mr-2" onChange={this.weekHandler}>
                                     <option title="id" value=''>Email: </option>
-                                    {/* {this.state.clients.map(client =>
-                                        !client.monday || !client.tuesday || !client.wednesday || !client.thursday || !client.friday || !client.saturday || !client.sunday ?
-                                            <option key={client.id} value={client.email}>{client.email}</option>
-                                            : ""
-                                    )} */}
                                     {this.state.clients.map(client =>
                                         <option key={client.id} value={client.email}>{client.email}</option>
                                     )}
@@ -377,9 +569,15 @@ export default class cPanel extends Component {
                             <div className="table-responsive mt-5">
                                 {table}
                             </div>
-
-
                         </div>
+                    </div>
+                    <div>
+                        <h4>Generador de rutina de entrenamiento:</h4>
+
+                        <label>Introduce cuántos ejercicios quieres crear:</label>
+                        <input type="number" placeholder="6" min="6" max="10" onChange={this.routineGeneratorHandler} />
+                        {this.state.exercGenerator}
+                        <button onClick={this.postRoutineHandeler}>Registrar rutina</button>
                     </div>
                 </div >
             )
