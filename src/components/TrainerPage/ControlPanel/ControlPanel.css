@@ -2,7 +2,12 @@
     min-height: 600px;
 }
 
+.panel .selector-panel {
+    background-color: rgb(44, 44, 44)
+}
+
 .panel table {
+    width: 100%;
     background-color: white
 }
 
@@ -14,6 +19,10 @@
 .panel  table td {
     font-size: 15px !important;
     text-align: center;
+}
+
+.panel .selector select {
+    width: 65px;
 }
 
 .panel input {

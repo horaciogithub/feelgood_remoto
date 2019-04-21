@@ -446,18 +446,19 @@ export default class cPanel extends Component {
             }
 
             return (
-                <div className="container-fluid mt-5 panel">
-                    <div className="row">
-                        {/* Tabla de clientes */}
-                        <div className="col-6">
-                            <Clients clients={clients} check={this.checkHandler} />
+                <div className="container-fluid panel">
+                    <div className="row selector-panel pt-5">
+
+                        {/* Tablas de entrenamiento */}
+                        <div className="table-responsive col-6">
+                            {table}
                         </div>
 
                         <div className="col-6">
 
                             <div className="row control">
                                 {/* Tipo de ejercicio */}
-                                <select name="type" className="form-control col-2 mr-2" onChange={this.idTableHandler}>
+                                <select name="type" className="form-control col-2  mr-2" onChange={this.idTableHandler}>
                                     <option title="Tipo" value=''>Tipo: </option>
                                     {this.setOptionsHandler(this.state.exercices).map(exercice =>
                                         <option key={exercice} value={exercice}>{exercice}</option>
@@ -465,109 +466,111 @@ export default class cPanel extends Component {
                                 </select>
 
                                 {/* Selección del usuario */}
-                                <select className="form-control col-2  mr-2" onChange={this.weekHandler}>
+                                <select className="form-control col-4  mr-2" onChange={this.weekHandler}>
                                     <option title="id" value=''>Email: </option>
                                     {this.state.clients.map(client =>
                                         <option key={client.id} value={client.email}>{client.email}</option>
                                     )}
                                 </select>
 
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <td>Lunes</td>
-                                            <td>Martes</td>
-                                            <td>Miércoles</td>
-                                            <td>Jueves</td>
-                                            <td>Viernes</td>
-                                            <td>Sábado</td>
-                                            <td>Domingo</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <select name='monday' className="form-control col-3 mr-2" onChange={this.showTableHandler}>
-                                                    <option title="id" value=''>Id de tabla: </option>
-                                                    {this.state.idTables.map(id =>
-                                                        <option key={id} value={id}>{id}</option>
-                                                    )}
-                                                </select>
-                                            </td>
+                                <div className="table-responsive selectors">
+                                    <table className="table-bordered mt-3">
+                                        <thead>
+                                            <tr>
+                                                <td>Lunes</td>
+                                                <td>Martes</td>
+                                                <td>Miércoles</td>
+                                                <td>Jueves</td>
+                                                <td>Viernes</td>
+                                                <td>Sábado</td>
+                                                <td>Domingo</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <select name='monday' className="form-control" onChange={this.showTableHandler}>
+                                                        <option title="id" value=''>Id: </option>
+                                                        {this.state.idTables.map(id =>
+                                                            <option key={id} value={id}>{id}</option>
+                                                        )}
+                                                    </select>
+                                                </td>
 
-                                            <td>
-                                                <select name='tuesday' className="form-control col-3 mr-2" onChange={this.showTableHandler}>
-                                                    <option title="id" value=''>Id de tabla: </option>
-                                                    {this.state.idTables.map(id =>
-                                                        <option key={id} value={id}>{id}</option>
-                                                    )}
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <select name="wednesday" className="form-control col-3 mr-2" onChange={this.showTableHandler}>
-                                                    <option title="id" value=''>Id de tabla: </option>
-                                                    {this.state.idTables.map(id =>
-                                                        <option key={id} value={id}>{id}</option>
-                                                    )}
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <select name="thursday" className="form-control col-3 mr-2" onChange={this.showTableHandler}>
-                                                    <option title="id" value=''>Id de tabla: </option>
-                                                    {this.state.idTables.map(id =>
-                                                        <option key={id} value={id}>{id}</option>
-                                                    )}
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <select name="friday" className="form-control col-3 mr-2" onChange={this.showTableHandler}>
-                                                    <option title="id" value=''>Id de tabla: </option>
-                                                    {this.state.idTables.map(id =>
-                                                        <option key={id} value={id}>{id}</option>
-                                                    )}
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <select name="saturday" className="form-control col-3 mr-2" onChange={this.showTableHandler}>
-                                                    <option title="id" value=''>Id de tabla: </option>
-                                                    {this.state.idTables.map(id =>
-                                                        <option key={id} value={id}>{id}</option>
-                                                    )}
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <select name="sunday" className="form-control col-3 mr-2" onChange={this.showTableHandler}>
-                                                    <option title="id" value=''>Id de tabla: </option>
-                                                    {this.state.idTables.map(id =>
-                                                        <option key={id} value={id}>{id}</option>
-                                                    )}
-                                                </select>
-                                            </td>
-                                        </tr>
+                                                <td>
+                                                    <select name='tuesday' className="form-control" onChange={this.showTableHandler}>
+                                                        <option title="id" value=''>Id: </option>
+                                                        {this.state.idTables.map(id =>
+                                                            <option key={id} value={id}>{id}</option>
+                                                        )}
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="wednesday" className="form-control" onChange={this.showTableHandler}>
+                                                        <option title="id" value=''>Id: </option>
+                                                        {this.state.idTables.map(id =>
+                                                            <option key={id} value={id}>{id}</option>
+                                                        )}
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="thursday" className="form-control" onChange={this.showTableHandler}>
+                                                        <option title="id" value=''>Id: </option>
+                                                        {this.state.idTables.map(id =>
+                                                            <option key={id} value={id}>{id}</option>
+                                                        )}
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="friday" className="form-control" onChange={this.showTableHandler}>
+                                                        <option title="id" value=''>Id: </option>
+                                                        {this.state.idTables.map(id =>
+                                                            <option key={id} value={id}>{id}</option>
+                                                        )}
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="saturday" className="form-control" onChange={this.showTableHandler}>
+                                                        <option title="id" value=''>Id: </option>
+                                                        {this.state.idTables.map(id =>
+                                                            <option key={id} value={id}>{id}</option>
+                                                        )}
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="sunday" className="form-control" onChange={this.showTableHandler}>
+                                                        <option title="id" value=''>Id: </option>
+                                                        {this.state.idTables.map(id =>
+                                                            <option key={id} value={id}>{id}</option>
+                                                        )}
+                                                    </select>
+                                                </td>
+                                            </tr>
 
-                                        <tr>
-                                            <td>{this.state.monday}</td>
-                                            <td>{this.state.tuesday}</td>
-                                            <td>{this.state.wednesday}</td>
-                                            <td>{this.state.thursday}</td>
-                                            <td>{this.state.friday}</td>
-                                            <td>{this.state.saturday}</td>
-                                            <td>{this.state.sunday}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                            <tr>
+                                                <td>{this.state.monday}</td>
+                                                <td>{this.state.tuesday}</td>
+                                                <td>{this.state.wednesday}</td>
+                                                <td>{this.state.thursday}</td>
+                                                <td>{this.state.friday}</td>
+                                                <td>{this.state.saturday}</td>
+                                                <td>{this.state.sunday}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                <div>
-                                    <button name="generar" onClick={this.postTableHandler}>Generar</button>
-                                    <button name="limpiar" onClick={this.postTableHandler}>Limpiar</button>
+                                <div className="mt-4">
+                                    <button className="btn btn-green mr-4" name="generar" onClick={this.postTableHandler}>Generar</button>
+                                    <button className="btn btn-green" name="limpiar" onClick={this.postTableHandler}>Limpiar</button>
                                 </div>
 
                                 {/* {days} */}
                             </div>
 
-                            {/* Tablas de entrenamiento */}
-                            <div className="table-responsive mt-5">
-                                {table}
+                            {/* Tabla de clientes */}
+                            <div className="mt-5">
+                                <Clients clients={clients} check={this.checkHandler} />
                             </div>
                         </div>
                     </div>
