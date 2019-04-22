@@ -199,17 +199,22 @@ export default class Messages extends Component {
                 {result}
 
                 {/* Botones de paginación */}
-                <div className="d-flex justify-content-center pagination-comments">
-                    <Pagination
-                        itemClass="page-item"
-                        linkClass="page-link"
-                        activePage={this.state.activePage}
-                        itemsCountPerPage={this.state.itemsCountPerPage}
-                        totalItemsCount={this.state.totalItemsCount}
-                        pageRangeDisplayed={this.state.pageRangeDisplayed}
-                        onChange={this.handlePageChange}
-                    />
-                </div>
+                {this.state.messages.length > 0 ?
+                    <div className="d-flex justify-content-center pagination-comments">
+                        <Pagination
+                            itemClass="page-item"
+                            linkClass="page-link"
+                            activePage={this.state.activePage}
+                            itemsCountPerPage={this.state.itemsCountPerPage}
+                            totalItemsCount={this.state.totalItemsCount}
+                            pageRangeDisplayed={this.state.pageRangeDisplayed}
+                            onChange={this.handlePageChange}
+                        />
+                    </div> :
+                    <div>
+                        <p className="text-center"><i className="fas fa-info-circle"></i> No hay mensajes</p>
+                    </div>
+                }
 
                 <div className="form-group">
                     <textarea
