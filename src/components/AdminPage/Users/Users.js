@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Pagination from "react-js-pagination"; // Importa paginación
 import axios from "axios";
 
 import "./Users.css";
@@ -7,17 +8,27 @@ export default class Users extends Component {
     constructor() {
         super();
         this.state = {
-            users: []
+            users: [],
+
+            // Atributos de la paginación
+            activePage: 1,
+            itemsCountPerPage: 1,
+            totalItemsCount: 1,
+            pageRangeDisplayed: 5,
         };
-        this.deleteUserHandler = this.deleteUserHandler.bind(this);
-        this.warningUserHandler = this.warningUserHandler.bind(this);
+        this.deleteUserHandler = this.deleteUserHandler.bind(this)
+        this.warningUserHandler = this.warningUserHandler.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this)
     }
 
     componentWillMount() {
-        axios.get("http://localhost:8000/api/users")
+        axios.get(`http://localhost:8000/api/users?page=` + 1)
             .then(response => {
                 this.setState({
-                    users: response.data
+                    users: response.data.data,
+                    itemsCountPerPage: response.data.per_page,
+                    totalItemsCount: response.data.total,
+                    activePage: response.data.current_page,
                 });
             });
     }
@@ -61,12 +72,39 @@ export default class Users extends Component {
             });
     }
 
+    // Paginación de usuarios
+    handlePageChange(pageNumber) {
+        axios.get(`http://localhost:8000/api/users?page=` + pageNumber)
+            .then(response => {
+                this.setState({
+                    users: response.data.data,
+                    itemsCountPerPage: response.data.per_page,
+                    totalItemsCount: response.data.total,
+                    activePage: response.data.current_page,
+                });
+            });
+    }
+
     render() {
         if (this.state.users.length > 0) {
-            // console.log(this.state.users)
             const { users } = this.state;
             return (
                 <div id="users" className="table-responsive col-8 m-auto p-5">
+
+                    {/* Botones de paginación */}
+                    <div>
+                        <Pagination
+                            itemClass="page-item"
+                            linkClass="page-link"
+                            activePage={this.state.activePage}
+                            itemsCountPerPage={this.state.itemsCountPerPage}
+                            totalItemsCount={this.state.totalItemsCount}
+                            pageRangeDisplayed={this.state.pageRangeDisplayed}
+                            onChange={this.handlePageChange}
+                        />
+                    </div>
+
+                    {/* Tabla de usuarios */}
                     <table className="table table-striped table-dark table-hover">
                         <thead>
                             <tr>
