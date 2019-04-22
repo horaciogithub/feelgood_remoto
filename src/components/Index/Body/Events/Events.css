@@ -2,7 +2,7 @@
 /*     EVENTS     */
 /* –––––––––––––– */
 
-#third .hovereffect {
+#events .hovereffect {
     width: 100%;
     height: 100%;
     float: left;
@@ -12,15 +12,15 @@
     cursor: default;
 }
 
-#third .row {
+#events .row {
     margin: 0 auto;
 }
 
-#third .row > div {
+#events .row > div {
     padding: 0;
 }
 
-#third .hovereffect img {
+#events .hovereffect img {
     width: 100%;
     display: block;
     position: relative;
@@ -28,7 +28,7 @@
     transition: all 0.4s ease-in;
 }
 
-#third .hovereffect:hover img {
+#events .hovereffect:hover img {
     filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /><feGaussianBlur stdDeviation="3" /></filter></svg>#filter');
     filter: grayscale(1) blur(3px);
     -webkit-filter: grayscale(1) blur(3px);
@@ -37,7 +37,7 @@
     transform: scale(1.2);
 }
 
-#third .hovereffect .overlay {
+#events .hovereffect .overlay {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -46,7 +46,7 @@
     left: 0;
 }
 
-#third .hovereffect h2 {
+#events .hovereffect h2 {
     text-transform: uppercase;
     text-align: center;
     position: relative;
@@ -55,7 +55,7 @@
     background: rgba(0, 0, 0, 0.6);
 }
 
-#third .hovereffect a.info {
+#events .hovereffect a.info {
     display: inline-block;
     text-decoration: none;
     padding: 7px 14px;
@@ -64,11 +64,11 @@
     background-color: transparent;
 }
 
-#third .hovereffect a.info:hover {
+#events .hovereffect a.info:hover {
     box-shadow: 0 0 5px #fff;
 }
 
-#third .hovereffect a.info,
+#events .hovereffect a.info,
 .hovereffect h2 {
     -webkit-transform: scale(0.7);
     -ms-transform: scale(0.7);
@@ -81,7 +81,7 @@
     text-transform: uppercase;
 }
 
-#third .hovereffect:hover a.info,
+#events .hovereffect:hover a.info,
 .hovereffect:hover h2 {
     opacity: 1;
     filter: alpha(opacity=100);

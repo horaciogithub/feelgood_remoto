@@ -4,7 +4,7 @@ import "./Footer.css";
 export default class Footer extends Component {
     render() {
         return (
-            <footer id="fourth" className="text-center">
+            <footer id="footer" className="text-center">
                 <div className="social">
                     <a href="https://twitter.com/?lang=es" title="Síguenos en Twitter!" rel="no_opener">
                         <i className="fab fa-twitter"></i>

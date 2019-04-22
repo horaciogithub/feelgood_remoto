@@ -5,7 +5,7 @@ import "./Events.css";
 export default class Events extends Component {
     render() {
         return (
-            <section id="third" className="lastContent">
+            <section id="events" className="lastContent">
                 <div className="col-lg-12 headings">
                     <h2>Eventos</h2>
                     <hr className="underline" />

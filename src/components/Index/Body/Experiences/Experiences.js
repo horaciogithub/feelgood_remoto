@@ -4,7 +4,7 @@ import "./Experiences.css";
 export default class Experiences extends Component {
     render() {
         return (
-            <section id="experiencias">
+            <section id="experiences">
                 <div id="demo" className="carousel slide" data-ride="carousel">
 
                     {/* Indicators */}

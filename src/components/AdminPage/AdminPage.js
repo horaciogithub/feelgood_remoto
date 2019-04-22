@@ -23,7 +23,6 @@ export default class AdminPage extends Component {
 
     componentWillMount() {
         if (sessionStorage.getItem("userData")) {
-
             const data = JSON.parse(sessionStorage.getItem("userData"))
 
             this.setState({

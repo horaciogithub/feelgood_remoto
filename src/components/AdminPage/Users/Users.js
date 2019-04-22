@@ -66,14 +66,9 @@ export default class Users extends Component {
             console.log(this.state.users)
             const { users } = this.state;
             return (
-                <div>
-                    <table id="example" className="table table-striped table-dark table-hover">
+                <div className="table-responsive col-6 mt-5">
+                    <table id="users" className="table table-striped table-dark table-hover">
                         <thead>
-                            <tr>
-                                <th colSpan="9" className="text-center text-uppercase">
-                                    <h2 className="pt-2 pb-2">Usuarios</h2>
-                                </th>
-                            </tr>
                             <tr>
                                 <th></th>
                                 <th className="text-center" scope="col">

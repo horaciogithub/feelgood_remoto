@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AnchorLink from 'react-anchor-link-smooth-scroll' // Menú ancla
 import "./Navbar.css";
 
 export default class NavBar extends Component {
@@ -20,33 +21,16 @@ export default class NavBar extends Component {
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a
-                                className="nav-link"
-                                href="enlace 1">
-                                Quiénes somos
-                            </a>
+                            <AnchorLink className="nav-link" href='#about'>Quiénes somos</AnchorLink>
                         </li>
                         <li className="nav-item">
-                            <a
-                                className="nav-link"
-                                href="enlace 2">
-                                Experiencias
-                            </a>
+                            <AnchorLink className="nav-link" href='#experiences'>Experiencias</AnchorLink>
                         </li>
                         <li className="nav-item">
-                            <a
-                                className="nav-link"
-                                href="enlace 3">
-                                Eventos
-                            </a>
-
+                            <AnchorLink className="nav-link" href='#events'>Eventos</AnchorLink>
                         </li>
                         <li className="nav-item">
-                            <a
-                                className="nav-link"
-                                href="enlace 1">
-                                Síguenos</a>
-
+                            <AnchorLink className="nav-link" href='#footer'>Síguenos</AnchorLink>
                         </li>
                     </ul>
                 </div>
