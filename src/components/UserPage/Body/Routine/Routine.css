@@ -60,8 +60,8 @@
     left: 24px;
     right: 0;
     margin: auto;
-    width: 1010px;
-    height: 580px;
+    width: 1020px;
+    height: 770px;
     background-color: var(--background);
     transform: skew(4deg,10deg);
 }

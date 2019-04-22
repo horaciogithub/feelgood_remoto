@@ -6,6 +6,7 @@ import './Routine.css';
 export default class Routine extends Component {
 
     render() {
+        console.log(this.props.routine)
         return (
             <div className="routine">
                 <table className="table table-borderless table-hover table-striped">
@@ -61,6 +62,47 @@ export default class Routine extends Component {
                             <td>{this.props.routine[6].loops}</td>
                             <td>{this.props.routine[6].rest}</td>
                         </tr>
+
+                        {/* Ejercicios que pueden ser nulos */}
+                        {
+                            this.props.routine[7] !== null ?
+                                <tr>
+                                    <td>{this.props.routine[7].name}</td>
+                                    <td>{this.props.routine[7].series}</td>
+                                    <td>{this.props.routine[7].loops}</td>
+                                    <td>{this.props.routine[7].rest}</td>
+                                </tr> : ""
+                        }
+
+                        {
+                            this.props.routine[8] !== null ?
+                                <tr>
+                                    <td>{this.props.routine[8].name}</td>
+                                    <td>{this.props.routine[8].series}</td>
+                                    <td>{this.props.routine[8].loops}</td>
+                                    <td>{this.props.routine[8].rest}</td>
+                                </tr> : ""
+                        }
+
+                        {
+                            this.props.routine[9] !== null ?
+                                <tr>
+                                    <td>{this.props.routine[9].name}</td>
+                                    <td>{this.props.routine[9].series}</td>
+                                    <td>{this.props.routine[9].loops}</td>
+                                    <td>{this.props.routine[9].rest}</td>
+                                </tr> : ""
+                        }
+
+                        {
+                            this.props.routine[10] !== null ?
+                                <tr>
+                                    <td>{this.props.routine[10].name}</td>
+                                    <td>{this.props.routine[10].series}</td>
+                                    <td>{this.props.routine[10].loops}</td>
+                                    <td>{this.props.routine[10].rest}</td>
+                                </tr> : ""
+                        }
                     </tbody>
                 </table>
             </div>
