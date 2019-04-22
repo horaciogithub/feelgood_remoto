@@ -1,0 +1,11 @@
+#comments {
+    margin-top: 50px !important
+}
+
+#comments.info-container {
+    padding: 250px 0;
+}
+
+#comments p.info {
+    text-align: center;
+}

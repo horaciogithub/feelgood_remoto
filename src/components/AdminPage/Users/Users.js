@@ -16,9 +16,10 @@ export default class Users extends Component {
             totalItemsCount: 1,
             pageRangeDisplayed: 5,
         };
+        this.handlePageChange = this.handlePageChange.bind(this)
         this.deleteUserHandler = this.deleteUserHandler.bind(this)
         this.warningUserHandler = this.warningUserHandler.bind(this)
-        this.handlePageChange = this.handlePageChange.bind(this)
+        this.reloadUsersHandler = this.reloadUsersHandler.bind(this)
     }
 
     componentWillMount() {
@@ -29,45 +30,6 @@ export default class Users extends Component {
                     itemsCountPerPage: response.data.per_page,
                     totalItemsCount: response.data.total,
                     activePage: response.data.current_page,
-                });
-            });
-    }
-
-    deleteUserHandler = (e) => {
-
-        axios.delete('http://localhost:8000/api/userDelete', { data: { id: e.target.value } })
-            .then(response => {
-                this.reloadUsersHandler();
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
-
-    warningUserHandler = (e) => {
-
-        console.log(e.target.value)
-
-        const data = {
-            id: e.target.value
-        }
-
-        axios.post('http://localhost:8000/api/userWarning', data)
-            .then(response => {
-                this.reloadUsersHandler();
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
-
-    reloadUsersHandler = () => {
-
-        // Recarga la tabla de usuarios
-        axios.get("http://localhost:8000/api/users")
-            .then(response => {
-                this.setState({
-                    users: response.data
                 });
             });
     }
@@ -85,11 +47,56 @@ export default class Users extends Component {
             });
     }
 
+    // Elimina un ususario determinado
+    deleteUserHandler = (e) => {
+
+        axios.delete('http://localhost:8000/api/userDelete', { data: { id: e.target.value } })
+            .then(response => {
+                this.reloadUsersHandler();
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    // Añade un warning a un usuario
+    warningUserHandler = (e) => {
+
+        console.log(e.target.value)
+
+        const data = {
+            id: e.target.value
+        }
+
+        axios.post('http://localhost:8000/api/userWarning', data)
+            .then(response => {
+                this.reloadUsersHandler();
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    // Recarga el estado tras alguna acción
+    reloadUsersHandler = () => {
+
+        // Recarga la tabla de usuarios
+        axios.get(`http://localhost:8000/api/users?page=` + this.state.activePage)
+            .then(response => {
+                this.setState({
+                    users: response.data.data,
+                    itemsCountPerPage: response.data.per_page,
+                    totalItemsCount: response.data.total,
+                    activePage: response.data.current_page,
+                });
+            });
+    }
+
     render() {
         if (this.state.users.length > 0) {
             const { users } = this.state;
             return (
-                <div id="users" className="table-responsive col-8 m-auto p-5">
+                <div id="users" className="table-responsive col-8 m-auto p-0">
 
                     {/* Botones de paginación */}
                     <div>
@@ -170,6 +177,5 @@ export default class Users extends Component {
                 </div>
             )
         }
-
     }
 }
