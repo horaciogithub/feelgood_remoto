@@ -440,6 +440,48 @@ export default class cPanel extends Component {
                                 <td>{this.state.table[0].exercice6[0].loops}</td>
                                 <td>{this.state.table[0].exercice6[0].rest}</td>
                             </tr>
+
+                            {/* Ejercicios que pueden ser nulos */}
+                            {this.state.table[0].exercice7.length > 0 ?
+                                <tr>
+                                    <td>{this.state.table[0].exercice7[0].name}</td>
+                                    <td>{this.state.table[0].exercice7[0].series}</td>
+                                    <td>{this.state.table[0].exercice7[0].loops}</td>
+                                    <td>{this.state.table[0].exercice7[0].rest}</td>
+                                </tr> :
+                                ""
+                            }
+
+                            {this.state.table[0].exercice8.length > 0 ?
+                                <tr>
+                                    <td>{this.state.table[0].exercice8[0].name}</td>
+                                    <td>{this.state.table[0].exercice8[0].series}</td>
+                                    <td>{this.state.table[0].exercice8[0].loops}</td>
+                                    <td>{this.state.table[0].exercice8[0].rest}</td>
+                                </tr> :
+                                ""
+                            }
+
+                            {this.state.table[0].exercice9.length > 0 ?
+                                <tr>
+                                    <td>{this.state.table[0].exercice9[0].name}</td>
+                                    <td>{this.state.table[0].exercice9[0].series}</td>
+                                    <td>{this.state.table[0].exercice9[0].loops}</td>
+                                    <td>{this.state.table[0].exercice9[0].rest}</td>
+                                </tr> :
+                                ""
+                            }
+
+                            {this.state.table[0].exercice10.length > 0 ?
+                                <tr>
+                                    <td>{this.state.table[0].exercice10[0].name}</td>
+                                    <td>{this.state.table[0].exercice10[0].series}</td>
+                                    <td>{this.state.table[0].exercice10[0].loops}</td>
+                                    <td>{this.state.table[0].exercice10[0].rest}</td>
+                                </tr> :
+                                ""
+                            }
+
                         </tbody>
                     </table>
                 )
