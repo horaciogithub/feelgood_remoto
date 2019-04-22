@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
+/* Estilos */
 import "./Header.css";
 
-
 /* Componentes */
-
 import Login from './Login/Login';
 
 export default class Header extends Component {
@@ -16,7 +16,7 @@ export default class Header extends Component {
 
                     <Login />
 
-                    {/*  Hiperlink to Open the Modal */}
+                    {/*  Muestra el modal del registro */}
                     <a
                         className="modal-link pt-2 pb-2"
                         data-toggle="modal"
@@ -37,9 +37,9 @@ export default class Header extends Component {
                     </div>
                 </div>
                 <div>
-                    <p className="icon">
-                        <i className="fas fa-chevron-down"></i>
-                    </p>
+                    <AnchorLink href='#about'>
+                        <p className="icon"><i className="fas fa-chevron-down"></i></p>
+                    </AnchorLink>
                 </div>
             </header >
         );
