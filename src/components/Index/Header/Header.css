@@ -75,7 +75,7 @@
 
 #mainHeader .wrapper p {
     font-size: 32px;
-    color: var(--ligth);
+    color: var(--ligth-red);
     /* margin-left: 30px; */
     text-align: center;
 }

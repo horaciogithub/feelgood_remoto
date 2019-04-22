@@ -8,23 +8,17 @@
 /*     GENERAL FEATURES     */
 /* –––––––––––––––––––––––– */
 
-/* * {
-  --texto: #5d646a;
-  --ligth: #00bfa5;
-  --dark: #00897b;
-  box-sizing: border-box;
-} */
-
 * {
+  --background: #e8f5e9;
   --texto: #5d646a;
-  --ligth: #d50000;
-  --dark: #d50000;
+  --ligth-red: #FF0800;
+  --dark-red: #d50000;
   box-sizing: border-box;
 }
 
 body {
   color: var(--texto);
-  background: #e8f5e9;
+  background: var(--background);
   font-size: 15px;
   font-family: "Lato", sans-serif;
   overflow-x: hidden;
@@ -63,18 +57,18 @@ h5 {
 }
 
 a {
-  color: var(--ligth);
+  color: var(--ligth-red);
   font-weight: bold;
 }
 
 a:hover {
-  color: var(--dark);
+  color: var(--dark-red);
 }
 
 hr.underline {
   width: 20%;
   border-width: 10px;
-  border-color: var(--dark);
+  border-color: var(--dark-red);
 }
 
 #about,
@@ -94,7 +88,7 @@ hr.underline {
 /* Buttons */
 .btn-green {
   color: #fff;
-  background-color: #f50b0b;
+  background-color: #Df2800;
   /* border-color: #f50b0b; */
   /* box-shadow: 0 0 5px rgb(31, 31, 31); */
   border-radius: 0px;
@@ -102,7 +96,7 @@ hr.underline {
 
 .btn-green:hover {
   color: white;
-  background-color: var(--dark);
+  background-color: var(--dark-red);
   border-color: #d60303;
 }
 

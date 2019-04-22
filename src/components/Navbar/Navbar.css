@@ -26,7 +26,7 @@ nav.navbar .collapse .navbar-nav .nav-item {
 }
 
 nav.navbar .collapse .navbar-nav .nav-item .nav-link {
-    color: var(--ligth);
+    color: var(--ligth-red);
     font-size: 22px;
     font-style: italic;
     font-weight: 600;

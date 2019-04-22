@@ -2,3 +2,66 @@
     padding: 20px;
     text-align: center
 }
+
+.routineWrapper {
+    margin-top: 50px !important;
+    background-color: var(--dark-red);
+}
+
+.routine {
+    position: relative;
+    background-color: white; 
+    border: 1px solid var(--ligth-red);
+    z-index: 20;
+}
+
+.routine table .header {
+    background-color: var(--ligth-red);
+    font-size: 22px;
+    text-transform: uppercase;
+    color:white;
+}
+
+.routine table .warm-up {
+    border-bottom: 1px solid rgb(221, 220, 220);
+}
+
+.routine table .title {
+    font-size: 22px;
+    text-transform: uppercase;
+    color:  var(--ligth-red);
+}
+
+.routine-container {
+    position: relative;
+} 
+
+.routine-container a {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.routine-container .nav-tabs {
+    border: none;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover {
+    background-color:white !important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    background-color: red !important;
+    color: white;
+}
+
+.routine-container .skew {
+    position: absolute;
+    top: 419px;
+    left: 24px;
+    right: 0;
+    margin: auto;
+    width: 1010px;
+    height: 580px;
+    background-color: var(--background);
+    transform: skew(4deg,10deg);
+}
