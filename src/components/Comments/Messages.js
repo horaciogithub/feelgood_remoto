@@ -134,12 +134,13 @@ export default class Messages extends Component {
         month[11] = "Diciembre";
 
         let timestamp = date.split(' ');
+        let day = timestamp[0].split('-');
 
         let fullDate = new Date(timestamp);
         let hour = timestamp[1].split(':');
         hour = hour[0] + ':' + hour[1];
 
-        let message = "El " + fullDate.getDay() + " de " + month[fullDate.getMonth()] + " a las " + hour;
+        let message = "El " + day[2] + " de " + month[fullDate.getMonth()] + " a las " + hour;
         return message;
     }
 
