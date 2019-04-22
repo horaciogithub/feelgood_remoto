@@ -36,6 +36,12 @@
     z-index: 1000;
 }
 
+@media only screen and (max-width: 480px) {
+    #about .first-content-boxes div:nth-child(3) {
+        position: relative;
+    }
+}
+
 #about .first-content-boxes div p {
     text-align: center;
     margin-bottom: 0px;

@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 /* ------------------ */
 
 import Header from '../UsersHeader/UsersHeader';
-import Navbar from '../Navbar/Navbar';
+import Navbar from './Navbar/Navbar';
 import Body from './Body/Body';
 import Messages from '../Comments/Messages';
 import Footer from '../Footer/Footer';
@@ -71,7 +71,7 @@ export default class UserPage extends Component {
         }
         else {
             routine = (
-                <div className="mt-5 p-5">
+                <div id="routine" className="mt-5 p-5">
                     <p className="text-center">
                         <i className="fas fa-info-circle"></i> Lo sentimos, no tienes ningún entrenamiento asignado,
                             pronto nuestros entrenadores te asignarán alguna

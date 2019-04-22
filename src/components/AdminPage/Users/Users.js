@@ -63,11 +63,11 @@ export default class Users extends Component {
 
     render() {
         if (this.state.users.length > 0) {
-            console.log(this.state.users)
+            // console.log(this.state.users)
             const { users } = this.state;
             return (
-                <div className="table-responsive col-6 mt-5">
-                    <table id="users" className="table table-striped table-dark table-hover">
+                <div id="users" className="table-responsive col-8 m-auto p-5">
+                    <table className="table table-striped table-dark table-hover">
                         <thead>
                             <tr>
                                 <th></th>

@@ -22,7 +22,7 @@ export default class Messages extends Component {
     render() {
         const { messages } = this.state;
         return (
-            <div>
+            <div id="comments">
                 <table className="table table-dark table-hover">
                     <thead>
                         <tr>

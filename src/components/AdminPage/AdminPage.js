@@ -1,11 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { Redirect } from 'react-router-dom';
 
-/* ------------------ */
-/*     COMPONENTS     */
-/* ------------------ */
-
+/* Componentes */
 import Header from '../UsersHeader/UsersHeader';
+import Navbar from './Navbar/Navbar';
 import Users from "./Users/Users";
 import Messages from "./Messages/Messages";
 
@@ -61,6 +59,7 @@ export default class AdminPage extends Component {
         return (
             <Fragment>
                 <Header user={this.state.userData} logout={this.logout} />
+                <Navbar />
                 <Users />
                 <Messages />
             </Fragment>

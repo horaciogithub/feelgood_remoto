@@ -447,7 +447,7 @@ export default class cPanel extends Component {
 
             return (
                 <div className="container-fluid panel">
-                    <div className="row selector-panel pt-5">
+                    <div id="setRoutines" className="row selector-panel pt-5">
 
                         {/* Tablas de entrenamiento */}
                         <div className="table-responsive col-6">
@@ -574,7 +574,8 @@ export default class cPanel extends Component {
                             </div>
                         </div>
                     </div>
-                    <div>
+
+                    <div id="routineGenerator">
                         <h4>Generador de rutina de entrenamiento:</h4>
 
                         <label>Introduce cuántos ejercicios quieres crear:</label>

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+
+/* Estilos */
 import '../Index/Header/Header.css';
 import './UsersHeader.css';
 
@@ -22,6 +25,12 @@ export default class Header extends Component {
                         <h5>{this.props.user.name} {this.props.user.surname}</h5>
                         <button className="btn btn-green ml-3" onClick={this.props.logout}>Salir <i className="fas fa-sign-out-alt"></i></button>
                     </div>
+                </div>
+
+                <div>
+                    <AnchorLink href='#users'>
+                        <p className="icon"><i className="fas fa-chevron-down"></i></p>
+                    </AnchorLink>
                 </div>
             </header>
         );

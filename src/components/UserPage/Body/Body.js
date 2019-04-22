@@ -5,7 +5,7 @@ import Routine from './Routine/Routine';
 export default class Body extends Component {
     render() {
         return (
-            <section id="table-container">
+            <section id="routine">
                 <div className="p-5">
                     <ul className="nav nav-tabs" role="tablist">
                         <li className="nav-item">

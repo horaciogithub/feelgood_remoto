@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 /* ------------------ */
 
 import Header from '../UsersHeader/UsersHeader';
-import Navbar from '../Navbar/Navbar';
+import Navbar from './Navbar/Navbar';
 import Exercices from './ControlPanel/ControlPanel';
 import Messages from '../Comments/Messages';
 import Footer from '../Footer/Footer';

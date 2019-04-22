@@ -27,6 +27,7 @@ body {
   background: #e8f5e9;
   font-size: 15px;
   font-family: "Lato", sans-serif;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -44,6 +45,12 @@ h2 {
   text-transform: uppercase;
   padding-top: 20px;
   text-align: center;
+}
+
+@media only screen and (max-width: 480px) {
+  h2 {
+    font-size: 34px;
+  }
 }
 
 h5 {

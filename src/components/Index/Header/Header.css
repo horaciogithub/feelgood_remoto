@@ -67,6 +67,12 @@
     margin-left: 30px;
 }
 
+@media only screen and (max-width: 480px) {
+    #mainHeader .wrapper h1 {
+        font-size: 40px;
+    }
+}
+
 #mainHeader .wrapper p {
     font-size: 32px;
     color: var(--ligth);
