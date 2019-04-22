@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Pagination from "react-js-pagination"; // Importa paginación
 import axios from "axios";
 
 /* STYLES */
@@ -13,23 +14,30 @@ export default class Messages extends Component {
             messages: [],
             subject: '',
             author: '',
-        }
 
-        this.commentHandler = this.commentHandler.bind(this);
-        this.reloadMessagesHandler = this.reloadMessagesHandler.bind(this);
-        this.submitCommentHandler = this.submitCommentHandler.bind(this);
-        this.deleteCommentHandler = this.deleteCommentHandler.bind(this);
-        this.formatTimestamp = this.formatTimestamp.bind(this);
+            // Atributos de la paginación
+            activePage: 1,
+            itemsCountPerPage: 1,
+            totalItemsCount: 1,
+            pageRangeDisplayed: 5,
+        }
+        this.handlePageChange = this.handlePageChange.bind(this)
+        this.commentHandler = this.commentHandler.bind(this)
+        this.reloadMessagesHandler = this.reloadMessagesHandler.bind(this)
+        this.submitCommentHandler = this.submitCommentHandler.bind(this)
+        this.deleteCommentHandler = this.deleteCommentHandler.bind(this)
+        this.formatTimestamp = this.formatTimestamp.bind(this)
 
     }
 
     componentDidMount() {
-
-        // Carga los mensajes del foro
-        axios.get("http://localhost:8000/api/messages")
+        axios.get(`http://localhost:8000/api/messages?page=` + 1)
             .then(response => {
                 this.setState({
-                    messages: response.data,
+                    messages: response.data.data,
+                    itemsCountPerPage: response.data.per_page,
+                    totalItemsCount: response.data.total,
+                    activePage: response.data.current_page,
                 });
             });
     }
@@ -49,20 +57,34 @@ export default class Messages extends Component {
         }
     }
 
-    reloadMessagesHandler = () => {
-        // Recarga los mensajes
-        axios.get("http://localhost:8000/api/messages")
+    // Paginación de mensajes
+    handlePageChange(pageNumber) {
+        axios.get(`http://localhost:8000/api/messages?page=` + pageNumber)
             .then(response => {
                 this.setState({
-                    messages: response.data,
+                    messages: response.data.data,
+                    itemsCountPerPage: response.data.per_page,
+                    totalItemsCount: response.data.total,
+                    activePage: response.data.current_page,
+                });
+            });
+    }
+
+    // Recarga los mensajes tras cualquier operación
+    reloadMessagesHandler = () => {
+        axios.get(`http://localhost:8000/api/messages?page=` + this.state.activePage)
+            .then(response => {
+                this.setState({
+                    messages: response.data.data,
+                    itemsCountPerPage: response.data.per_page,
+                    totalItemsCount: response.data.total,
+                    activePage: response.data.current_page,
                 });
             });
     }
 
     commentHandler = (e) => {
-        this.setState({
-            subject: e.target.value
-        });
+        this.setState({ subject: e.target.value });
     }
 
     submitCommentHandler = () => {
@@ -71,7 +93,6 @@ export default class Messages extends Component {
             author: this.state.author,
             subject: this.state.subject
         }
-
 
         if (this.state.author && this.state.subject) {
             axios.post('http://localhost:8000/api/messageRegistration', data)
@@ -176,6 +197,19 @@ export default class Messages extends Component {
             <div id="comments" className="col-8">
 
                 {result}
+
+                {/* Botones de paginación */}
+                <div className="d-flex justify-content-center pagination-comments">
+                    <Pagination
+                        itemClass="page-item"
+                        linkClass="page-link"
+                        activePage={this.state.activePage}
+                        itemsCountPerPage={this.state.itemsCountPerPage}
+                        totalItemsCount={this.state.totalItemsCount}
+                        pageRangeDisplayed={this.state.pageRangeDisplayed}
+                        onChange={this.handlePageChange}
+                    />
+                </div>
 
                 <div className="form-group">
                     <textarea

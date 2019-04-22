@@ -31,6 +31,8 @@
     z-index: 2;
 }
 
-.trash {
-    height: 40px;
+.trash { height: 40px; }
+
+#comments .pagination-comments a {
+    margin: 2px;
 }

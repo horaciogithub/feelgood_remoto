@@ -111,7 +111,6 @@ export default class Messages extends Component {
                                         <button
                                             className="btn btn-green"
                                             value={message.id}
-                                            value={message.id}
                                             onClick={this.deleteCommentHandler}
                                         >
                                             <i className="fas fa-trash-alt"></i>
