@@ -500,8 +500,8 @@ export default class cPanel extends Component {
 
                             <div className="row control">
                                 {/* Tipo de ejercicio */}
-                                <select name="type" className="form-control col-2  mr-2" onChange={this.idTableHandler}>
-                                    <option title="Tipo" value=''>Tipo: </option>
+                                <select name="type" className="form-control col-3  mr-2" onChange={this.idTableHandler}>
+                                    <option title="Tipo" value=''>Tipo de ejercicio: </option>
                                     {this.setOptionsHandler(this.state.exercices).map(exercice =>
                                         <option key={exercice} value={exercice}>{exercice}</option>
                                     )}
@@ -509,7 +509,7 @@ export default class cPanel extends Component {
 
                                 {/* Selección del usuario */}
                                 <select className="form-control col-4  mr-2" onChange={this.weekHandler}>
-                                    <option title="id" value=''>Email: </option>
+                                    <option title="id" value=''>Usuario: </option>
                                     {this.state.clients.map(client =>
                                         <option key={client.id} value={client.email}>{client.email}</option>
                                     )}
@@ -612,7 +612,8 @@ export default class cPanel extends Component {
 
                             {/* Tabla de clientes */}
                             <div className="mt-5">
-                                <Clients clients={clients} check={this.checkHandler} />
+                                {/* <Clients clients={clients} check={this.checkHandler} /> */}
+                                <Clients clients={clients} />
                             </div>
                         </div>
                     </div>

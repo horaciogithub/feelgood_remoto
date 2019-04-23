@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 /* Componentes */
 import Header from '../UsersHeader/UsersHeader';
 import Navbar from './Navbar/Navbar';
-import Exercices from './ControlPanel/ControlPanel';
+import ControlPanel from './ControlPanel/ControlPanel';
 import Messages from '../Comments/Messages';
 import Footer from '../Footer/Footer';
 
@@ -17,11 +17,10 @@ export default class TrainerPage extends Component {
         this.state = {
             redirect: false,
             userData: {},
-            routine: {},
         }
 
         this.logout = this.logout.bind(this);
-        this.checkHandler = this.checkHandler.bind(this)
+        // this.checkHandler = this.checkHandler.bind(this)
     }
 
     componentWillMount() {
@@ -31,7 +30,6 @@ export default class TrainerPage extends Component {
 
             this.setState({
                 userData: data.userData,
-                routine: data.table,
             })
         }
         else {
@@ -50,9 +48,9 @@ export default class TrainerPage extends Component {
         })
     }
 
-    checkHandler = (e) => {
-        alert(e.target.value)
-    }
+    // checkHandler = (e) => {
+    //     alert(e.target.value)
+    // }
 
     render() {
 
@@ -70,7 +68,7 @@ export default class TrainerPage extends Component {
             <Fragment>
                 <Header user={this.state.userData} logout={this.logout} />
                 <Navbar />
-                <Exercices exercices={this.state.exercices} />
+                <ControlPanel exercices={this.state.exercices} />
                 <Messages />
                 <Footer />
             </Fragment>
