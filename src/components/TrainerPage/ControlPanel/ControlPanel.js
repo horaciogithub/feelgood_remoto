@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 /* Styles */
 import "./ControlPanel.css";
 
@@ -15,6 +19,9 @@ export default class cPanel extends Component {
         super(props)
 
         this.state = {
+            startDate: new Date(),
+
+
             clients: [],
             exercices: [],
             idTables: [],
@@ -91,6 +98,8 @@ export default class cPanel extends Component {
             }
         }
 
+        this.handleChange = this.handleChange.bind(this);
+
         this.setOptionsHandler = this.setOptionsHandler.bind(this)
         this.idTableHandler = this.idTableHandler.bind(this)
         this.showTableHandler = this.showTableHandler.bind(this)
@@ -125,6 +134,14 @@ export default class cPanel extends Component {
                 console.log(error);
             });
     }
+
+    handleChange(date) {
+        this.setState({
+            startDate: date
+        });
+    }
+
+
 
     setOptionsHandler = (exercices) => {
 
@@ -209,6 +226,13 @@ export default class cPanel extends Component {
 
     // Inserta el id de la tabla en la tabla de ejercicios del usuario
     postTableHandler = (e) => {
+        let month = this.state.startDate.getMonth() + 1;
+        let date = '';
+        if (month < 10) {
+            date = this.state.startDate.getFullYear() + '-0' + month + '-' + this.state.startDate.getDate();
+        } else {
+            date = this.state.startDate.getFullYear() + '-' + month + '-' + this.state.startDate.getDate();
+        }
 
         if (e.target.name === "generar") {
             const data = {
@@ -220,7 +244,7 @@ export default class cPanel extends Component {
                 "friday": this.state.friday,
                 "saturday": this.state.saturday,
                 "sunday": this.state.sunday,
-                "exerc_end": '2019-05-22'
+                "exerc_end": date
             }
 
             console.log(data)
@@ -538,6 +562,13 @@ export default class cPanel extends Component {
                                         <option key={client.id} value={client.email}>{client.email}</option>
                                     )}
                                 </select>
+
+                                {/* Selección del fin de entrenamiento */}
+                                <DatePicker
+                                    selected={this.state.startDate}
+                                    onChange={this.handleChange}
+                                // dateFormat="yyyy-MM-d"
+                                />
 
                                 <div className="table-responsive selectors">
                                     <table className="table-bordered mt-3">
