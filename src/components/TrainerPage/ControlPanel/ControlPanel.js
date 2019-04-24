@@ -19,6 +19,7 @@ export default class cPanel extends Component {
             exercices: [],
             idTables: [],
             table: [],
+
             monday: '',
             tuesday: '',
             wednesday: '',
@@ -97,6 +98,7 @@ export default class cPanel extends Component {
         this.postTableHandler = this.postTableHandler.bind(this)
         this.reloadClientsHandler = this.reloadClientsHandler.bind(this)
         this.reloadExercicesHandler = this.reloadExercicesHandler.bind(this)
+        this.routineGeneratorHandler = this.routineGeneratorHandler.bind(this)
     }
 
     componentWillMount() {
@@ -207,6 +209,7 @@ export default class cPanel extends Component {
 
     // Inserta el id de la tabla en la tabla de ejercicios del usuario
     postTableHandler = (e) => {
+
         if (e.target.name === "generar") {
             const data = {
                 "email": this.state.email,
@@ -220,6 +223,7 @@ export default class cPanel extends Component {
                 "exerc_end": '2019-05-22'
             }
 
+            console.log(data)
             // Enviamos los datos al servicio
 
             PostData('postTable', data).then((result) => {
@@ -298,10 +302,10 @@ export default class cPanel extends Component {
         let exercController = [];
 
         for (let i = 0; i < e.target.value; i++) {
-            exercicesHead.push(<th>Ejercicio{i + 1}</th>)
+            exercicesHead.push(<th key={i}>Ejercicio{i + 1}</th>)
 
             exercController.push(
-                <td>
+                <td key={i}>
                     <label>Nombre: </label>
                     <input name={'exerc' + (i + 1) + 'Name'} className="form-control" type="text" placeholder="Press militar" onChange={this.inputHandler} />
                     <label>Series: </label>
@@ -327,7 +331,7 @@ export default class cPanel extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr key="1">
+                        <tr>
                             <td>
                                 <select name="type" onChange={this.inputHandler}>
                                     <option value="aeróbico">Aeróbico</option>
@@ -348,6 +352,7 @@ export default class cPanel extends Component {
                         </tr>
                     </tbody>
                 </table>
+                <button onClick={this.postRoutineHandeler}>Registrar rutina</button>
             </div>
         )
 
@@ -359,7 +364,7 @@ export default class cPanel extends Component {
     // Envia la rutina para su registro
     postRoutineHandeler = () => {
         let data = this.state.routineData
-        //console.log(data)
+        console.log(data)
 
         if (this.state.routineData.exerc1Name && this.state.routineData.exerc2Name &&
             this.state.routineData.exerc3Name && this.state.routineData.exerc4Name &&
@@ -449,7 +454,12 @@ export default class cPanel extends Component {
                                     <td>{this.state.table[0].exercice7[0].loops}</td>
                                     <td>{this.state.table[0].exercice7[0].rest}</td>
                                 </tr> :
-                                ""
+                                <tr className="invisible-cell">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             }
 
                             {this.state.table[0].exercice8.length > 0 ?
@@ -459,7 +469,12 @@ export default class cPanel extends Component {
                                     <td>{this.state.table[0].exercice8[0].loops}</td>
                                     <td>{this.state.table[0].exercice8[0].rest}</td>
                                 </tr> :
-                                ""
+                                <tr className="invisible-cell">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             }
 
                             {this.state.table[0].exercice9.length > 0 ?
@@ -469,7 +484,12 @@ export default class cPanel extends Component {
                                     <td>{this.state.table[0].exercice9[0].loops}</td>
                                     <td>{this.state.table[0].exercice9[0].rest}</td>
                                 </tr> :
-                                ""
+                                <tr className="invisible-cell">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             }
 
                             {this.state.table[0].exercice10.length > 0 ?
@@ -479,9 +499,13 @@ export default class cPanel extends Component {
                                     <td>{this.state.table[0].exercice10[0].loops}</td>
                                     <td>{this.state.table[0].exercice10[0].rest}</td>
                                 </tr> :
-                                ""
+                                <tr className="invisible-cell">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             }
-
                         </tbody>
                     </table>
                 )
@@ -498,7 +522,7 @@ export default class cPanel extends Component {
 
                         <div className="col-6">
 
-                            <div className="row control">
+                            <div className="row control pr-3">
                                 {/* Tipo de ejercicio */}
                                 <select name="type" className="form-control col-3  mr-2" onChange={this.idTableHandler}>
                                     <option title="Tipo" value=''>Tipo de ejercicio: </option>
@@ -532,58 +556,58 @@ export default class cPanel extends Component {
                                             <tr>
                                                 <td>
                                                     <select name='monday' className="form-control" onChange={this.showTableHandler}>
-                                                        <option title="id" value=''>Id: </option>
+                                                        <option title="id" value=''>Tabla: </option>
                                                         {this.state.idTables.map(id =>
-                                                            <option key={id} value={id}>{id}</option>
+                                                            <option key={id} value={id}>Tabla: {id}</option>
                                                         )}
                                                     </select>
                                                 </td>
 
                                                 <td>
                                                     <select name='tuesday' className="form-control" onChange={this.showTableHandler}>
-                                                        <option title="id" value=''>Id: </option>
+                                                        <option title="id" value=''>Tabla: </option>
                                                         {this.state.idTables.map(id =>
-                                                            <option key={id} value={id}>{id}</option>
+                                                            <option key={id} value={id}>Tabla: {id}</option>
                                                         )}
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select name="wednesday" className="form-control" onChange={this.showTableHandler}>
-                                                        <option title="id" value=''>Id: </option>
+                                                        <option title="id" value=''>Tabla: </option>
                                                         {this.state.idTables.map(id =>
-                                                            <option key={id} value={id}>{id}</option>
+                                                            <option key={id} value={id}>Tabla: {id}</option>
                                                         )}
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select name="thursday" className="form-control" onChange={this.showTableHandler}>
-                                                        <option title="id" value=''>Id: </option>
+                                                        <option title="id" value=''>Tabla: </option>
                                                         {this.state.idTables.map(id =>
-                                                            <option key={id} value={id}>{id}</option>
+                                                            <option key={id} value={id}>Tabla: {id}</option>
                                                         )}
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select name="friday" className="form-control" onChange={this.showTableHandler}>
-                                                        <option title="id" value=''>Id: </option>
+                                                        <option title="id" value=''>Tabla: </option>
                                                         {this.state.idTables.map(id =>
-                                                            <option key={id} value={id}>{id}</option>
+                                                            <option key={id} value={id}>Tabla: {id}</option>
                                                         )}
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select name="saturday" className="form-control" onChange={this.showTableHandler}>
-                                                        <option title="id" value=''>Id: </option>
+                                                        <option title="id" value=''>Tabla: </option>
                                                         {this.state.idTables.map(id =>
-                                                            <option key={id} value={id}>{id}</option>
+                                                            <option key={id} value={id}>Tabla: {id}</option>
                                                         )}
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select name="sunday" className="form-control" onChange={this.showTableHandler}>
-                                                        <option title="id" value=''>Id: </option>
+                                                        <option title="id" value=''>Tabla: </option>
                                                         {this.state.idTables.map(id =>
-                                                            <option key={id} value={id}>{id}</option>
+                                                            <option key={id} value={id}>Tabla: {id}</option>
                                                         )}
                                                     </select>
                                                 </td>
@@ -618,13 +642,14 @@ export default class cPanel extends Component {
                         </div>
                     </div>
 
-                    <div id="routineGenerator">
-                        <h4>Generador de rutina de entrenamiento:</h4>
+                    <div id="routineGenerator p-3">
+                        <h4 className="text-center pt-5 pb-5">Crea una rutina de entrenamiento:</h4>
 
                         <label>Introduce cuántos ejercicios quieres crear:</label>
                         <input type="number" placeholder="6" min="6" max="10" onChange={this.routineGeneratorHandler} />
-                        {this.state.exercGenerator}
-                        <button onClick={this.postRoutineHandeler}>Registrar rutina</button>
+                        <div className="table-responsive">
+                            {this.state.exercGenerator}
+                        </div>
                     </div>
                 </div >
             )

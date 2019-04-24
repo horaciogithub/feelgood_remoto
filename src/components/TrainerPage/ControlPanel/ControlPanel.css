@@ -15,6 +15,10 @@
     background-color: #a5d6a7
 }
 
+.panel table tr.invisible-cell {
+    display: none;
+}
+
 .panel  table th,
 .panel  table td {
     font-size: 15px !important;
@@ -32,4 +36,10 @@
 
 .panel select:focus {
     outline: none !important;
+}
+
+h4.text-center {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: var(--dark-red);
 }

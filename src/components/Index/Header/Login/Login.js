@@ -25,6 +25,8 @@ export default class Login extends Component {
         let responseJSON = result;
         console.log(responseJSON)
 
+        console.log(responseJSON.userData)
+
         if (responseJSON.userData) {
 
           // Pasa los datos en sessión
