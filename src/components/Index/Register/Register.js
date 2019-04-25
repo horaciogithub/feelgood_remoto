@@ -198,10 +198,10 @@ export default class Register extends Component {
                                         <div id="number" className="row col-4"></div>
                                     </div>
 
-                                    <button type="reset" className="btn btn-green cancel wrapperButton">Borrar</button>
+                                    <button type="reset" className="btn btn-red cancel wrapperButton">Borrar</button>
                                     <button
                                         type="submit"
-                                        className="btn btn-green send wrapperButton"
+                                        className="btn btn-red send wrapperButton"
                                         onClick={this.register}
                                         autoComplete="off"
                                     >

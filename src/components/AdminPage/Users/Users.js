@@ -158,7 +158,7 @@ export default class Users extends Component {
                                     </td>
                                     <td className="col text-center align-middle pl-5">
                                         <button
-                                            className="btn btn-green"
+                                            className="btn btn-red"
                                             value={user.id}
                                             onClick={this.deleteUserHandler}>
                                             <i className="fas fa-trash-alt"></i>

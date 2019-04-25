@@ -376,7 +376,7 @@ export default class cPanel extends Component {
                         </tr>
                     </tbody>
                 </table>
-                <button onClick={this.postRoutineHandeler}>Registrar rutina</button>
+                <button className="btn btn-red" onClick={this.postRoutineHandeler}>Registrar rutina</button>
             </div>
         )
 
@@ -658,8 +658,8 @@ export default class cPanel extends Component {
                                 </div>
 
                                 <div className="mt-4">
-                                    <button className="btn btn-green mr-4" name="generar" onClick={this.postTableHandler}>Generar</button>
-                                    <button className="btn btn-green" name="limpiar" onClick={this.postTableHandler}>Limpiar</button>
+                                    <button className="btn btn-red mr-4" name="generar" onClick={this.postTableHandler}>Generar</button>
+                                    <button className="btn btn-red" name="limpiar" onClick={this.postTableHandler}>Limpiar</button>
                                 </div>
 
                                 {/* {days} */}

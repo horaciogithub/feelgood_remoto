@@ -109,7 +109,7 @@ export default class Messages extends Component {
                                     <td className="text-left align-middle"> {message.subject} </td>
                                     <td className="text-center align-middle">
                                         <button
-                                            className="btn btn-green"
+                                            className="btn btn-red"
                                             value={message.id}
                                             onClick={this.deleteCommentHandler}
                                         >

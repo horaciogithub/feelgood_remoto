@@ -167,7 +167,7 @@ export default class Messages extends Component {
                             </p>
                         </div>
                         <button
-                            className="btn btn-green trash"
+                            className="btn btn-red trash"
                             type="button"
                             value={messages[i].id}
                             onClick={this.deleteCommentHandler}>
@@ -227,7 +227,7 @@ export default class Messages extends Component {
                 </div>
                 <div className="d-flex justify-content-end">
                     <button
-                        className="btn btn-green"
+                        className="btn btn-red"
                         type="button"
                         onClick={this.submitCommentHandler}>
                         Enviar <i className="fas fa-paper-plane"></i>

@@ -23,7 +23,7 @@ export default class Header extends Component {
                             <img src={this.props.user.img} alt={this.props.user.name} />
                         </div>
                         <h5>{this.props.user.name} {this.props.user.surname}</h5>
-                        <button className="btn btn-green ml-3" onClick={this.props.logout}>Salir <i className="fas fa-sign-out-alt"></i></button>
+                        <button className="btn btn-red ml-3" onClick={this.props.logout}>Salir <i className="fas fa-sign-out-alt"></i></button>
                     </div>
                 </div>
 

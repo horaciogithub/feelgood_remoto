@@ -102,7 +102,7 @@ export default class Login extends Component {
           <button
             type="submit"
             name="submit"
-            className="btn btn-green"
+            className="btn btn-red"
             onClick={this.login}
           >
             Entrar <i className="fas fa-sign-in-alt"></i>

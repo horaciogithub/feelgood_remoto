@@ -86,7 +86,7 @@ hr.underline {
 }
 
 /* Buttons */
-.btn-green {
+.btn-red {
   color: #fff;
   background-color: #Df2800;
   /* border-color: #f50b0b; */
@@ -94,7 +94,7 @@ hr.underline {
   border-radius: 0px;
 }
 
-.btn-green:hover {
+.btn-red:hover {
   color: white;
   background-color: var(--dark-red);
   border-color: #d60303;
