@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
+/* DatePicker */
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 
 /* Styles */
@@ -19,6 +19,7 @@ export default class cPanel extends Component {
         super(props)
 
         this.state = {
+            /* DatePicker date object */
             startDate: new Date(),
 
 
@@ -98,6 +99,7 @@ export default class cPanel extends Component {
             }
         }
 
+        /* DatePicker event handler */
         this.handleChange = this.handleChange.bind(this);
 
         this.setOptionsHandler = this.setOptionsHandler.bind(this)

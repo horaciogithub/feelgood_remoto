@@ -1,0 +1,40 @@
+/* #myModal .modal-content {
+    background-color: black
+} */
+
+#myModal .modal-header {
+    background-color: var(--dark-red);
+}
+
+#myModal .modal-header h4{
+    text-transform: uppercase;
+    color: white;
+}
+
+#myModal .input-group-text {
+    width: 155px;
+    border: none;
+    background-color: var(--dark-red);
+    color: white;
+}
+
+/* DatePicker */
+.react-datepicker__header {
+    background-color: var(--dark-red);
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+    color: white;
+}
+
+.react-datepicker__day--today,
+.react-datepicker__day--selected  {
+    background-color: var(--dark-red)
+}
+
+.react-datepicker__input-container > input {
+    width: 229px;
+    height: 36px;
+    padding-left: 17px;
+}

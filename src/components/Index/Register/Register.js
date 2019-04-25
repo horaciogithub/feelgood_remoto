@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-/* FUNCIONES */
+/* Funciones */
 import { PostData } from '../../../services/PostData';
 
+/* Estilos */
+import './Register.css';
 export default class Register extends Component {
 
     constructor(props) {
@@ -17,6 +19,12 @@ export default class Register extends Component {
             password: '',
             c_password: '',
             birth_date: '',
+
+            /* Para los ususarios clients */
+            sex: '',
+            heigth: '',
+            weigth: '',
+
             isLogged: false,
             redirect: false,
             userData: {},
@@ -29,6 +37,7 @@ export default class Register extends Component {
     }
 
     register() {
+        console.log(this.state)
         PostData('register', this.state).then((result) => {
             let responseJSON = result;
             console.log(responseJSON)
@@ -59,7 +68,28 @@ export default class Register extends Component {
             //Con e.target.name, recogemos el valor según el name del input
             [e.target.name]: e.target.value
         });
-        //console.log(this.state)
+        console.log(this.state)
+    }
+
+    clientFormHandler = () => {
+        const form = (
+            <div id="formulario-cliente" className="row">
+                <div className="col-4">
+                    <div id="male">
+                        <input type='radio' name='sex' value='m' onChange={this.onChange} /> Hombre <i className='fa fa-mars' aria-hidden='true'></i>
+                    </div>
+                    <div id="female">
+                        <input type='radio' name='sex' value='f' onChange={this.onChange} /> Mujer <i className='fa fa-mars' aria-hidden='true'></i></div>
+                </div>
+                <div id="heigth" className="row col-4">
+                    <input type='number' className='form-control' name='heigth' min='1' max='3' placeholder='Estatura' required onChange={this.onChange} />
+                </div>
+                <div id="weigth" className="row col-4">
+                    <input type='number' className='form-control' name='weigth' min='20' max='300' placeholder='Peso' required onChange={this.onChange} />
+                </div>
+            </div>
+        );
+        return form;
     }
 
     render() {
@@ -76,6 +106,12 @@ export default class Register extends Component {
             }
         }
 
+        /* Formulario para el usuario tipo client */
+        let form = '';
+        if (this.state.type === 'user') {
+            form = this.clientFormHandler();
+        }
+
         return (
             <div id="myModal" className="modal fade">
                 <div className="modal-dialog modal-md">
@@ -88,7 +124,7 @@ export default class Register extends Component {
 
                         <div className="modal-body">
                             <div className="row">
-                                <div className="col-lg-10 form-register">
+                                <div className="col-lg-10 m-auto form-register">
 
                                     <div className="input-group mb-3">
                                         <div className="input-group-prepend">
@@ -102,6 +138,7 @@ export default class Register extends Component {
                                             onChange={this.onChange}
                                             autoComplete="off"
                                             required
+                                            placeholder="Helio"
                                         />
                                     </div>
 
@@ -116,22 +153,25 @@ export default class Register extends Component {
                                             maxLength="15"
                                             onChange={this.onChange}
                                             autoComplete="off"
-                                            required />
+                                            required
+                                            placeholder="Santana"
+                                        />
                                     </div>
 
                                     <div className="input-group mb-3">
+                                        <div className="input-group-append">
+                                            <span className="input-group-text">Email</span>
+                                        </div>
                                         <input
                                             className="form-control"
                                             type="email"
                                             name="email"
-                                            placeholder="Email"
                                             maxLength="40"
                                             onChange={this.onChange}
                                             autoComplete="off"
-                                            required />
-                                        <div className="input-group-append">
-                                            <span className="input-group-text">@example.com</span>
-                                        </div>
+                                            required
+                                            placeholder="dominio@gmail.com"
+                                        />
                                     </div>
 
                                     <div className="input-group mb-3">
@@ -145,7 +185,8 @@ export default class Register extends Component {
                                             maxLength="15"
                                             onChange={this.onChange}
                                             autoComplete="off"
-                                            required />
+                                            required
+                                            placeholder="* * * * * * * * *" />
                                     </div>
 
                                     <div className="input-group mb-3">
@@ -159,61 +200,59 @@ export default class Register extends Component {
                                             maxLength="15"
                                             onChange={this.onChange}
                                             autoComplete="off"
-                                            required />
+                                            required
+                                            placeholder="* * * * * * * * *" />
                                     </div>
 
-                                    <div className="row">
-                                        <div className="col-6">
-                                            <label>FECHA DE NACIMIENTO</label>
-                                            <input
-                                                className="form-control calendar"
-                                                type="date"
-                                                name="birth-date"
-                                                onChange={this.onChange}
-                                                autoComplete="off"
-                                                required="" />
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text">Fecha nacimiento</span>
                                         </div>
-                                        <div className="col-6">
-                                            {/* <label>REGISTRARSE COMO</label> */}
-                                            <select
-                                                id="tipo-usuario"
-                                                className="form-control tipo"
-                                                name="type"
-                                                onChange={this.onChange}
-                                                autoComplete="off">
-                                                <option readOnly>Regístrate como:</option>
-                                                <option value="user">Cliente</option>
-                                                <option value="trainer">Entrenador</option>
-                                            </select>
-                                        </div>
+                                        <input
+                                            className="form-control calendar"
+                                            type="date"
+                                            name="birth_date"
+                                            onChange={this.onChange}
+                                            autoComplete="off"
+                                            required="" />
                                     </div>
 
-                                    <div id="formulario-cliente" className="row">
-                                        <div className="col-4">
-                                            <div id="male"></div>
-                                            <div id="female"></div>
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text">Tipo de usuario</span>
                                         </div>
-                                        <div id="heigth" className="row col-4"></div>
-                                        <div id="weigth" className="row col-4"></div>
-                                        <div id="number" className="row col-4"></div>
+                                        <select
+                                            id="tipo-usuario"
+                                            className="form-control tipo"
+                                            name="type"
+                                            onChange={this.onChange}
+                                            autoComplete="off">
+                                            <option readOnly>Regístrate como:</option>
+                                            <option value="user">Cliente</option>
+                                            <option value="trainer">Entrenador</option>
+                                        </select>
                                     </div>
 
-                                    <button type="reset" className="btn btn-red cancel wrapperButton">Borrar</button>
-                                    <button
-                                        type="submit"
-                                        className="btn btn-red send wrapperButton"
-                                        onClick={this.register}
-                                        autoComplete="off"
-                                    >
-                                        Enviar
+                                    {/* Formulario extra (client) */}
+                                    {form}
+
+                                    <div>
+                                        <button
+                                            type="submit"
+                                            className="btn btn-red send wrapperButton"
+                                            onClick={this.register}
+                                            autoComplete="off"
+                                        >
+                                            Enviar
                                         </button>
+                                    </div>
                                     <div id="alert"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }

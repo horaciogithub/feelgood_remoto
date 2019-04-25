@@ -76,7 +76,7 @@ export default class Login extends Component {
 
     return (
       <div className="col-12 d-flex justify-content-end">
-        <div className="col-sm-6 pt-4 pb-5 row">
+        <div className="col-lg-6 pt-4 pb-5 row">
 
           <input
             type="email"

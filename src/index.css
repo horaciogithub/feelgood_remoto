@@ -21,7 +21,7 @@ body {
   background: var(--background);
   font-size: 15px;
   font-family: "Lato", sans-serif;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 h1 {
@@ -89,8 +89,6 @@ hr.underline {
 .btn-red {
   color: #fff;
   background-color: #Df2800;
-  /* border-color: #f50b0b; */
-  /* box-shadow: 0 0 5px rgb(31, 31, 31); */
   border-radius: 0px;
 }
 
@@ -100,19 +98,19 @@ hr.underline {
   border-color: #d60303;
 }
 
-.btn-white {
+/*.btn-white {
   color: #176941;
   background-color: rgb(255, 255, 255);
   border-color: rgb(120, 120, 120);
   margin-top: 20px;
   margin-bottom: 20px;
-}
+}*/
 
-.btn-white:hover {
+/*.btn-white:hover {
   color: #20925b;
   background-color: rgb(242, 242, 242);
   border-color: #176941;
-}
+}*/
 
 input,
 select {
@@ -125,7 +123,7 @@ input:focus {
 }
 
 span {
-  color: #dc3545;
+  color: var(--dark-red);
   font-weight: bold;
   font-size: 18px;
 }
