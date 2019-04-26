@@ -23,9 +23,6 @@ export default class Login extends Component {
     if (this.state.email && this.state.password) {
       PostData("login", this.state).then(result => {
         let responseJSON = result;
-        console.log(responseJSON)
-
-        console.log(responseJSON.userData)
 
         if (responseJSON.userData) {
 
@@ -38,9 +35,6 @@ export default class Login extends Component {
             isLogged: true,
             redirect: true
           });
-
-          //console.log(this.state.userData)
-          //console.log(this.state.isLogged)
         } else {
           /* Acceso denegado */
           console.log("no entras");
@@ -54,20 +48,24 @@ export default class Login extends Component {
       //Con e.target.name, recogemos el valor según el name del input
       [e.target.name]: e.target.value
     });
-    //console.log(this.state)
   }
 
   render() {
     // Redirige a la página cuando el usuario haya sido logeado
     if (this.state.redirect) {
       if (sessionStorage.getItem("userData")) {
+
+        // Redirige a la página del administrador
         if (this.state.type === 'admin') {
           return <Redirect to="/admin" />;
         }
 
+        // Redirige a la página del entrenador
         if (this.state.type === 'trainer') {
           return <Redirect to="/trainer" />;
         }
+
+        // Redirige a la página de clientes
         if (this.state.type === 'user') {
           return <Redirect to="/user" />;
         }

@@ -18,6 +18,20 @@
     color: white;
 }
 
+ .gender {
+    color: white !important;
+}
+
+.formulario-cliente > div {
+    padding-right: 0 !important;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: var(--dark-red);
+    background-color: var(--dark-red);
+}
+
 /* DatePicker */
 .react-datepicker__header {
     background-color: var(--dark-red);
@@ -37,4 +51,9 @@
     width: 229px;
     height: 36px;
     padding-left: 17px;
+}
+
+.btn-red.send {
+    padding: 10px 55px;
+    text-transform: uppercase;
 }

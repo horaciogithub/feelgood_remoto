@@ -25,7 +25,7 @@ export default class Register extends Component {
             heigth: '',
             weigth: '',
 
-            isLogged: false,
+            //isLogged: false,
             redirect: false,
             userData: {},
 
@@ -37,10 +37,9 @@ export default class Register extends Component {
     }
 
     register() {
-        console.log(this.state)
+
         PostData('register', this.state).then((result) => {
             let responseJSON = result;
-            console.log(responseJSON)
 
             if (responseJSON.userData) {
 
@@ -50,13 +49,12 @@ export default class Register extends Component {
                 /* Logeo tras el registro */
                 this.setState({
                     UserType: responseJSON.userData.type,
-                    isLogged: true,
+                    //isLogged: true,
                     redirect: true,
                 });
             }
 
             else {
-
                 /* Acceso denegado */
                 console.log("no entras")
             }
@@ -74,14 +72,20 @@ export default class Register extends Component {
     clientFormHandler = () => {
         const form = (
             <div id="formulario-cliente" className="row">
-                <div className="col-4">
-                    <div id="male">
-                        <input type='radio' name='sex' value='m' onChange={this.onChange} /> Hombre <i className='fa fa-mars' aria-hidden='true'></i>
+                <div className="col-4 pr-0 mr-3">
+
+                    <div className="custom-control custom-radio custom-control-inline">
+                        <input id="male" className="custom-control-input" type='radio' name='sex' value='m' onChange={this.onChange} />
+                        <label className="custom-control-label gender" htmlFor="male">Hombre <i className='fa fa-mars' aria-hidden='true'></i></label>
                     </div>
-                    <div id="female">
-                        <input type='radio' name='sex' value='f' onChange={this.onChange} /> Mujer <i className='fa fa-mars' aria-hidden='true'></i></div>
+
+                    <div className="custom-control custom-radio custom-control-inline">
+                        <input id="female" className="custom-control-input" type='radio' name='sex' value='f' onChange={this.onChange} />
+                        <label className="custom-control-label gender" htmlFor="female">Mujer <i className="fas fa-venus"></i></label>
+                    </div>
+
                 </div>
-                <div id="heigth" className="row col-4">
+                <div id="heigth" className="row col-4 mr-3">
                     <input type='number' className='form-control' name='heigth' min='1' max='3' placeholder='Estatura' required onChange={this.onChange} />
                 </div>
                 <div id="weigth" className="row col-4">
@@ -97,9 +101,13 @@ export default class Register extends Component {
         // Redirige a la página cuando el usuario haya sido logeado
         if (this.state.redirect) {
             if (sessionStorage.getItem("userData")) {
+
+                // Redirige a la página del entrenador
                 if (this.state.type === 'trainer') {
                     return <Redirect to="/trainer" />;
                 }
+
+                // Redirige a la página de clientes
                 if (this.state.type === 'user') {
                     return <Redirect to="/user" />;
                 }
@@ -236,10 +244,10 @@ export default class Register extends Component {
                                     {/* Formulario extra (client) */}
                                     {form}
 
-                                    <div>
+                                    <div className="d-flex justify-content-center">
                                         <button
                                             type="submit"
-                                            className="btn btn-red send wrapperButton"
+                                            className="btn btn-red send wrapperButton mt-3"
                                             onClick={this.register}
                                             autoComplete="off"
                                         >
