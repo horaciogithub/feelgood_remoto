@@ -21,7 +21,7 @@ export default class Register extends Component {
             birth_date: '',
 
             /* Para los ususarios clients */
-            sex: '',
+            gender: '',
             heigth: '',
             weigth: '',
 
@@ -75,12 +75,12 @@ export default class Register extends Component {
                 <div className="col-4 pr-0 mr-3">
 
                     <div className="custom-control custom-radio custom-control-inline">
-                        <input id="male" className="custom-control-input" type='radio' name='sex' value='m' onChange={this.onChange} />
+                        <input id="male" className="custom-control-input" type='radio' name='gender' value='m' onChange={this.onChange} />
                         <label className="custom-control-label gender" htmlFor="male">Hombre <i className='fa fa-mars' aria-hidden='true'></i></label>
                     </div>
 
                     <div className="custom-control custom-radio custom-control-inline">
-                        <input id="female" className="custom-control-input" type='radio' name='sex' value='f' onChange={this.onChange} />
+                        <input id="female" className="custom-control-input" type='radio' name='gender' value='f' onChange={this.onChange} />
                         <label className="custom-control-label gender" htmlFor="female">Mujer <i className="fas fa-venus"></i></label>
                     </div>
 

@@ -6,9 +6,9 @@ export default class Clients extends Component {
         this.imcHandler = this.imcHandler.bind(this)
     }
 
-    imcHandler = (wheigth, heigth) => {
+    imcHandler = (weigth, heigth) => {
         let userValues = [];
-        let result = (wheigth / (Math.pow(heigth, 2))).toFixed(2);
+        let result = (weigth / (Math.pow(heigth, 2))).toFixed(2);
         userValues[0] = result;
 
         if (result < 18.50) {
@@ -47,20 +47,20 @@ export default class Clients extends Component {
                             client.monday && client.tuesday && client.wednesday && client.thursday && client.friday && client.saturday && client.sunday ?
                                 <tr key={client.id} className="active">
                                     <td>{client.email}</td>
-                                    <td>{client.sex}</td>
+                                    <td>{client.gender}</td>
                                     <td>{client.heigth}</td>
-                                    <td>{client.wheigth}</td>
-                                    <td>{this.imcHandler(client.wheigth, client.heigth)[0]}</td>
-                                    <td>{this.imcHandler(client.wheigth, client.heigth)[1]}</td>
+                                    <td>{client.weigth}</td>
+                                    <td>{this.imcHandler(client.weigth, client.heigth)[0]}</td>
+                                    <td>{this.imcHandler(client.weigth, client.heigth)[1]}</td>
                                     <td>{client.exerc_end}</td>
                                 </tr> :
                                 <tr key={client.id}>
                                     <td>{client.email}</td>
-                                    <td>{client.sex}</td>
+                                    <td>{client.gender}</td>
                                     <td>{client.heigth}</td>
-                                    <td>{client.wheigth}</td>
-                                    <td>{this.imcHandler(client.wheigth, client.heigth)[0]}</td>
-                                    <td>{this.imcHandler(client.wheigth, client.heigth)[1]}</td>
+                                    <td>{client.weigth}</td>
+                                    <td>{this.imcHandler(client.weigth, client.heigth)[0]}</td>
+                                    <td>{this.imcHandler(client.weigth, client.heigth)[1]}</td>
                                     <td>{client.exerc_end}</td>
                                 </tr>
                         )}
