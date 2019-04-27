@@ -5,7 +5,7 @@ import "./Navbar.css";
 export default class NavBar extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-sm bg-light">
+            <nav id="navBar" className="navbar navbar-expand-sm bg-light">
 
                 {/* Smartphone Button */}
                 <button

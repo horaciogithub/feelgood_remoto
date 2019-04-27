@@ -28,7 +28,7 @@ export default class Header extends Component {
                 </div>
 
                 <div>
-                    <AnchorLink href='#users'>
+                    <AnchorLink href='#navBar'>
                         <p className="icon"><i className="fas fa-chevron-down"></i></p>
                     </AnchorLink>
                 </div>

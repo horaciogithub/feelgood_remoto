@@ -345,14 +345,14 @@ export default class cPanel extends Component {
 
             exercController.push(
                 <td key={i}>
-                    <label>Nombre: </label>
-                    <input name={'exerc' + (i + 1) + 'Name'} className="form-control" type="text" placeholder="Press militar" onChange={this.inputHandler} />
-                    <label>Series: </label>
-                    <input name={'exerc' + (i + 1) + 'Series'} className="form-control" type="text" placeholder="4" onChange={this.inputHandler} />
-                    <label>Repeticiones: </label>
-                    <input name={'exerc' + (i + 1) + 'Loops'} className="form-control" type="text" placeholder="12" onChange={this.inputHandler} />
-                    <label>Descanso: </label>
-                    <input name={'exerc' + (i + 1) + 'Rest'} className="form-control" type="text" placeholder="00:01:15" onChange={this.inputHandler} />
+                    <label className="mt-2">Nombre: </label>
+                    <input className="mt-3" name={'exerc' + (i + 1) + 'Name'} className="form-control" type="text" placeholder="Press militar" onChange={this.inputHandler} />
+                    <label className="mt-3">Series: </label>
+                    <input className="mt-3" name={'exerc' + (i + 1) + 'Series'} className="form-control" type="number" placeholder="4" onChange={this.inputHandler} />
+                    <label className="mt-3">Repeticiones: </label>
+                    <input className="mt-3" name={'exerc' + (i + 1) + 'Loops'} className="form-control" type="number" placeholder="12" onChange={this.inputHandler} />
+                    <label className="mt-3">Descanso: </label>
+                    <input className="mt-3" name={'exerc' + (i + 1) + 'Rest'} className="form-control" type="text" placeholder="00:01:15" onChange={this.inputHandler} />
                 </td>
             )
         }
@@ -377,14 +377,14 @@ export default class cPanel extends Component {
                                 </select>
                             </td>
                             <td>
-                                <input name="routine" className="form-control" type="text" placeholder="Pecho" onChange={this.inputHandler} />
+                                <input className="mt-5" name="routine" className="form-control" type="text" placeholder="Pecho" onChange={this.inputHandler} />
                             </td>
                             <td>
-                                <label>Nombre:</label>
-                                <input name="warm_up_name" className="form-control" type="text" placeholder="Cinta" onChange={this.inputHandler} />
+                                <label className="mt-2">Nombre:</label>
+                                <input className="mt-3" name="warm_up_name" className="form-control" type="text" placeholder="Cinta" onChange={this.inputHandler} />
 
-                                <label>Tiempo:</label>
-                                <input name="warm_up_time" className="form-control" type="text" placeholder="00:30:00" onChange={this.inputHandler} />
+                                <label className="mt-3">Tiempo:</label>
+                                <input className="mt-3" name="warm_up_time" className="form-control" type="text" placeholder="00:30:00" onChange={this.inputHandler} />
                             </td>
                             {exercController}
                         </tr>
@@ -690,11 +690,11 @@ export default class cPanel extends Component {
                         </div>
                     </div>
 
-                    <div id="routineGenerator p-3">
+                    <div id="routineGenerator">
                         <h4 className="text-center pt-5 pb-5">Crea una rutina de entrenamiento:</h4>
 
-                        <label>Cantidad de ejercicios:</label>
-                        <input type="number" placeholder="6" min="6" max="10" onChange={this.routineGeneratorHandler} />
+                        <label>Cantidad de ejercicios: </label>
+                        <input className="ml-2" type="number" placeholder="6" min="6" max="10" onChange={this.routineGeneratorHandler} />
                         <div className="table-responsive">
                             {this.state.exercGenerator}
                         </div>
