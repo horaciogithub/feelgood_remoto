@@ -20,7 +20,6 @@ export default class TrainerPage extends Component {
         }
 
         this.logout = this.logout.bind(this);
-        // this.checkHandler = this.checkHandler.bind(this)
     }
 
     componentWillMount() {
@@ -48,11 +47,9 @@ export default class TrainerPage extends Component {
         })
     }
 
-    // checkHandler = (e) => {
-    //     alert(e.target.value)
-    // }
-
     render() {
+
+        console.log(this.state)
 
         // Devuelve home si deslogeamos
         if (this.state.redirect) {

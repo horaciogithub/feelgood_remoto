@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
+/* DatePicker */
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+
 /* Funciones */
 import { PostData } from '../../../services/PostData';
 
@@ -12,6 +16,9 @@ export default class Register extends Component {
         super(props);
 
         this.state = {
+            /* DatePicker date object */
+            startDate: new Date(),
+
             name: '',
             surname: '',
             type: '',
@@ -32,8 +39,27 @@ export default class Register extends Component {
             UserType: '',
         }
 
+        /* DatePicker event handler */
+        this.handleChange = this.handleChange.bind(this);
+
         this.register = this.register.bind(this);
         this.onChange = this.onChange.bind(this);
+    }
+
+    handleChange(date) {
+
+        let month = this.state.startDate.getMonth() + 1;
+        let formatedBirth = '';
+        if (month < 10) {
+            formatedBirth = this.state.startDate.getFullYear() + '-0' + month + '-' + this.state.startDate.getDate();
+        } else {
+            formatedBirth = this.state.startDate.getFullYear() + '-' + month + '-' + this.state.startDate.getDate();
+        }
+
+        this.setState({
+            startDate: date,
+            birth_date: formatedBirth
+        });
     }
 
     register() {
@@ -66,7 +92,6 @@ export default class Register extends Component {
             //Con e.target.name, recogemos el valor según el name del input
             [e.target.name]: e.target.value
         });
-        console.log(this.state)
     }
 
     clientFormHandler = () => {
@@ -216,13 +241,12 @@ export default class Register extends Component {
                                         <div className="input-group-prepend">
                                             <span className="input-group-text">Fecha nacimiento</span>
                                         </div>
-                                        <input
-                                            className="form-control calendar"
-                                            type="date"
-                                            name="birth_date"
-                                            onChange={this.onChange}
-                                            autoComplete="off"
-                                            required="" />
+                                        <DatePicker
+                                            selected={this.state.startDate}
+                                            onChange={this.handleChange}
+                                            locale="es"
+                                            dateFormat="dd/MM/yyyy"
+                                        />
                                     </div>
 
                                     <div className="input-group mb-3">

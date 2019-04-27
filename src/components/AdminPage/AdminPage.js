@@ -27,7 +27,6 @@ export default class AdminPage extends Component {
 
             this.setState({
                 userData: data.userData,
-                // routine: data.table,
             })
         }
         else {

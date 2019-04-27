@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from "axios";
 
 /* DatePicker */
-import DatePicker from "react-datepicker";
+import DatePicker, { registerLocale } from 'react-datepicker';
+import es from 'date-fns/locale/es';
 import "react-datepicker/dist/react-datepicker.css";
 
 /* Styles */
@@ -13,6 +14,8 @@ import Clients from '../Clients/Clients';
 
 /* Funciones */
 import { PostData } from '../../../services/PostData';
+
+registerLocale('es', es);
 
 export default class cPanel extends Component {
     constructor(props) {
@@ -137,13 +140,15 @@ export default class cPanel extends Component {
             });
     }
 
+    componentDidMount() {
+        this.routineGeneratorHandler(6);
+    }
+
     handleChange(date) {
         this.setState({
             startDate: date
         });
     }
-
-
 
     setOptionsHandler = (exercices) => {
 
@@ -324,10 +329,18 @@ export default class cPanel extends Component {
 
     // Generador de rutinas
     routineGeneratorHandler = (e) => {
+        let value = 0
+
+        if (isNaN(e)) {
+            value = e.target.value;
+        } else {
+            value = parseInt(e);
+        }
+
         let exercicesHead = [];
         let exercController = [];
 
-        for (let i = 0; i < e.target.value; i++) {
+        for (let i = 0; i < value; i++) {
             exercicesHead.push(<th key={i}>Ejercicio{i + 1}</th>)
 
             exercController.push(
@@ -344,11 +357,10 @@ export default class cPanel extends Component {
             )
         }
 
-
         let table = (
-            <div className="table-responsive">
+            <div className="table-responsive routine-generator mt-3">
                 <table className="table">
-                    <thead>
+                    <thead className="header">
                         <tr>
                             <th>Tipo</th>
                             <th>Rutina</th>
@@ -378,7 +390,9 @@ export default class cPanel extends Component {
                         </tr>
                     </tbody>
                 </table>
-                <button className="btn btn-red" onClick={this.postRoutineHandeler}>Registrar rutina</button>
+                <div className="d-flex justify-content-end">
+                    <button className="btn btn-red" onClick={this.postRoutineHandeler}>Registrar rutina</button>
+                </div>
             </div>
         )
 
@@ -569,7 +583,8 @@ export default class cPanel extends Component {
                                 <DatePicker
                                     selected={this.state.startDate}
                                     onChange={this.handleChange}
-                                // dateFormat="yyyy-MM-d"
+                                    locale="es"
+                                    dateFormat="dd/MM/yyyy"
                                 />
 
                                 <div className="table-responsive selectors">
@@ -678,7 +693,7 @@ export default class cPanel extends Component {
                     <div id="routineGenerator p-3">
                         <h4 className="text-center pt-5 pb-5">Crea una rutina de entrenamiento:</h4>
 
-                        <label>Introduce cuántos ejercicios quieres crear:</label>
+                        <label>Cantidad de ejercicios:</label>
                         <input type="number" placeholder="6" min="6" max="10" onChange={this.routineGeneratorHandler} />
                         <div className="table-responsive">
                             {this.state.exercGenerator}

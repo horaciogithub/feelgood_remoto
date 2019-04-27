@@ -11,6 +11,7 @@
 * {
   --background: #e8f5e9;
   --texto: #5d646a;
+  --borde: #c4c4c4;
   --ligth-red: #FF0800;
   --dark-red: #d50000;
   box-sizing: border-box;

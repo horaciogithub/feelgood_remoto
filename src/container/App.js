@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+
+/* Estilos */
 import './App.css';
 
-/* COMPONENTS */
+/* Componentes */
 import Index from '../components/Index/Index';
 import AdminPage from '../components/AdminPage/AdminPage';
 import TrainerPage from '../components/TrainerPage/TrainerPage';

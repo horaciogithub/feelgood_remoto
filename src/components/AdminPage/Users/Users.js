@@ -62,11 +62,7 @@ export default class Users extends Component {
     // Añade un warning a un usuario
     warningUserHandler = (e) => {
 
-        console.log(e.target.value)
-
-        const data = {
-            id: e.target.value
-        }
+        const data = { id: e.target.value }
 
         axios.post('http://localhost:8000/api/userWarning', data)
             .then(response => {
