@@ -346,13 +346,13 @@ export default class cPanel extends Component {
             exercController.push(
                 <td key={i}>
                     <label className="mt-2">Nombre: </label>
-                    <input className="mt-3" name={'exerc' + (i + 1) + 'Name'} className="form-control" type="text" placeholder="Press militar" onChange={this.inputHandler} />
+                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Name'} type="text" placeholder="Press militar" onChange={this.inputHandler} />
                     <label className="mt-3">Series: </label>
-                    <input className="mt-3" name={'exerc' + (i + 1) + 'Series'} className="form-control" type="number" placeholder="4" onChange={this.inputHandler} />
+                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Series'} type="number" placeholder="4" onChange={this.inputHandler} />
                     <label className="mt-3">Repeticiones: </label>
-                    <input className="mt-3" name={'exerc' + (i + 1) + 'Loops'} className="form-control" type="number" placeholder="12" onChange={this.inputHandler} />
+                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Loops'} type="number" placeholder="12" onChange={this.inputHandler} />
                     <label className="mt-3">Descanso: </label>
-                    <input className="mt-3" name={'exerc' + (i + 1) + 'Rest'} className="form-control" type="text" placeholder="00:01:15" onChange={this.inputHandler} />
+                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Rest'} type="text" placeholder="00:01:15" onChange={this.inputHandler} />
                 </td>
             )
         }
@@ -377,14 +377,14 @@ export default class cPanel extends Component {
                                 </select>
                             </td>
                             <td>
-                                <input className="mt-5" name="routine" className="form-control" type="text" placeholder="Pecho" onChange={this.inputHandler} />
+                                <input className="form-control mt-5" name="routine" type="text" placeholder="Pecho" onChange={this.inputHandler} />
                             </td>
                             <td>
                                 <label className="mt-2">Nombre:</label>
-                                <input className="mt-3" name="warm_up_name" className="form-control" type="text" placeholder="Cinta" onChange={this.inputHandler} />
+                                <input className="form-control mt-3" name="warm_up_name" type="text" placeholder="Cinta" onChange={this.inputHandler} />
 
                                 <label className="mt-3">Tiempo:</label>
-                                <input className="mt-3" name="warm_up_time" className="form-control" type="text" placeholder="00:30:00" onChange={this.inputHandler} />
+                                <input className="form-control mt-3" name="warm_up_time" type="text" placeholder="00:30:00" onChange={this.inputHandler} />
                             </td>
                             {exercController}
                         </tr>

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+
+/* Componentes */
+import WarningMessage from '../WarningMessage/WarningMessage';
 
 /* Estilos */
 import '../Index/Header/Header.css';
@@ -22,7 +25,7 @@ export default class Header extends Component {
                         <div className="col-3 profile">
                             <img src={this.props.user.img} alt={this.props.user.name} />
                         </div>
-                        <h5>{this.props.user.name} {this.props.user.surname}</h5>
+                        <h5>{this.props.user.name} {this.props.user.surname} </h5>
                         <button className="btn btn-red ml-3" onClick={this.props.logout}>Salir <i className="fas fa-sign-out-alt"></i></button>
                     </div>
                 </div>
@@ -32,6 +35,10 @@ export default class Header extends Component {
                         <p className="icon"><i className="fas fa-chevron-down"></i></p>
                     </AnchorLink>
                 </div>
+
+                {
+                    this.props.user.warnings > 0 ? <WarningMessage warnings={this.props.user.warnings} /> : ''
+                }
             </header>
         );
     }

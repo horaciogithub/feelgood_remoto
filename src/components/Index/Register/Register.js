@@ -62,7 +62,36 @@ export default class Register extends Component {
         });
     }
 
+    checkForm = () => {
+        if (!this.state.name) {
+            document.getElementById('name').placeholder = "Campo vacío";
+            document.getElementById('name').classList.add("text-error")
+        }
+
+        if (!this.state.surname) {
+            document.getElementById('surname').placeholder = "Campo vacío";
+            document.getElementById('surname').classList.add("text-error")
+        }
+
+        if (!this.state.email) {
+            document.getElementById('emailRegister').placeholder = "Campo vacío";
+            document.getElementById('emailRegister').classList.add("text-error")
+        }
+
+        if (!this.state.password) {
+            document.getElementById('passRegister').placeholder = "Campo vacío";
+            document.getElementById('passRegister').classList.add("text-error")
+        }
+
+        if (!this.state.c_password) {
+            document.getElementById('cPassRegister').placeholder = "Campo vacío";
+            document.getElementById('cPassRegister').classList.add("text-error")
+        }
+    }
+
     register() {
+
+        this.checkForm();
 
         PostData('register', this.state).then((result) => {
             let responseJSON = result;
@@ -164,6 +193,7 @@ export default class Register extends Component {
                                             <span className="input-group-text">Nombre</span>
                                         </div>
                                         <input
+                                            id="name"
                                             className="form-control"
                                             type="text"
                                             name="name"
@@ -180,6 +210,7 @@ export default class Register extends Component {
                                             <span className="input-group-text">Apellido</span>
                                         </div>
                                         <input
+                                            id="surname"
                                             className="form-control"
                                             type="text"
                                             name="surname"
@@ -196,6 +227,7 @@ export default class Register extends Component {
                                             <span className="input-group-text">Email</span>
                                         </div>
                                         <input
+                                            id="emailRegister"
                                             className="form-control"
                                             type="email"
                                             name="email"
@@ -212,6 +244,7 @@ export default class Register extends Component {
                                             <span className="input-group-text">Contraseña</span>
                                         </div>
                                         <input
+                                            id="passRegister"
                                             className="form-control"
                                             type="password"
                                             name="password"
@@ -227,6 +260,7 @@ export default class Register extends Component {
                                             <span className="input-group-text">Repite contraseña</span>
                                         </div>
                                         <input
+                                            id="cPassRegister"
                                             className="form-control"
                                             type="password"
                                             name="c_password"

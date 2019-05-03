@@ -64,7 +64,7 @@ export default class Users extends Component {
 
         const data = { id: e.target.value }
 
-        axios.post('http://localhost:8000/api/userWarning', data)
+        axios.put('http://localhost:8000/api/userWarning', data)
             .then(response => {
                 this.reloadUsersHandler();
             })

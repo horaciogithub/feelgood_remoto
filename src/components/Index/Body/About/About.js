@@ -35,7 +35,7 @@ export default class About extends Component {
                             alt=""
                             width="100%" />
 
-                        <p>Dietas 100% equilibradas</p>
+                        <p>Resultados garantizados</p>
                     </div>
                     <div className="col-sm-4"></div>
                     <div className="shadow-lg">
