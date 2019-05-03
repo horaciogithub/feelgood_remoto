@@ -7,7 +7,7 @@ export default class Body extends Component {
         return (
             <section id="routine">
                 <div className="p-5 routine-container">
-                    <ul className="nav nav-tabs" role="tablist">
+                    <ul className="nav nav-tabs wow fadeInLeft" role="tablist">
                         <li className="nav-item">
                             <a className="nav-link active" data-toggle="tab" href="#monday">Lunes</a>
                         </li>

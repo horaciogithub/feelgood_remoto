@@ -65,3 +65,8 @@
     background-color: var(--background);
     transform: skew(4deg,10deg);
 }
+
+.warm-icon {
+    width: 40px;
+    height: 40px;
+}

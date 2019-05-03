@@ -16,10 +16,6 @@
     background-color: #a5d6a7
 }
 
-.panel table tr.invisible-cell {
-    display: none;
-}
-
 .panel  table th,
 .panel  table td {
     font-size: 15px !important;

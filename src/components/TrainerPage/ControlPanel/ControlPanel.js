@@ -422,6 +422,7 @@ export default class cPanel extends Component {
     }
 
     render() {
+        /* Clase del modal */
         let modalClass = '';
         if (this.state.visibility === true) {
             modalClass = "col-5 p-5 modal-routine";
@@ -429,6 +430,7 @@ export default class cPanel extends Component {
             modalClass = "hidden";
         }
 
+        /* Tabla de entrenamiento */
         if (this.state.exercices.length > 0) {
             const clients = this.state.clients;
 
@@ -501,7 +503,7 @@ export default class cPanel extends Component {
                                     <td>{this.state.table[0].exercice7[0].loops}</td>
                                     <td>{this.state.table[0].exercice7[0].rest}</td>
                                 </tr> :
-                                <tr className="invisible-cell">
+                                <tr className="invisivle-row">
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -516,7 +518,7 @@ export default class cPanel extends Component {
                                     <td>{this.state.table[0].exercice8[0].loops}</td>
                                     <td>{this.state.table[0].exercice8[0].rest}</td>
                                 </tr> :
-                                <tr className="invisible-cell">
+                                <tr className="invisivle-row">
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -531,7 +533,7 @@ export default class cPanel extends Component {
                                     <td>{this.state.table[0].exercice9[0].loops}</td>
                                     <td>{this.state.table[0].exercice9[0].rest}</td>
                                 </tr> :
-                                <tr className="invisible-cell">
+                                <tr className="invisivle-row">
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -546,7 +548,7 @@ export default class cPanel extends Component {
                                     <td>{this.state.table[0].exercice10[0].loops}</td>
                                     <td>{this.state.table[0].exercice10[0].rest}</td>
                                 </tr> :
-                                <tr className="invisible-cell">
+                                <tr className="invisivle-row">
                                     <td></td>
                                     <td></td>
                                     <td></td>

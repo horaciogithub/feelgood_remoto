@@ -6,9 +6,8 @@ import './Routine.css';
 export default class Routine extends Component {
 
     render() {
-        console.log(this.props.routine)
         return (
-            <div className="routine">
+            <div className="routine wow fadeInRight">
                 <table className="table table-borderless table-hover table-striped">
                     <thead>
                         <tr className="header">
@@ -71,7 +70,13 @@ export default class Routine extends Component {
                                     <td>{this.props.routine[7].series}</td>
                                     <td>{this.props.routine[7].loops}</td>
                                     <td>{this.props.routine[7].rest}</td>
-                                </tr> : ""
+                                </tr> :
+                                <tr className="invisivle-row">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                         }
 
                         {
@@ -81,7 +86,13 @@ export default class Routine extends Component {
                                     <td>{this.props.routine[8].series}</td>
                                     <td>{this.props.routine[8].loops}</td>
                                     <td>{this.props.routine[8].rest}</td>
-                                </tr> : ""
+                                </tr> :
+                                <tr className="invisivle-row">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                         }
 
                         {
@@ -91,7 +102,13 @@ export default class Routine extends Component {
                                     <td>{this.props.routine[9].series}</td>
                                     <td>{this.props.routine[9].loops}</td>
                                     <td>{this.props.routine[9].rest}</td>
-                                </tr> : ""
+                                </tr> :
+                                <tr className="invisivle-row">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                         }
 
                         {
@@ -101,7 +118,13 @@ export default class Routine extends Component {
                                     <td>{this.props.routine[10].series}</td>
                                     <td>{this.props.routine[10].loops}</td>
                                     <td>{this.props.routine[10].rest}</td>
-                                </tr> : ""
+                                </tr> :
+                                <tr className="invisivle-row">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                         }
                     </tbody>
                 </table>

@@ -10,6 +10,12 @@
     z-index: 25;
 }
 
+@media only screen and (max-width: 576px) {
+    #mainHeader {
+        height: 540px;
+    } 
+}
+
 #mainHeader .overlay {
     position: absolute;
     top: 0;
@@ -47,6 +53,13 @@
     height: 50px;
 }
 
+/* @media only screen and (max-width: 576px) {
+    #mainHeader .header-bar .logo img {
+        width: 40%;
+        height: 80px;
+    }
+} */
+
 #mainHeader .wrapper {
     position: relative;
     font-weight: bold;
@@ -60,14 +73,26 @@
     left:20px;
 }
 
+@media only screen and (max-width: 576px) {
+    #mainHeader .wrapper-img {
+        top: 180px;
+        left: -9px;
+    }
+
+    #mainHeader .wrapper-img img {
+        width: 40%;
+        height: 80px;
+    }
+}
+
 #mainHeader .wrapper h1 {
     margin-left: 30px;
     font-size: 80px;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
     #mainHeader .wrapper h1 {
-        font-size: 30px;
+        font-size: 41px;
     }
 }
 
@@ -83,6 +108,13 @@
     color: var(--ligth-red);
 }
 
+@media only screen and (max-width: 720px) {
+    #mainHeader .wrapper p {
+        font-size: 18px;
+        text-align: right;
+    }
+}
+
 #mainHeader  p.icon {
     position: absolute;
     right: 0;
@@ -93,6 +125,12 @@
     color: white;
     cursor: pointer
 } 
+
+@media only screen and (max-width: 720px) {
+    #mainHeader  p.icon {
+        font-size: 60px;
+    }
+}
 
 /* Login form */
 #mainHeader .login {
@@ -123,4 +161,10 @@
     text-decoration: underline !important;
     color: white !important;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+    #mainHeader .modal-link {
+        right: 34px;
+    }
 }
