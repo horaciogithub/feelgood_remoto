@@ -45,7 +45,7 @@ export default class cPanel extends Component {
             exercController: '',
 
             routineData: {
-                type: '',
+                type: "aeróbico",
                 routine: '',
                 warm_up_name: '',
                 warm_up_time: '',
@@ -257,11 +257,8 @@ export default class cPanel extends Component {
                 "exerc_end": date
             }
 
-            console.log(data)
             // Enviamos los datos al servicio
-
             PostData('postTable', data).then((result) => {
-                // let responseJSON = result;
                 this.reloadClientsHandler();
             })
         } else {
@@ -283,7 +280,6 @@ export default class cPanel extends Component {
                         friday: '',
                         saturday: '',
                         sunday: '',
-                        // table_end: '2019-05-22'
                     })
                 })
                 .catch((error) => {
@@ -349,13 +345,13 @@ export default class cPanel extends Component {
             exercController.push(
                 <td key={i}>
                     <label className="mt-2">Nombre: </label>
-                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Name'} type="text" placeholder="Press militar" onChange={this.inputHandler} />
+                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Name'} type="text" placeholder="Press militar" autoComplete="off" onChange={this.inputHandler} />
                     <label className="mt-3">Series: </label>
-                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Series'} type="number" placeholder="4" onChange={this.inputHandler} />
+                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Series'} type="number" placeholder="4" min="1" autoComplete="off" onChange={this.inputHandler} />
                     <label className="mt-3">Repeticiones: </label>
-                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Loops'} type="number" placeholder="12" onChange={this.inputHandler} />
+                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Loops'} type="number" placeholder="12" min="1" autoComplete="off" onChange={this.inputHandler} />
                     <label className="mt-3">Descanso: </label>
-                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Rest'} type="text" placeholder="00:01:15" onChange={this.inputHandler} />
+                    <input className="form-control mt-3" name={'exerc' + (i + 1) + 'Rest'} type="text" placeholder="00:01:15" autoComplete="off" onChange={this.inputHandler} />
                 </td>
             )
         }
@@ -380,14 +376,14 @@ export default class cPanel extends Component {
                                 </select>
                             </td>
                             <td>
-                                <input className="form-control mt-5" name="routine" type="text" placeholder="Pecho" onChange={this.inputHandler} />
+                                <input className="form-control mt-5" name="routine" type="text" placeholder="Pecho" autoComplete="off" onChange={this.inputHandler} />
                             </td>
                             <td>
                                 <label className="mt-2">Nombre:</label>
-                                <input className="form-control mt-3" name="warm_up_name" type="text" placeholder="Cinta" onChange={this.inputHandler} />
+                                <input className="form-control mt-3" name="warm_up_name" type="text" placeholder="Cinta" autoComplete="off" onChange={this.inputHandler} />
 
                                 <label className="mt-3">Tiempo:</label>
-                                <input className="form-control mt-3" name="warm_up_time" type="text" placeholder="00:30:00" onChange={this.inputHandler} />
+                                <input className="form-control mt-3" name="warm_up_time" type="text" placeholder="00:30:00" autoComplete="off" onChange={this.inputHandler} />
                             </td>
                             {exercController}
                         </tr>
@@ -407,7 +403,6 @@ export default class cPanel extends Component {
     // Envia la rutina para su registro
     postRoutineHandeler = () => {
         let data = this.state.routineData
-        console.log(data)
 
         if (this.state.routineData.exerc1Name && this.state.routineData.exerc2Name &&
             this.state.routineData.exerc3Name && this.state.routineData.exerc4Name &&
@@ -435,7 +430,6 @@ export default class cPanel extends Component {
         }
 
         if (this.state.exercices.length > 0) {
-            // console.log(this.state.clients)
             const clients = this.state.clients;
 
             let table;
