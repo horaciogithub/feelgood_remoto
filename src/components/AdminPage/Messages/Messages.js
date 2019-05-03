@@ -93,12 +93,15 @@ export default class Messages extends Component {
                     <table className="table table-dark table-hover">
                         <thead>
                             <tr>
-                                <th className="text-center" scope="col">
+                                <th className="text-center">
                                     <h6>Email</h6>
                                 </th>
-                                <th className="text-center" scope="col">
+                                <th className="text-center">
                                     <h6>Mensaje</h6>
                                 </th>
+                                {/* <th>
+                                    <h6>Fecha</h6>
+                                </th> */}
                                 <th></th>
                             </tr>
                         </thead>
@@ -107,6 +110,7 @@ export default class Messages extends Component {
                                 <tr key={message.id}>
                                     <td className="text-center align-middle"> {message.email} </td>
                                     <td className="text-left align-middle"> {message.subject} </td>
+                                    {/* <td className="text-left align-middle"> {message.created_at} </td> */}
                                     <td className="text-center align-middle">
                                         <button
                                             className="btn btn-red"

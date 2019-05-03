@@ -31,4 +31,16 @@
     color: var(--texto)
 }
 
+.warning-message span {
+    font-size: 15px;
+    font-weight: 800
+}
+
+.warning-message span:first-child { 
+    font-style: italic
+}
+
+.hidden {
+    display: none;
+}
 
