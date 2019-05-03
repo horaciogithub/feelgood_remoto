@@ -99,7 +99,10 @@ export default class cPanel extends Component {
                 exerc10Series: '',
                 exerc10Loops: '',
                 exerc10Rest: '',
-            }
+            },
+
+            // Routine generatos message
+            visibility: false
         }
 
         /* DatePicker event handler */
@@ -411,16 +414,26 @@ export default class cPanel extends Component {
             this.state.routineData.exerc5Name && this.state.routineData.exerc6Name) {
             axios.post('http://localhost:8000/api/routineRegister', data)
                 .then(response => {
-                    this.reloadExercicesHandler()
+                    this.reloadExercicesHandler();
+                    this.setState({ visibility: true });
                 })
 
-        } else {
-            console.log("error de envío")
         }
+    }
 
+    // Cierra el modal
+    closeHandler = () => {
+        this.setState({ visibility: false })
     }
 
     render() {
+        let modalClass = '';
+        if (this.state.visibility === true) {
+            modalClass = "col-5 p-5 modal-routine";
+        } else {
+            modalClass = "hidden";
+        }
+
         if (this.state.exercices.length > 0) {
             // console.log(this.state.clients)
             const clients = this.state.clients;
@@ -697,6 +710,12 @@ export default class cPanel extends Component {
                         <input className="ml-2" type="number" placeholder="6" min="6" max="10" onChange={this.routineGeneratorHandler} />
                         <div className="table-responsive">
                             {this.state.exercGenerator}
+                        </div>
+
+                        {/* Modal */}
+                        <div className={modalClass}>
+                            <button className=" btn-close" onClick={this.closeHandler}><i className="fas fa-times"></i></button>
+                            <p>Rutina de entrenamiento creada satisfactoriamente <i className="fas fa-check"></i></p>
                         </div>
                     </div>
                 </div >
