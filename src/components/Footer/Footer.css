@@ -2,10 +2,11 @@
 /*     FOOTER     */
 /* –––––––––––––– */
 
+/* General */
+
 footer {
     position: relative;
-    color: white;
-    background-color: rgb(50, 50, 50);
+    background: rgb(50, 50, 50);
     padding: 50px 0 0;
 }
 
@@ -22,8 +23,8 @@ footer .social {
         11px 11px 0 rgb(25, 25, 25), 12px 12px 0 rgb(25, 25, 25),
         13px 13px 0 rgb(25, 25, 25), 14px 14px 0 rgb(25, 25, 25),
         15px 15px 0 rgb(25, 25, 25);
-    margin: 0 35px;
-    transition: 0.5s;
+    margin: 0 25px;
+    transition: 0.5s ease-in-out;
 }
 
 footer .social:hover {
@@ -45,11 +46,12 @@ footer .copyrigth {
 }
 
 footer .copyrigth p {
-    color: white;
-    font-size: 15px;
+    color: rgba(255,255,255,.75);
+    font-size: 11px;
+    font-style: italic;
     font-weight: 300;
     text-transform: uppercase;
     white-space: nowrap;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin-bottom: 0;
 }

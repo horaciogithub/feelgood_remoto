@@ -13,6 +13,7 @@
 #about .first-content-boxes {
     position: relative;
 }
+
 #about .first-content-boxes div {
     border: solid;
     border-width: 1px;
@@ -21,24 +22,35 @@
     margin-top: 80px;
     margin-bottom: 80px;
 }
-
-#about .first-content-boxes div:nth-child(3) {
-    position: absolute;
-    top: 55px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 505px;
-    height: 420px;
-    background-color: white;
-    border: none;
-    color: var(--dark);
-    z-index: 1000;
+ 
+/* Mobile first */
+#about .separator {
+    display: none
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (min-width: 480px) {
+    #about .separator {
+        display: block
+    }
+}
+
+#about .first-content-boxes div:nth-child(3) {
+    position: relative;
+}
+
+@media only screen and (min-width: 480px) {
     #about .first-content-boxes div:nth-child(3) {
-        position: relative;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 505px;
+        height: 420px;
+        background-color: white;
+        border: none;
+        color: var(--dark);
+        z-index: 1000;
     }
 }
 

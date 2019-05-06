@@ -1,127 +1,46 @@
-header .header-bar .login {
-    margin-left: 250px;
+#mainHeader.private-header {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid lightgray;
+    box-shadow: none;
+    height: 150px;
 }
 
-/* Login form */
-header .header-bar .login {
-	padding-left: 0px;
-    margin-left: 250px;
+#mainHeader.private-header .login {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: wrap;
+    padding: 0;
 }
 
-header .header-bar .login div:first-child img{
-	position: absolute;
-    top: -32px;
-    width: 65% !important;
+#mainHeader.private-header .login .avatar {
+    border-radius: 50%;
+    width: 70px;
     height: 70px;
-    z-index: 2;
 }
 
-header .header-bar .login .btn{
-	/* background-color: inherit; */
-	border: none;
+#mainHeader.private-header .login .nombre {
+    color: crimson;
+    font-size: 11px;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    margin-left: 25px;
 }
 
-header .wrapper p:first-child {
-	padding-top: 350px;
+#mainHeader.private-header .login .boton {
+    margin: 0;
+    margin-left: 25px;
 }
 
-/* User options */
-#logout{
-	padding: 2px 7px 2px 7px;
-	margin-top: 12px;
-}
+/* Mobile Frist */
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 20px;
-    top: 70px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: #5D646A;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    cursor: pointer;
-}
-
-.dropdown-content a:hover {
-	background-color: #f1f1f1;
-}
-
-/* ––––––––––––––––––––––––––––––––––– */
-/*     DELETE PROFILE CONFIRMATION     */
-/* ––––––––––––––––––––––––––––––––––– */
-
-#dropConfirm{
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	display: none; 
-	background-color: rgb(255,255,255);
-	padding: 0;
-	z-index: 500;
-}
-
-#dropConfirm .dropConfirmImg{
-	padding: 0;
-}
-
-#dropConfirm h4{
-	padding-top:10px;
-	text-align: center;
-}
-
-#dropConfirm .row:nth-child(2){
-	margin-top: 50px;
-}
-
-#dropConfirm div .yes-confim{
-	margin-left: 12px;
-	padding-left: 22px;
-	padding-right: 22px;
-}
-
-/* ––––––––––––––––––––––––––––– */
-/*     USER PROFILE SETTINGS     */
-/* ––––––––––––––––––––––––––––– */
-
-.modal-settings{
-	background-color: #fff;
-	position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-	padding: 0px;
-	display: none;
-	z-index: 500;
-}
-
-.modal-settings .modal-header{
-	background-color: #29B873;
-}
-
-.modal-settings .row{
-	margin: 0px;
-}
-
-.modal-settings .row img{
-	border:solid;
-	border-width: 1px;
-	border-color: rgb(180,180,180);
-	margin: 12px;
-}
-
-.modal-settings .form-horizontal{
-	padding: 20px;
-}
-
-.profile {
-	margin-left: 150px;
+@media only screen and (min-width: 480px) {
+    #mainHeader.private-header .login .nombre {
+        font-size: 15px;
+    }
 }

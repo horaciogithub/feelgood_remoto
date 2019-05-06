@@ -43,8 +43,8 @@ h4.text-center {
 
 .custom-control-input:checked~.custom-control-label::before {
     color: #fff;
-    border-color: var(--dark-red);
-    background-color: var(--dark-red);
+    border-color: crimson;
+    background-color: crimson;
 }
 
 /* DatePicker */
@@ -54,7 +54,7 @@ h4.text-center {
 }
 
 .react-datepicker__header {
-    background-color: var(--dark-red);
+    background-color: crimson;
 }
 
 .react-datepicker__current-month,
@@ -63,8 +63,12 @@ h4.text-center {
 }
 
 .react-datepicker__day--today,
-.react-datepicker__day--selected  {
-    background-color: var(--dark-red)
+.react-datepicker__day--today:hover,
+.react-datepicker__day--selected,
+.react-datepicker__day--selected:hover  {
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
 }
 
 .react-datepicker__input-container > input {
@@ -87,7 +91,7 @@ h4.text-center {
 }
 
 #routineGenerator .routine-generator .header {
-    background-color: var(--dark-red);
+    background-color: crimson;
     text-transform: uppercase;
     color: white;
 }

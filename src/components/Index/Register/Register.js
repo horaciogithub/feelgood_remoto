@@ -126,23 +126,23 @@ export default class Register extends Component {
     clientFormHandler = () => {
         const form = (
             <div id="formulario-cliente" className="row">
-                <div className="col-4 pr-0 mr-3">
+                <div className="col-12 col-md-4 pr-0 mr-3 mb-3 mb-md-0">
 
-                    <div className="custom-control custom-radio custom-control-inline">
+                    <div className="custom-control custom-radio custom-control-inline ml-1 ml-md-0">
                         <input id="male" className="custom-control-input" type='radio' name='gender' value='m' onChange={this.onChange} />
                         <label className="custom-control-label gender" htmlFor="male">Hombre <i className='fa fa-mars' aria-hidden='true'></i></label>
                     </div>
 
-                    <div className="custom-control custom-radio custom-control-inline">
+                    <div className="custom-control custom-radio custom-control-inline ml-5 ml-md-0">
                         <input id="female" className="custom-control-input" type='radio' name='gender' value='f' onChange={this.onChange} />
                         <label className="custom-control-label gender" htmlFor="female">Mujer <i className="fas fa-venus"></i></label>
                     </div>
 
                 </div>
-                <div id="heigth" className="row col-4 mr-3">
+                <div id="heigth" className="row col-6 ml-1 mr-1 col-md-4 ml-md-0 mr-md-0">
                     <input type='number' className='form-control' name='heigth' min='1' max='3' placeholder='Estatura' required onChange={this.onChange} />
                 </div>
-                <div id="weigth" className="row col-4">
+                <div id="weigth" className="row col-6 col-md-4">
                     <input type='number' className='form-control' name='weigth' min='20' max='300' placeholder='Peso' required onChange={this.onChange} />
                 </div>
             </div>
@@ -180,16 +180,16 @@ export default class Register extends Component {
                     <div className="modal-content">
 
                         <div className="modal-header">
-                            <h4 className="modal-title">Regístrate</h4>
+                            <h4 className="modal-title"><i className="fas fa-edit"></i> Regístrate</h4>
                             <button type="button" className="close" data-dismiss="modal" title="Cerrar">&times;</button>
                         </div>
 
                         <div className="modal-body">
                             <div className="row">
-                                <div className="col-lg-10 m-auto form-register">
+                                <div className="col-10 m-auto form-register">
 
                                     <div className="input-group mb-3">
-                                        <div className="input-group-prepend">
+                                        <div className="input-group-append">
                                             <span className="input-group-text">Nombre</span>
                                         </div>
                                         <input
@@ -201,12 +201,12 @@ export default class Register extends Component {
                                             onChange={this.onChange}
                                             autoComplete="off"
                                             required
-                                            placeholder="Helio"
+                                            placeholder="Nombre"
                                         />
                                     </div>
 
                                     <div className="input-group mb-3">
-                                        <div className="input-group-prepend">
+                                        <div className="input-group-append">
                                             <span className="input-group-text">Apellido</span>
                                         </div>
                                         <input
@@ -218,7 +218,7 @@ export default class Register extends Component {
                                             onChange={this.onChange}
                                             autoComplete="off"
                                             required
-                                            placeholder="Santana"
+                                            placeholder="1er Apellido"
                                         />
                                     </div>
 
@@ -235,12 +235,12 @@ export default class Register extends Component {
                                             onChange={this.onChange}
                                             autoComplete="off"
                                             required
-                                            placeholder="dominio@gmail.com"
+                                            placeholder="Email"
                                         />
                                     </div>
 
                                     <div className="input-group mb-3">
-                                        <div className="input-group-prepend">
+                                        <div className="input-group-append">
                                             <span className="input-group-text">Contraseña</span>
                                         </div>
                                         <input
@@ -252,11 +252,11 @@ export default class Register extends Component {
                                             onChange={this.onChange}
                                             autoComplete="off"
                                             required
-                                            placeholder="* * * * * * * * *" />
+                                            placeholder="Contraseña" />
                                     </div>
 
                                     <div className="input-group mb-3">
-                                        <div className="input-group-prepend">
+                                        <div className="input-group-append">
                                             <span className="input-group-text">Repite contraseña</span>
                                         </div>
                                         <input
@@ -268,11 +268,11 @@ export default class Register extends Component {
                                             onChange={this.onChange}
                                             autoComplete="off"
                                             required
-                                            placeholder="* * * * * * * * *" />
+                                            placeholder="Repite contraseña" />
                                     </div>
 
                                     <div className="input-group mb-3">
-                                        <div className="input-group-prepend">
+                                        <div className="input-group-append">
                                             <span className="input-group-text">Fecha nacimiento</span>
                                         </div>
                                         <DatePicker
@@ -284,7 +284,7 @@ export default class Register extends Component {
                                     </div>
 
                                     <div className="input-group mb-3">
-                                        <div className="input-group-prepend">
+                                        <div className="input-group-append">
                                             <span className="input-group-text">Tipo de usuario</span>
                                         </div>
                                         <select
@@ -293,7 +293,7 @@ export default class Register extends Component {
                                             name="type"
                                             onChange={this.onChange}
                                             autoComplete="off">
-                                            <option readOnly>Regístrate como:</option>
+                                            <option readOnly>Tipo de usuario:</option>
                                             <option value="user">Cliente</option>
                                             <option value="trainer">Entrenador</option>
                                         </select>

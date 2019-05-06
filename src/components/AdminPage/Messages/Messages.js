@@ -74,56 +74,58 @@ export default class Messages extends Component {
 
         if (this.state.messages.length > 0) {
             return (
-                <div id="comments" className="table-responsive col-8 m-auto p-0">
+                <div className="container">
+                    <div id="comments" className="table-responsive">
 
-                    {/* Botones de paginación */}
-                    <div>
-                        <Pagination
-                            itemClass="page-item"
-                            linkClass="page-link"
-                            activePage={this.state.activePage}
-                            itemsCountPerPage={this.state.itemsCountPerPage}
-                            totalItemsCount={this.state.totalItemsCount}
-                            pageRangeDisplayed={this.state.pageRangeDisplayed}
-                            onChange={this.handlePageChange}
-                        />
-                    </div>
+                        {/* Botones de paginación */}
+                        <div>
+                            <Pagination
+                                itemClass="page-item"
+                                linkClass="page-link"
+                                activePage={this.state.activePage}
+                                itemsCountPerPage={this.state.itemsCountPerPage}
+                                totalItemsCount={this.state.totalItemsCount}
+                                pageRangeDisplayed={this.state.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                            />
+                        </div>
 
-                    {/* Tabla de comentarios */}
-                    <table className="table table-dark table-hover">
-                        <thead>
-                            <tr>
-                                <th className="text-center">
-                                    <h6>Email</h6>
-                                </th>
-                                <th className="text-center">
-                                    <h6>Mensaje</h6>
-                                </th>
-                                {/* <th>
-                                    <h6>Fecha</h6>
-                                </th> */}
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {messages.map(message => (
-                                <tr key={message.id}>
-                                    <td className="text-center align-middle"> {message.email} </td>
-                                    <td className="text-left align-middle"> {message.subject} </td>
-                                    {/* <td className="text-left align-middle"> {message.created_at} </td> */}
-                                    <td className="text-center align-middle">
-                                        <button
-                                            className="btn btn-red"
-                                            value={message.id}
-                                            onClick={this.deleteCommentHandler}
-                                        >
-                                            <i className="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
+                        {/* Tabla de comentarios */}
+                        <table className="table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th className="text-center">
+                                        Email
+                                    </th>
+                                    <th className="text-center">
+                                        Mensaje
+                                    </th>
+                                    {/* <th>
+                                        <h6>Fecha</h6>
+                                    </th> */}
+                                    <th></th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {messages.map(message => (
+                                    <tr key={message.id}>
+                                        <td className="text-center align-middle"> {message.email} </td>
+                                        <td className="text-center align-middle"> {message.subject} </td>
+                                        {/* <td className="text-left align-middle"> {message.created_at} </td> */}
+                                        <td className="text-center align-middle">
+                                            <button
+                                                className="btn btn-red"
+                                                value={message.id}
+                                                onClick={this.deleteCommentHandler}
+                                            >
+                                                <i className="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             );
         } else {

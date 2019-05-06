@@ -7,7 +7,7 @@ export default class Routine extends Component {
 
     render() {
         return (
-            <div className="routine wow fadeInRight">
+            <div className="table-responsive routine wow fadeInRight">
                 <table className="table table-borderless table-hover table-striped">
                     <thead>
                         <tr className="header">

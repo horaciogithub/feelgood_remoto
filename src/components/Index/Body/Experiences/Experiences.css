@@ -3,6 +3,11 @@
 /* ––––––––––––––––––– */
 
 /* Carousel */
+
+#experiences {
+    margin-top: 100px;
+}
+
 #experiences .overlay {
     background-color: rgba(0, 0, 0, 0.95);
     position: absolute;

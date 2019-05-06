@@ -1,22 +1,48 @@
-#myModal { height:700px }
+/* ------------------ */
+/*     MODAL FORM     */
+/* ------------------ */
 
 #myModal .modal-header {
-    background-color: var(--dark-red);
+    background: crimson;;
 }
 
-#myModal .modal-header h4{
+#myModal .modal-header h4 {
     text-transform: uppercase;
+    font-weight: 800;
+    color: white;
+}
+
+#myModal .modal-header .close {
     color: white;
 }
 
 #myModal .input-group-text {
-    width: 155px;
+    width: 191px;
+    height: 38px;
     border: none;
-    background-color: var(--dark-red);
+    background: crimson;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    text-transform: uppercase;
     color: white;
 }
 
- .gender {
+#myModal .react-datepicker-wrapper,
+#myModal .react-datepicker-wrapper .react-datepicker__input-container,
+#myModal .react-datepicker-wrapper .react-datepicker__input-container > input {
+    width: 100%;
+}
+
+@media only screen and (min-width: 480px) {
+    #myModal .react-datepicker-wrapper,
+    #myModal .react-datepicker-wrapper .react-datepicker__input-container,
+    #myModal .react-datepicker-wrapper .react-datepicker__input-container > input {
+        width: 193px !important;
+    }
+}
+
+.gender {
     color: white !important;
 }
 
@@ -25,6 +51,24 @@
 }
 
 .btn-red.send {
-    padding: 10px 55px;
+    color: rgba(255,255,255,.75);
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+    font-weight: 700;
     text-transform: uppercase;
+    background: crimson;
+    border: 1px solid rgb(200,0,40);
+    border-radius: 2px;
+    margin: 0 5px;
+    width: 100px;
+    height: 34px;
+}
+
+/* Mobile First */
+
+.input-group-append {display: none }
+
+@media only screen and (min-width: 480px) {
+    .input-group-append {display: block }
 }

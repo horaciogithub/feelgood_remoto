@@ -1,17 +1,32 @@
 #users {
     margin-top: 50px !important;
 }
+
 #users table {
     width: 100%;
-    box-shadow: 0 0 10px black
+    box-shadow: 0 0 5px lightgray;
+    margin-bottom: 0;
 }
 
-#users td {
-    font-size: 15px !important;
+#users table th,
+#users table td {
+    color: rgba(255,255,255,.75);
+    font-size: 13px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+#users table th {
+    color: white;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
 img.admin-profiles-images {
-    width: 170px;
-    height: 100px;
-    box-shadow: 0px 0px 7px 4px rgb(29, 29, 29);
+    border-radius: 50%;
+    margin-left: 15px;
+    width: 50px;
+    height: 50px;
 }

@@ -21,7 +21,7 @@ export default class Footer extends Component {
                     </a>
                 </div>
                 <div className="copyrigth">
-                    <p><i className="far fa-copyright"></i>2019 FeelGood - Todos los derechos reservados</p>
+                    <p>&copy; FeelGood</p>
                 </div>
             </footer>
         );

@@ -4,32 +4,51 @@
 }
 
 .routineWrapper {
-    margin-top: 50px !important;
-    background-color: var(--dark-red);
+    overflow: auto;
 }
 
 .routine {
     position: relative;
     background-color: white; 
-    border: 1px solid var(--ligth-red);
+    border: 1px solid lightgray;
+    box-shadow: 0 0 5px lightgray;
     z-index: 20;
 }
 
 .routine table .header {
-    background-color: var(--ligth-red);
+    color: rgba(255,255,255,.75);
     font-size: 22px;
+    font-style: italic;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
-    color:white;
+    background: crimson;
 }
 
 .routine table .warm-up {
-    border-bottom: 1px solid rgb(221, 220, 220);
+    color: gray;
+    font-style: italic;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    border-bottom: 1px solid lightgray;
 }
 
 .routine table .title {
-    font-size: 22px;
+    color: crimson;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
-    color:  var(--ligth-red);
+}
+
+.routine table tbody > tr > td {
+    color: gray;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
 }
 
 .routine-container {
@@ -41,8 +60,19 @@
     text-transform: uppercase;
 }
 
+/* Pestañas */
+
 .routine-container .nav-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
     border: none;
+    margin-top: 25px;
+}
+
+.routine-container .nav-tabs .nav-item {
+    width: 100%;
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover {
@@ -50,20 +80,48 @@
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    background-color: red !important;
+    background-color: crimson !important;
     color: white;
 }
 
+.routine-container .nav-tabs a {
+    font-size: 9px;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 0;
+    padding: 10px 5px;
+}
+
+@media only screen and (min-width: 768px) {
+    .routine-container .nav-tabs {
+        margin: 50px 50px 0;
+    }
+    .routine-container .nav-tabs a {
+        font-size: 15px;
+        padding: 10px 5px;
+    }
+}
+
+/* Mobile first */
+
 .routine-container .skew {
     position: absolute;
-    top: 419px;
+    top: 418px;
     left: 24px;
     right: 0;
     margin: auto;
-    width: 1020px;
-    height: 770px;
+    width: 299px;
+    height: 585px;
     background-color: var(--background);
     transform: skew(4deg,10deg);
+}
+
+@media only screen and (min-width: 480px) {
+    .routine-container .skew {
+        width: 1020px;
+        height: 770px;
+    }
 }
 
 .warm-icon {

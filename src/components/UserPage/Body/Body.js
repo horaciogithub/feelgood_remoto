@@ -6,7 +6,7 @@ export default class Body extends Component {
     render() {
         return (
             <section id="routine">
-                <div className="p-5 routine-container">
+                <div className="routine-container">
                     <ul className="nav nav-tabs wow fadeInLeft" role="tablist">
                         <li className="nav-item">
                             <a className="nav-link active" data-toggle="tab" href="#monday">Lunes</a>
@@ -31,60 +31,57 @@ export default class Body extends Component {
                         </li>
                     </ul>
 
-                    <div className="tab-content routineWrapper col-9 m-auto pt-5 pl-5 pr-5">
+                    <div className="tab-content routineWrapper">
 
                         {/* MONDAY */}
-                        <div id="monday" className="container tab-pane active"><br />
+                        <div id="monday" className="tab-pane active"><br />
                             <div id="mondTraining" className="container tab-pane"><br />
                                 <Routine routine={this.props.routine.monExerc} />
                             </div>
                         </div>
 
                         {/* TUESDAY */}
-                        <div id="tuesday" className="container tab-pane"><br />
+                        <div id="tuesday" className="tab-pane"><br />
                             <div id="tuesTraining" className="container tab-pane"><br />
                                 <Routine routine={this.props.routine.tuesExerc} />
                             </div>
                         </div>
 
                         {/* WEDNESDAY */}
-                        <div id="wednesday" className="container tab-pane"><br />
+                        <div id="wednesday" className="tab-pane"><br />
                             <div id="wedTraining" className="container tab-pane"><br />
                                 <Routine routine={this.props.routine.wedExerc} />
                             </div>
                         </div>
 
                         {/* THURSDAY */}
-                        <div id="thursday" className="container tab-pane"><br />
+                        <div id="thursday" className="tab-pane"><br />
                             <div id="thuTraining" className="container tab-pane"><br />
                                 <Routine routine={this.props.routine.thuExerc} />
                             </div>
                         </div>
 
                         {/* FRIDAY */}
-                        <div id="friday" className="container tab-pane"><br />
+                        <div id="friday" className="tab-pane"><br />
                             <div id="friTraining" className="container tab-pane"><br />
                                 <Routine routine={this.props.routine.friExerc} />
                             </div>
                         </div>
 
                         {/* SATURDAY */}
-                        <div id="saturday" className="container tab-pane"><br />
+                        <div id="saturday" className="tab-pane"><br />
                             <div id="sunTraining" className="container tab-pane"><br />
                                 <Routine routine={this.props.routine.satExerc} />
                             </div>
                         </div>
 
                         {/* SUNDAY */}
-                        <div id="sunday" className="container tab-pane"><br />
+                        <div id="sunday" className="tab-pane"><br />
                             <div id="sunTraining" className="container tab-pane"><br />
                                 <Routine routine={this.props.routine.sunExerc} />
                             </div>
                         </div>
                     </div>
-
-                    {/* Skew div */}
-                    <div className="skew"></div>
                 </div>
             </section >
         );

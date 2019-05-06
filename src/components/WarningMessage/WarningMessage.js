@@ -29,7 +29,7 @@ export default class WarningMessage extends Component {
         let parent = '';
 
         if (this.state.visibility !== false) {
-            parent = "col-3 p-5 pr-5 warning-container wow fadeInRight"
+            parent = "warning-container wow fadeInRight"
         } else {
             parent = "hidden";
         }

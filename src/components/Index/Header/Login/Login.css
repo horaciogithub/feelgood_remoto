@@ -1,7 +1,69 @@
-.error-container {
-    padding-left: 30px;
-}
+/* General */
 
 .top-bar {
-    height: 115px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 25px;
+    right: 5px;
+}
+
+/* Entradas de texto */
+
+.top-bar input {
+    background: rgba(255,255,255,.95);
+    border: 1px solid lightgray !important;
+    border-radius: 2px !important;
+    outline: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    width: 100px;
+}
+
+.top-bar input::-webkit-input-placeholder {
+    color: lightgray;
+    transition: .25s ease-in-out;
+}
+
+.top-bar input:focus::placeholder {
+    color: lightgray;
+    transition: .25s ease-in-out;
+}
+
+.top-bar input:focus::-webkit-input-placeholder { /* Edge */
+    color: transparent;
+}
+  
+.top-bar input:focus::placeholder {
+    color: transparent;
+}
+
+/* Mensaje de error */
+
+.error-container {
+    position: absolute;
+    right: 125px;
+    top: -20px;
+}
+
+.error-container p {
+    color: red;
+    font-size: 12px;
+    white-space: nowrap;
+    margin: 0;
+}
+
+/* Mobile First */
+
+@media only screen and (min-width: 480px) {
+    .error-container {
+        right: 225px;
+        top: 37px;
+    }
+    .top-bar {
+        right: 25px;
+    }
+    .top-bar input {
+        width: 150px;
+    }
 }

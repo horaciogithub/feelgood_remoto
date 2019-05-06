@@ -1,35 +1,59 @@
+/* General */
+
 .warning-container {
-    position: absolute;
-    top: 140px;
-    right: 45px;
-    background-color: white;
+    background: white;
+    border: 1px solid lightgray;
     border-radius: 5px;
+    padding: 25px;
+    position: absolute;
+    top: 45px;
+    right: 45px;
+    z-index: 100;
+    width: 200px;
 }
 
 .warning-message {
     position: relative;
 }
 
-.warning-message .triangle {
-    position: absolute;
-    top: 18px;
-    right: -58px;
-    width: 20px;
-    height: 20px;
-    -webkit-transform: rotate(20deg);
-    transform: rotate(47deg);
-    background-color: white;
+.warning-message p {
+    margin: 0;
 }
 
-.warning-message .btn-close {
+.warning-message .triangle {
+    background-color: white;
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
     position: absolute;
-    top: -34px;
-    right: -25px;
-    padding: 0;
-    border: none;
-    background-color: inherit;
-    color: var(--texto)
+    top: 18px;
+    right: -36px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
 }
+
+.hidden {
+    display: none;
+}
+
+/* Cierre */
+
+.warning-message .btn-close {
+    color: var(--texto);
+    background-color: inherit;
+    border: none;
+    position: absolute;
+    top: -14px;
+    right: -9px;
+    padding: 0;
+    transition: .25s ease-in-out;
+}
+
+.warning-message .btn-close:hover {
+    opacity: .75;
+}
+
+/* Resaltado */
 
 .warning-message span {
     font-size: 15px;
@@ -40,7 +64,16 @@
     font-style: italic
 }
 
-.hidden {
-    display: none;
-}
+/* Mobile First */
 
+@media only screen and (min-width: 480px) {
+    .warning-container {
+        position: fixed;
+        width: 500px;
+    }
+
+    .warning-message .btn-close {
+        top: -18px;
+        right: -11px;
+    }
+}

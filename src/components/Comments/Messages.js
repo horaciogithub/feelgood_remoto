@@ -154,17 +154,12 @@ export default class Messages extends Component {
             /* Permite borrar el mensaje que pertenece a este autor */
             if (messages[i].email === this.state.author) {
                 result.push(
-                    <div key={messages[i].id} className="row pt-3 pb-3 mt-5 message-container">
-                        <div className="col-1 user-img">
-                            <img className="rounded-circle" src={messages[i].img} alt={messages[i].author}></img>
-                        </div>
-
+                    <div key={messages[i].id} className="message-container">
+                        <img src={messages[i].img} alt={messages[i].author} />
                         <div className="text">
-                            <p className="col-10 pt-4">
-                                <span>{messages[i].name} {messages[i].surname} <i className="fas fa-caret-right"></i> {messages[i].type}</span><br /><br />
-                                {messages[i].subject} <br /><br />
-                                <i className="far fa-clock"></i> {this.formatTimestamp(messages[i].created_at)}
-                            </p>
+                            <span className="usuario">{messages[i].name} {messages[i].surname} <i className="fas fa-angle-right"></i> {messages[i].type}</span>
+                            <p>{messages[i].subject}</p>
+                            <span className="hora"><i className="far fa-clock"></i> {this.formatTimestamp(messages[i].created_at)}</span>
                         </div>
                         <button
                             className="btn btn-red trash"
@@ -178,60 +173,57 @@ export default class Messages extends Component {
             }
             else {
                 result.push(
-                    <div key={messages[i].id} className="row pt-3 pb-3 mt-5 message-container">
-                        <div className="col-1 user-img">
-                            <img className="rounded-circle" src={messages[i].img} alt={messages[i].author}></img>
-                        </div>
-
+                    <div key={messages[i].id} className="message-container">
+                        <img src={messages[i].img} alt={messages[i].author} />
                         <div className="text">
-                            <p className="col-10 pt-4">
-                                <span>{messages[i].name} {messages[i].surname} <i className="fas fa-caret-right"></i> {messages[i].type}</span><br /><br />
-                                {messages[i].subject} <br /><br />
-                                <i className="far fa-clock"></i> {this.formatTimestamp(messages[i].created_at)}
-                            </p>
+                            <span className="usuario">{messages[i].name} {messages[i].surname} <i className="fas fa-angle-right"></i> {messages[i].type}</span>
+                            <p>{messages[i].subject}</p>
+                            <span className="hora"><i className="far fa-clock"></i> {this.formatTimestamp(messages[i].created_at)}</span>
                         </div>
                     </div>
                 )
             }
         }
         return (
-            <div id="comments" className="col-8">
+            <div id="comments">
+                <div className="container">
 
-                {result}
+                    {result}
 
-                {/* Botones de paginación */}
-                {this.state.messages.length > 0 ?
-                    <div className="d-flex justify-content-center pagination-comments">
-                        <Pagination
-                            itemClass="page-item"
-                            linkClass="page-link"
-                            activePage={this.state.activePage}
-                            itemsCountPerPage={this.state.itemsCountPerPage}
-                            totalItemsCount={this.state.totalItemsCount}
-                            pageRangeDisplayed={this.state.pageRangeDisplayed}
-                            onChange={this.handlePageChange}
-                        />
-                    </div> :
-                    <div>
-                        <p className="text-center"><i className="fas fa-info-circle"></i> No hay mensajes</p>
+                    {/* Botones de paginación */}
+                    {this.state.messages.length > 0 ?
+                        <div className="d-flex justify-content-center pagination-comments">
+                            <Pagination
+                                itemClass="page-item"
+                                linkClass="page-link"
+                                activePage={this.state.activePage}
+                                itemsCountPerPage={this.state.itemsCountPerPage}
+                                totalItemsCount={this.state.totalItemsCount}
+                                pageRangeDisplayed={this.state.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                            />
+                        </div> :
+                        <div>
+                            <p className="text-center"><i className="fas fa-info-circle"></i> No hay mensajes</p>
+                        </div>
+                    }
+
+                    <div className="form-group">
+                        <textarea
+                            id="comment"
+                            className="form-control"
+                            rows="2"
+                            onChange={this.commentHandler}>
+                        </textarea>
                     </div>
-                }
-
-                <div className="form-group">
-                    <textarea
-                        id="comment"
-                        className="form-control"
-                        rows="2"
-                        onChange={this.commentHandler}>
-                    </textarea>
-                </div>
-                <div className="d-flex justify-content-end">
-                    <button
-                        className="btn btn-red"
-                        type="button"
-                        onClick={this.submitCommentHandler}>
-                        Enviar <i className="fas fa-paper-plane"></i>
-                    </button>
+                    <div className="d-flex justify-content-end">
+                        <button
+                            className="boton"
+                            type="button"
+                            onClick={this.submitCommentHandler}>
+                            Enviar
+                        </button>
+                    </div>
                 </div>
             </div>
         );

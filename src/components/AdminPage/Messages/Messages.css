@@ -2,6 +2,32 @@
     margin-top: 50px !important
 }
 
+/* Table */
+
+#comments table {
+    width: 100%;
+    box-shadow: 0 0 5px lightgray;
+    margin-bottom: 0;
+}
+
+#comments table th,
+#comments table td {
+    color: rgba(255,255,255,.75);
+    font-size: 13px;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+#comments table th {
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* Info */
+
 #comments.info-container {
     padding: 250px 0;
 }
