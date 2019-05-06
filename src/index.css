@@ -185,3 +185,7 @@ span {
 tr.invisivle-row {
   display: none;
 }
+
+.spinner {
+  width: 32px;
+}

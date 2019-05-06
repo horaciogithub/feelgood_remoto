@@ -170,8 +170,8 @@ export default class Users extends Component {
             );
         } else {
             return (
-                <div className="pt-5 pb-5">
-                    <div className="spinner-border col-2 m-auto" role="status">
+                <div className="spinner m-auto pt-5">
+                    <div className="spinner-border text-danger" role="status">
                         <span className="sr-only">Loading...</span>
                     </div>
                 </div>
