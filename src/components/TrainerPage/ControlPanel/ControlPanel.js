@@ -357,8 +357,8 @@ export default class cPanel extends Component {
         }
 
         let table = (
-            <div className="table-responsive routine-generator mt-3">
-                <table className="table">
+            <div className="routine-generator mt-3">
+                <table className="table-responsive table">
                     <thead className="header">
                         <tr>
                             <th>Tipo</th>
@@ -390,7 +390,7 @@ export default class cPanel extends Component {
                     </tbody>
                 </table>
                 <div className="d-flex justify-content-end">
-                    <button className="btn btn-red" onClick={this.postRoutineHandeler}>Registrar rutina</button>
+                    <button className="boton" onClick={this.postRoutineHandeler}>Registrar</button>
                 </div>
             </div>
         )
@@ -438,10 +438,10 @@ export default class cPanel extends Component {
             if (this.state.table.length > 0) {
 
                 table = (
-                    <table className="table">
+                    <table className="tabla table table-responsive">
                         <thead>
                             <tr>
-                                <td colSpan="4">Calentamiento</td>
+                                <th colSpan="4">Calentamiento</th>
                             </tr>
                             <tr>
                                 <td colSpan="2">{this.state.table[0].warmUp[0].name}</td>
@@ -450,7 +450,7 @@ export default class cPanel extends Component {
                         </thead>
                         <tbody>
                             <tr>
-                                <td colSpan="4">Rutina de {this.state.table[0].routine}</td>
+                                <th colSpan="4">Rutina de {this.state.table[0].routine}</th>
                             </tr>
                             <tr>
                                 <td>Ejercicio</td>
@@ -561,52 +561,58 @@ export default class cPanel extends Component {
             }
 
             return (
-                <div className="container-fluid panel">
+                <div className="container panel">
+                    <h4 className="titulo text-center pt-5 pb-5">Asignar rutina de entrenamiento:</h4>
                     <div id="setRoutines" className="row selector-panel pt-5">
 
                         {/* Tablas de entrenamiento */}
-                        <div className="table-responsive col-6">
+                        <div className="col-12 col-sm-6">
                             {table}
                         </div>
 
-                        <div className="col-6">
+                        <div className="col-12 col-sm-6">
 
-                            <div className="row control pr-3">
-                                {/* Tipo de ejercicio */}
-                                <select name="type" className="form-control col-3  mr-2" onChange={this.idTableHandler}>
-                                    <option title="Tipo" value=''>Tipo de ejercicio: </option>
-                                    {this.setOptionsHandler(this.state.exercices).map(exercice =>
-                                        <option key={exercice} value={exercice}>{exercice}</option>
-                                    )}
-                                </select>
+                            <div className="control pr-3">
 
-                                {/* Selección del usuario */}
-                                <select className="form-control col-4  mr-2" onChange={this.weekHandler}>
-                                    <option title="id" value=''>Usuario: </option>
-                                    {this.state.clients.map(client =>
-                                        <option key={client.id} value={client.email}>{client.email}</option>
-                                    )}
-                                </select>
+                                <div className="primera-fila">
 
-                                {/* Selección del fin de entrenamiento */}
-                                <DatePicker
-                                    selected={this.state.startDate}
-                                    onChange={this.handleChange}
-                                    locale="es"
-                                    dateFormat="dd/MM/yyyy"
-                                />
+                                    {/* Tipo de ejercicio */}
+                                    <select name="type" className="form-control  mr-2" onChange={this.idTableHandler}>
+                                        <option title="Tipo" value=''>Tipo de ejercicio: </option>
+                                        {this.setOptionsHandler(this.state.exercices).map(exercice =>
+                                            <option key={exercice} value={exercice}>{exercice}</option>
+                                        )}
+                                    </select>
+
+                                    {/* Selección del usuario */}
+                                    <select className="form-control mr-2" onChange={this.weekHandler}>
+                                        <option title="id" value=''>Usuario: </option>
+                                        {this.state.clients.map(client =>
+                                            <option key={client.id} value={client.email}>{client.email}</option>
+                                        )}
+                                    </select>
+
+                                    {/* Selección del fin de entrenamiento */}
+                                    <DatePicker
+                                        selected={this.state.startDate}
+                                        onChange={this.handleChange}
+                                        locale="es"
+                                        dateFormat="dd/MM/yyyy"
+                                    />
+
+                                </div>
 
                                 <div className="table-responsive selectors">
-                                    <table className="table-bordered mt-3">
+                                    <table className="tabla table-bordered mt-3">
                                         <thead>
                                             <tr>
-                                                <td>Lunes</td>
-                                                <td>Martes</td>
-                                                <td>Miércoles</td>
-                                                <td>Jueves</td>
-                                                <td>Viernes</td>
-                                                <td>Sábado</td>
-                                                <td>Domingo</td>
+                                                <th>Lunes</th>
+                                                <th>Martes</th>
+                                                <th>Miércoles</th>
+                                                <th>Jueves</th>
+                                                <th>Viernes</th>
+                                                <th>Sábado</th>
+                                                <th>Domingo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -683,9 +689,9 @@ export default class cPanel extends Component {
                                     </table>
                                 </div>
 
-                                <div className="mt-4">
-                                    <button className="btn btn-red mr-4" name="generar" onClick={this.postTableHandler}>Generar</button>
-                                    <button className="btn btn-red" name="limpiar" onClick={this.postTableHandler}>Limpiar</button>
+                                <div className="mt-2">
+                                    <button className="boton mr-4" name="generar" onClick={this.postTableHandler}>Generar</button>
+                                    <button className="boton" name="limpiar" onClick={this.postTableHandler}>Limpiar</button>
                                 </div>
 
                                 {/* {days} */}
@@ -700,11 +706,11 @@ export default class cPanel extends Component {
                     </div>
 
                     <div id="routineGenerator">
-                        <h4 className="text-center pt-5 pb-5">Crea una rutina de entrenamiento:</h4>
+                        <h4 className="titulo text-center pt-5 pb-5">Crea una rutina de entrenamiento:</h4>
 
-                        <label>Cantidad de ejercicios: </label>
+                        <label className="numero-ejercicios">Cantidad de ejercicios: </label>
                         <input className="ml-2" type="number" placeholder="6" min="6" max="10" onChange={this.routineGeneratorHandler} />
-                        <div className="table-responsive">
+                        <div>
                             {this.state.exercGenerator}
                         </div>
 

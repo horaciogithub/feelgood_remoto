@@ -90,7 +90,6 @@ export default class Users extends Component {
 
     render() {
         if (this.state.users.length > 0) {
-            const { users } = this.state;
             return (
                 <div className="container">
                     <div id="users" className="table-responsive">
@@ -131,7 +130,7 @@ export default class Users extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {users.map(user => (
+                                {this.state.users.map(user => (
                                     <tr key={user.id}>
                                         <td>
                                             <img

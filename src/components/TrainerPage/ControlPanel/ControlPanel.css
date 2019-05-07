@@ -1,10 +1,26 @@
+/* Headings */
+
+.titulo {
+    color: crimson;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+}
+
+.numero-ejercicios {
+    color: gray;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+}
+
 .panel {
     min-height: 600px;
     color: var(--texto)
-}
-
-.panel .selector-panel {
-    background-color: rgb(44, 44, 44)
 }
 
 .panel table {
@@ -78,30 +94,68 @@ h4.text-center {
 }
 
 /* Routine generator table */
+
 #routineGenerator {
     position: relative;
 }
 
-#routineGenerator .routine-generator th {
-    border-bottom: none !important;
-}
-
-#routineGenerator .routine-generator td {
-    border-top: none !important;
-}
-
-#routineGenerator .routine-generator .header {
-    background-color: crimson;
+#routineGenerator .routine-generator tr th,
+#routineGenerator .routine-generator tr td {
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+    font-weight: 700;
     text-transform: uppercase;
-    color: white;
+    border-radius: 2px;
 }
 
-#routineGenerator .routine-generator td {
-    border-right: 1px solid var(--borde)
+#routineGenerator .routine-generator tr th {
+    color: rgba(255,255,255,.75);
+    background: crimson;
+    border: 1px solid rgb(200,0,40);
 }
 
-#routineGenerator .routine-generator td:last-child {
-    border-right: none
+#routineGenerator .routine-generator tr td {
+    color: lightgray;
+    background: white;
+    border-left: 1px solid lightgray;
+}
+
+#routineGenerator .routine-generator tr td:last-child {
+    border-right: 1px solid lightgray;
+}
+
+#routineGenerator .routine-generator tr:last-child td {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 25px;
+}
+
+#routineGenerator .routine-generator tr td label {
+    font-size: 13px;
+    text-align: left;
+    margin: 25px 0 5px;
+}
+
+#routineGenerator .routine-generator tr td input {
+    color: gray;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 2px !important;
+    margin: 0 !important;
+    min-width: 100px;
+}
+
+#routineGenerator .routine-generator tr td select {
+    color: gray;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: 'Raleway', sans-serif;
+    border: 1px solid lightgray !important;
+    border-radius: 2px !important;
+    padding: 6px 12px;
+    margin: 0 !important;
+    min-width: 100px;
 }
 
 #routineGenerator .routine-generator input  {
@@ -134,4 +188,68 @@ h4.text-center {
 
 #routineGenerator .modal-routine p {
     text-align: center;
+}
+
+.tabla {
+    margin: 0;
+}
+
+.tabla th {
+    font-size: 15px;
+    color: rgba(255,255,255,.75);
+    background: crimson;
+    border: 1px solid rgb(200,0,40);
+    white-space: nowrap;
+    padding: 10px;
+    font-style: italic;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+}
+
+.tabla td {
+    color: gray;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: normal;
+    font-family: 'Raleway', sans-serif;
+    border: 1px solid lightgray;
+    min-width: 150px;
+}
+
+.tabla td select {
+    color: gray;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: 'Raleway', sans-serif;
+    margin: 0 !important;
+    width: 100%;
+    cursor: pointer;
+}
+
+.primera-fila select {
+    color: gray;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: 'Raleway', sans-serif;
+    border: 1px solid lightgray !important;
+    border-radius: 2px !important;
+    margin: 5px 0 !important;
+    width: 100%;
+    cursor: pointer;
+}
+
+.react-datepicker-wrapper,
+.react-datepicker-wrapper .react-datepicker__input-container,
+.react-datepicker-wrapper .react-datepicker__input-container input {
+    width: 100%;
+}
+
+.react-datepicker-wrapper .react-datepicker__input-container input {
+    color: gray;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: 'Raleway', sans-serif;
+    text-align: left;
+    border: 1px solid lightgray !important;
 }

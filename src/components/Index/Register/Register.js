@@ -10,6 +10,7 @@ import { PostData } from '../../../services/PostData';
 
 /* Estilos */
 import './Register.css';
+
 export default class Register extends Component {
 
     constructor(props) {

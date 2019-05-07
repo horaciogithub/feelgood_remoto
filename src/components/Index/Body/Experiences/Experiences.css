@@ -25,3 +25,8 @@
 #experiences .carousel-item img {
     opacity: 0.6;
 }
+
+#experiences .carousel-item p {
+    font-size: 11px;
+    margin: 0;
+}

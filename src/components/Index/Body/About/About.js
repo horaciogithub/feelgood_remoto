@@ -38,7 +38,7 @@ export default class About extends Component {
                                 alt=""
                                 width="100%" />
 
-                            <p>Resultados garantizados</p>
+                            <p className="texto">Resultados garantizados</p>
                         </div>
                         <div className="col-sm-4 separator"></div>
                         <div className="shadow-lg">
@@ -47,7 +47,7 @@ export default class About extends Component {
                                 alt=""
                                 width="100%" />
 
-                            <p>Entrenamiento personalizado</p>
+                            <p className="texto">Entrenamiento personalizado</p>
                         </div>
                         <div className="shadow-md col-sm-4">
                             <img
@@ -55,7 +55,7 @@ export default class About extends Component {
                                 alt=""
                                 width="100%" />
 
-                            <p>Te ayudamos a motivarte</p>
+                            <p className="texto">Te ayudamos a motivarte</p>
                         </div>
                     </div>
                 </div>

@@ -30,16 +30,16 @@ export default class Clients extends Component {
     render() {
         return (
             <div className="table-responsive">
-                <table className="table table-bordered table-hover">
+                <table className="tabla table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <td>Email</td>
-                            <td>Sexo</td>
-                            <td>Altura</td>
-                            <td>Peso</td>
-                            <td>Imc</td>
-                            <td>Valor</td>
-                            <td>Fin rutina</td>
+                            <th>Email</th>
+                            <th>Sexo</th>
+                            <th>Altura</th>
+                            <th>Peso</th>
+                            <th>Imc</th>
+                            <th>Valor</th>
+                            <th>Fin rutina</th>
                         </tr>
                     </thead>
                     <tbody>

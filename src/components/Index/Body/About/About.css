@@ -62,6 +62,24 @@
     font-weight: 400;
 }
 
+.texto {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to right, transparent, white, transparent);
+    text-align: center;
+    color: crimson;
+    font-style: italic;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900 !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    padding: 25px 0;
+}
+
 #about .first-content-boxes div:first-child p {
     padding-right: 35px;
 }
