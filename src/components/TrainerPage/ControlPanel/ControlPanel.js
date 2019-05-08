@@ -724,8 +724,10 @@ export default class cPanel extends Component {
             )
         } else {
             return (
-                <div className="spinner-border text-danger" role="status">
-                    <span className="sr-only">Loading...</span>
+                <div className="spinner m-auto pt-5">
+                    <div className="spinner-border text-danger" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
                 </div>
             )
         }

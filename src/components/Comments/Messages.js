@@ -44,16 +44,11 @@ export default class Messages extends Component {
 
     componentWillMount() {
         if (sessionStorage.getItem("userData")) {
-
             const data = JSON.parse(sessionStorage.getItem("userData"))
 
             this.setState({
                 author: data.userData.email,
             })
-        }
-
-        else {
-            console.log("mal")
         }
     }
 
@@ -109,7 +104,7 @@ export default class Messages extends Component {
 
     deleteCommentHandler = (e) => {
 
-        axios.delete('http://localhost:8000/api/messageDelete', { data: { id: e.target.value } })
+        axios.delete('http://localhost:8000/api/messageDelete', { data: { id: e.currentTarget.value } })
             .then(response => {
                 this.reloadMessagesHandler();
             })

@@ -24,7 +24,6 @@ export default class TrainerPage extends Component {
 
     componentWillMount() {
         if (sessionStorage.getItem("userData")) {
-
             const data = JSON.parse(sessionStorage.getItem("userData"))
 
             this.setState({
@@ -48,8 +47,6 @@ export default class TrainerPage extends Component {
     }
 
     render() {
-
-        console.log(this.state)
 
         // Devuelve home si deslogeamos
         if (this.state.redirect) {

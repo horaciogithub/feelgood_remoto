@@ -47,7 +47,7 @@ export default class Messages extends Component {
 
     // Borra un mensaje determinado
     deleteCommentHandler = (e) => {
-        axios.delete('http://localhost:8000/api/messageDelete', { data: { id: e.target.value } })
+        axios.delete('http://localhost:8000/api/messageDelete', { data: { id: e.currentTarget.value } })
             .then(response => {
                 this.reloadMessagesHandler();
             })

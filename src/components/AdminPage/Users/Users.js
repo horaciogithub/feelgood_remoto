@@ -50,7 +50,7 @@ export default class Users extends Component {
     // Elimina un ususario determinado
     deleteUserHandler = (e) => {
 
-        axios.delete('http://localhost:8000/api/userDelete', { data: { id: e.target.value } })
+        axios.delete('http://localhost:8000/api/userDelete', { data: { id: e.currentTarget.value } })
             .then(response => {
                 this.reloadUsersHandler();
             })
@@ -62,7 +62,7 @@ export default class Users extends Component {
     // Añade un warning a un usuario
     warningUserHandler = (e) => {
 
-        const data = { id: e.target.value }
+        const data = { id: e.currentTarget.value }
 
         axios.put('http://localhost:8000/api/userWarning', data)
             .then(response => {
