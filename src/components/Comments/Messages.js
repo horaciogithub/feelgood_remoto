@@ -31,7 +31,7 @@ export default class Messages extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:8000/api/messages?page=` + 1)
+        axios.get(`http://serviciowebfeelgood.000webhostapp.com/api/messages?page=` + 1)
             .then(response => {
                 this.setState({
                     messages: response.data.data,
@@ -54,7 +54,7 @@ export default class Messages extends Component {
 
     // Paginación de mensajes
     handlePageChange(pageNumber) {
-        axios.get(`http://localhost:8000/api/messages?page=` + pageNumber)
+        axios.get(`http://serviciowebfeelgood.000webhostapp.com/api/messages?page=` + pageNumber)
             .then(response => {
                 this.setState({
                     messages: response.data.data,
@@ -67,7 +67,7 @@ export default class Messages extends Component {
 
     // Recarga los mensajes tras cualquier operación
     reloadMessagesHandler = () => {
-        axios.get(`http://localhost:8000/api/messages?page=` + this.state.activePage)
+        axios.get(`http://serviciowebfeelgood.000webhostapp.com/api/messages?page=` + this.state.activePage)
             .then(response => {
                 this.setState({
                     messages: response.data.data,
@@ -90,7 +90,7 @@ export default class Messages extends Component {
         }
 
         if (this.state.author && this.state.subject) {
-            axios.post('http://localhost:8000/api/messageRegistration', data)
+            axios.post('http://serviciowebfeelgood.000webhostapp.com/api/messageRegistration', data)
                 .then(response => {
                     this.reloadMessagesHandler();
                 })
@@ -104,7 +104,7 @@ export default class Messages extends Component {
 
     deleteCommentHandler = (e) => {
 
-        axios.delete('http://localhost:8000/api/messageDelete', { data: { id: e.currentTarget.value } })
+        axios.delete('http://serviciowebfeelgood.000webhostapp.com/api/messageDelete', { data: { id: e.currentTarget.value } })
             .then(response => {
                 this.reloadMessagesHandler();
             })

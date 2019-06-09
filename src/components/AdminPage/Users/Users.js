@@ -23,7 +23,7 @@ export default class Users extends Component {
     }
 
     componentWillMount() {
-        axios.get(`http://localhost:8000/api/users?page=` + 1)
+        axios.get(`https://serviciowebfeelgood.000webhostapp.com/api/users?page=` + 1)
             .then(response => {
                 this.setState({
                     users: response.data.data,
@@ -36,7 +36,7 @@ export default class Users extends Component {
 
     // Paginación de usuarios
     handlePageChange(pageNumber) {
-        axios.get(`http://localhost:8000/api/users?page=` + pageNumber)
+        axios.get(`https://serviciowebfeelgood.000webhostapp.com/api/users?page=` + pageNumber)
             .then(response => {
                 this.setState({
                     users: response.data.data,
@@ -50,7 +50,7 @@ export default class Users extends Component {
     // Elimina un ususario determinado
     deleteUserHandler = (e) => {
 
-        axios.delete('http://localhost:8000/api/userDelete', { data: { id: e.currentTarget.value } })
+        axios.delete('https://serviciowebfeelgood.000webhostapp.com/api/userDelete', { data: { id: e.currentTarget.value } })
             .then(response => {
                 this.reloadUsersHandler();
             })
@@ -64,7 +64,7 @@ export default class Users extends Component {
 
         const data = { id: e.currentTarget.value }
 
-        axios.put('http://localhost:8000/api/userWarning', data)
+        axios.put('https://serviciowebfeelgood.000webhostapp.com/api/userWarning', data)
             .then(response => {
                 this.reloadUsersHandler();
             })
@@ -77,7 +77,7 @@ export default class Users extends Component {
     reloadUsersHandler = () => {
 
         // Recarga la tabla de usuarios
-        axios.get(`http://localhost:8000/api/users?page=` + this.state.activePage)
+        axios.get(`https://serviciowebfeelgood.000webhostapp.com/api/users?page=` + this.state.activePage)
             .then(response => {
                 this.setState({
                     users: response.data.data,

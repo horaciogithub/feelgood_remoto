@@ -1,6 +1,6 @@
 export function PostData(type, userData) {
 
-    let BaseUrl = 'http://localhost:8000/api/';
+    let BaseUrl = 'http://serviciowebfeelgood.000webhostapp.com/api/';
 
     return new Promise((resolve, reject) => {
         fetch(BaseUrl + type, {
